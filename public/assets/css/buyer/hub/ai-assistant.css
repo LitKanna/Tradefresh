@@ -1,0 +1,375 @@
+/* ============================================
+   AI ASSISTANT VIEW - Chat Interface
+   Sydney Markets B2B - Neumorphic Design
+   ============================================ */
+
+/* Chat Messages Container */
+.ai-chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 16px;
+    background: #F3F4F6;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scroll-behavior: smooth;
+}
+
+/* Message Row */
+.message-row {
+    display: flex;
+    width: 100%;
+}
+
+.message-row.user-row {
+    justify-content: flex-end;
+}
+
+.message-row.ai-row {
+    justify-content: flex-start;
+}
+
+.message-row.system-row {
+    justify-content: center;
+}
+
+/* Message Bubbles */
+.message-bubble {
+    max-width: 75%;
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 13px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    position: relative;
+}
+
+/* User Bubble - Green, Right-Aligned */
+.message-bubble.user-bubble {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: white;
+    border-radius: 16px 16px 4px 16px; /* Sharp bottom-right corner */
+
+    /* Soft shadow */
+    box-shadow: 3px 3px 8px rgba(16, 185, 129, 0.25);
+}
+
+/* AI Bubble - White, Left-Aligned */
+.message-bubble.ai-bubble {
+    background: white;
+    color: #1F2937;
+    border-radius: 16px 16px 16px 4px; /* Sharp bottom-left corner */
+    border: 1px solid #E5E7EB;
+
+    /* Soft shadow */
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* Message Timestamp */
+.message-time {
+    font-size: 10px;
+    opacity: 0.7;
+    margin-top: 4px;
+    text-align: right;
+}
+
+.ai-bubble .message-time {
+    color: #9CA3AF;
+    text-align: left;
+}
+
+/* System Notifications */
+.system-notification {
+    background: #ECFDF5;
+    color: #065F46;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 12px;
+    text-align: center;
+    max-width: 90%;
+    border: 1px solid #10B981;
+
+    /* Subtle shadow */
+    box-shadow: 2px 2px 6px rgba(16, 185, 129, 0.1);
+}
+
+.system-notification.success {
+    background: #ECFDF5;
+    border-color: #10B981;
+}
+
+.notification-icon {
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+.notification-content {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* Quote Notification Card (Inline in AI Chat) */
+.quote-notification-card {
+    background: white;
+    border-radius: 12px;
+    padding: 12px;
+    max-width: 85%;
+    border: 2px solid #10B981;
+
+    /* Neumorphic raised */
+    box-shadow: 4px 4px 10px rgba(184, 190, 199, 0.3),
+                -4px -4px 10px rgba(255, 255, 255, 0.8);
+}
+
+.quote-notif-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.quote-icon {
+    font-size: 18px;
+}
+
+.quote-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #10B981;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.quote-notif-body {
+    margin-bottom: 10px;
+}
+
+.quote-vendor {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1F2937;
+    margin-bottom: 4px;
+}
+
+.quote-amount {
+    font-size: 20px;
+    font-weight: 700;
+    color: #10B981;
+    margin-bottom: 6px;
+}
+
+.quote-delivery {
+    font-size: 11px;
+    color: #6B7280;
+}
+
+.quote-notif-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.quote-notif-btn {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quote-notif-btn.view {
+    background: #E8EBF0;
+    color: #374151;
+
+    /* Neumorphic raised */
+    box-shadow: 3px 3px 6px #B8BEC7,
+                -3px -3px 6px #FFFFFF;
+}
+
+.quote-notif-btn.view:hover {
+    /* Inset on hover */
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF;
+}
+
+.quote-notif-btn.accept {
+    background: linear-gradient(135deg, #10B981, #059669);
+    color: white;
+
+    /* Soft shadow */
+    box-shadow: 3px 3px 6px rgba(16, 185, 129, 0.3),
+                -3px -3px 6px rgba(255, 255, 255, 0.7);
+}
+
+.quote-notif-btn.accept:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    box-shadow: 4px 4px 8px rgba(16, 185, 129, 0.4),
+                -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+/* Typing Indicator */
+.typing-indicator {
+    display: inline-flex;
+    gap: 4px;
+    padding: 12px 16px;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #E5E7EB;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.typing-dot {
+    width: 6px;
+    height: 6px;
+    background: #10B981;
+    border-radius: 50%;
+    animation: typing 1.4s infinite;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+    30% {
+        transform: translateY(-8px);
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   AI Input Area
+   ============================================ */
+
+.ai-input-container {
+    flex-shrink: 0;
+    padding: 12px 16px;
+    background: #E8EBF0;
+    border-top: 1px solid rgba(184, 190, 199, 0.2);
+}
+
+.ai-input-form {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    margin-bottom: 6px;
+}
+
+.ai-input {
+    flex: 1;
+    padding: 10px 12px;
+    background: white;
+    border: 2px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 13px;
+    font-family: inherit;
+    color: #1F2937;
+    resize: none;
+    transition: border-color 0.2s ease;
+    line-height: 1.4;
+}
+
+.ai-input:focus {
+    outline: none;
+    border-color: #10B981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.ai-input:disabled {
+    background: #F9FAFB;
+    color: #9CA3AF;
+    cursor: not-allowed;
+}
+
+.ai-send-btn {
+    width: 40px;
+    height: 40px;
+    background: #10B981;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+
+    /* Neumorphic raised */
+    box-shadow: 3px 3px 8px rgba(16, 185, 129, 0.3),
+                -3px -3px 8px rgba(255, 255, 255, 0.7);
+}
+
+.ai-send-btn:hover:not(:disabled) {
+    background: #059669;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 10px rgba(16, 185, 129, 0.4),
+                -4px -4px 10px rgba(255, 255, 255, 0.8);
+}
+
+.ai-send-btn:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: inset 2px 2px 4px rgba(5, 150, 105, 0.4),
+                inset -2px -2px 4px rgba(255, 255, 255, 0.2);
+}
+
+.ai-send-btn:disabled {
+    background: #D1D5DB;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.ai-send-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Start Over Button */
+.start-over-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: #E8EBF0;
+    border: none;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #6B7280;
+    cursor: pointer;
+    margin-top: 6px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Subtle neumorphic inset */
+    box-shadow: inset 2px 2px 4px rgba(184, 190, 199, 0.3),
+                inset -2px -2px 4px rgba(255, 255, 255, 0.8);
+
+    transition: all 0.2s ease;
+}
+
+.start-over-btn:hover {
+    color: #374151;
+    box-shadow: inset 3px 3px 6px rgba(184, 190, 199, 0.4),
+                inset -3px -3px 6px rgba(255, 255, 255, 0.9);
+}
+
+.start-over-btn svg {
+    width: 14px;
+    height: 14px;
+}

@@ -1,0 +1,62 @@
+/* Enterprise Framework - Professional B2B Styling */
+:root {
+    --enterprise-primary: #111827;
+    --enterprise-secondary: #374151;
+    --enterprise-accent: #10b981;
+    --enterprise-background: #f9fafb;
+    --enterprise-surface: #ffffff;
+    --enterprise-border: #e5e7eb;
+}
+
+.enterprise-layout {
+    min-height: 100vh;
+    background: var(--enterprise-background);
+    color: var(--enterprise-secondary);
+}
+
+.enterprise-header {
+    background: var(--enterprise-surface);
+    border-bottom: 1px solid var(--enterprise-border);
+    padding: 1.5rem 2rem;
+}
+
+.enterprise-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--enterprise-primary);
+}
+
+.enterprise-form {
+    background: var(--enterprise-surface);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.enterprise-button {
+    background: var(--enterprise-accent);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.enterprise-button:hover {
+    background: #059669;
+}
+
+.enterprise-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--enterprise-border);
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.enterprise-input:focus {
+    outline: none;
+    border-color: var(--enterprise-accent);
+}

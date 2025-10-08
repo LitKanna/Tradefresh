@@ -1,0 +1,94 @@
+{
+  "version": "2.0.0",
+  "name": "Design Team Configuration",
+  "description": "Streamlined design-focused agent team for rapid development",
+  "active": true,
+
+  "design_agents": {
+    "ui_designer": {
+      "name": "UI Designer",
+      "type": "ui-architect",
+      "instances": 2,
+      "parallel": true,
+      "responsibilities": [
+        "Create UI components",
+        "Design layouts",
+        "Build design system",
+        "Style components"
+      ],
+      "auto_spawn": true
+    },
+
+    "ux_designer": {
+      "name": "UX Designer",
+      "type": "ux-flow-engineer",
+      "instances": 1,
+      "parallel": true,
+      "responsibilities": [
+        "User flows",
+        "Interaction design",
+        "User journeys",
+        "Usability"
+      ],
+      "auto_spawn": true
+    },
+
+    "frontend_developer": {
+      "name": "Frontend Developer",
+      "type": "master-implementation-executor",
+      "instances": 2,
+      "parallel": true,
+      "responsibilities": [
+        "Implement designs",
+        "Build Livewire components",
+        "Create Blade templates",
+        "Add interactivity"
+      ],
+      "auto_spawn": true
+    },
+
+    "design_reviewer": {
+      "name": "Design Reviewer",
+      "type": "critical-systems-analyst",
+      "instances": 1,
+      "parallel": true,
+      "responsibilities": [
+        "Review designs",
+        "Check consistency",
+        "Validate patterns",
+        "Performance checks"
+      ],
+      "auto_spawn": false
+    }
+  },
+
+  "deprecated_agents": [
+    "test-architect",
+    "devops-infrastructure-orchestrator",
+    "pragmatic-solutions-architect",
+    "data-architect",
+    "reality-enforcement-agent",
+    "state-coordinator",
+    "master-orchestrator"
+  ],
+
+  "workflow_presets": {
+    "quick_design": {
+      "agents": ["ui_designer", "frontend_developer"],
+      "parallel": true,
+      "instances": 4
+    },
+
+    "full_design": {
+      "agents": ["ui_designer", "ux_designer", "frontend_developer", "design_reviewer"],
+      "parallel": true,
+      "instances": 6
+    },
+
+    "component_build": {
+      "agents": ["ui_designer", "frontend_developer"],
+      "parallel": true,
+      "instances": 3
+    }
+  }
+}

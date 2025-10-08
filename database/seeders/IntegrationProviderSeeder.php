@@ -1,0 +1,325 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use App\Models\IntegrationProvider;
+
+class IntegrationProviderSeeder extends Seeder
+{
+    public function run()
+    {
+        $providers = [
+            // Accounting Software
+            [
+                'name' => 'QuickBooks',
+                'slug' => 'quickbooks',
+                'category' => 'accounting',
+                'description' => 'Complete accounting solution for small and medium businesses',
+                'logo_url' => '/images/integrations/quickbooks.png',
+                'supported_features' => ['invoices', 'payments', 'customers', 'products', 'reports', 'bills', 'purchase_orders'],
+                'required_credentials' => [],
+                'optional_credentials' => [],
+                'auth_type' => 'oauth2',
+                'oauth_config' => [
+                    'authorize_url' => 'https://appcenter.intuit.com/connect/oauth2',
+                    'token_url' => 'https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer',
+                    'revoke_url' => 'https://developer.api.intuit.com/v2/oauth2/tokens/revoke',
+                    'scopes' => ['com.intuit.quickbooks.accounting'],
+                ],
+                'base_url' => 'https://sandbox-quickbooks.api.intuit.com/v3',
+                'is_active' => true,
+                'is_premium' => false,
+            ],
+            [
+                'name' => 'Xero',
+                'slug' => 'xero',
+                'category' => 'accounting',
+                'description' => 'Cloud-based accounting software for small businesses',
+                'logo_url' => '/images/integrations/xero.png',
+                'supported_features' => ['invoices', 'payments', 'contacts', 'bank_transactions', 'reports'],
+                'required_credentials' => [],
+                'auth_type' => 'oauth2',
+                'oauth_config' => [
+                    'authorize_url' => 'https://login.xero.com/identity/connect/authorize',
+                    'token_url' => 'https://identity.xero.com/connect/token',
+                    'scopes' => ['accounting.transactions', 'accounting.contacts', 'accounting.settings'],
+                ],
+                'base_url' => 'https://api.xero.com/api.xro/2.0',
+                'is_active' => true,
+                'is_premium' => false,
+            ],
+            [
+                'name' => 'SAP Business One',
+                'slug' => 'sap',
+                'category' => 'accounting',
+                'description' => 'Enterprise resource planning for growing businesses',
+                'logo_url' => '/images/integrations/sap.png',
+                'supported_features' => ['invoices', 'orders', 'inventory', 'financials', 'crm'],
+                'required_credentials' => ['server_url', 'company_db', 'username', 'password'],
+                'auth_type' => 'basic',
+                'base_url' => null,
+                'is_active' => true,
+                'is_premium' => true,
+            ],
+
+            // ERP Systems
+            [
+                'name' => 'Oracle NetSuite',
+                'slug' => 'oracle-netsuite',
+                'category' => 'erp',
+                'description' => 'Cloud-based ERP, CRM, and ecommerce software suite',
+                'logo_url' => '/images/integrations/netsuite.png',
+                'supported_features' => ['financials', 'inventory', 'orders', 'crm', 'projects', 'hr'],
+                'required_credentials' => ['account_id', 'consumer_key', 'consumer_secret', 'token_id', 'token_secret'],
+                'auth_type' => 'custom',
+                'base_url' => 'https://api.netsuite.com',
+                'is_active' => true,
+                'is_premium' => true,
+            ],
+            [
+                'name' => 'SAP ERP',
+                'slug' => 'sap-erp',
+                'category' => 'erp',
+                'description' => 'Enterprise resource planning software for large organizations',
+                'logo_url' => '/images/integrations/sap-erp.png',
+                'supported_features' => ['financials', 'supply_chain', 'manufacturing', 'hr', 'analytics'],
+                'required_credentials' => ['base_url', 'client', 'username', 'password'],
+                'auth_type' => 'basic',
+                'base_url' => null,
+                'is_active' => true,
+                'is_premium' => true,
+            ],
+
+            // CRM Systems
+            [
+                'name' => 'Salesforce',
+                'slug' => 'salesforce',
+                'category' => 'crm',
+                'description' => 'World\'s #1 CRM platform for sales, service, and marketing',
+                'logo_url' => '/images/integrations/salesforce.png',
+                'supported_features' => ['contacts', 'leads', 'opportunities', 'accounts', 'cases', 'campaigns'],
+                'required_credentials' => [],
+                'auth_type' => 'oauth2',
+                'oauth_config' => [
+                    'authorize_url' => 'https://login.salesforce.com/services/oauth2/authorize',
+                    'token_url' => 'https://login.salesforce.com/services/oauth2/token',
+                    'revoke_url' => 'https://login.salesforce.com/services/oauth2/revoke',
+                    'scopes' => ['api', 'refresh_token', 'offline_access'],
+                ],
+                'base_url' => null,
+                'is_active' => true,
+                'is_premium' => false,
+            ],
+            [
+                'name' => 'HubSpot',
+                'slug' => 'hubspot',
+                'category' => 'crm',
+                'description' => 'Inbound marketing, sales, and service software',
+                'logo_url' => '/images/integrations/hubspot.png',
+                'supported_features' => ['contacts', 'companies', 'deals', 'tickets', 'marketing', 'analytics'],
+                'required_credentials' => [],
+                'auth_type' => 'oauth2',
+                'oauth_config' => [
+                    'authorize_url' => 'https://app.hubspot.com/oauth/authorize',
+                    'token_url' => 'https://api.hubapi.com/oauth/v1/token',
+                    'scopes' => ['crm.objects.contacts.read', 'crm.objects.contacts.write', 'crm.objects.companies.read', 'crm.objects.deals.read'],
+                ],
+                'base_url' => 'https://api.hubapi.com',
+                'is_active' => true,
+                'is_premium' => false,
+            ],
+
+            // Inventory Management
+            [
+                'name' => 'TradeGecko',
+                'slug' => 'tradegecko',
+                'category' => 'inventory',
+                'description' => 'Inventory and order management platform',
+                'logo_url' => '/images/integrations/tradegecko.png',
+                'supported_features' => ['products', 'variants', 'stock_levels', 'locations', 'orders', 'suppliers'],
+                'required_credentials' => ['api_key'],
+                'auth_type' => 'api_key',
+                'base_url' => 'https://api.tradegecko.com',
+                'is_active' => true,
+                'is_premium' => false,
+            ],
+            [
+                'name' => 'Zoho Inventory',
+                'slug' => 'zoho-inventory',
+                'category' => 'inventory',
+                'description' => 'Online inventory management software',
+                'logo_url' => '/images/integrations/zoho-inventory.png',
+                'supported_features' => ['items', 'warehouses', 'sales_orders', 'purchase_orders', 'shipments'],
+                'required_credentials' => ['organization_id', 'auth_token'],
+                'auth_type' => 'api_key',
+                'base_url' => 'https://inventory.zoho.com/api/v1',
+                'is_active' => true,
+                'is_premium' => false,
+            ],
+
+            // Email Marketing
+            [
+                'name' => 'Mailchimp',
+                'slug' => 'mailchimp',
+                'category' => 'email_marketing',
+                'description' => 'Marketing automation platform and email marketing service',
+                'logo_url' => '/images/integrations/mailchimp.png',
+                'supported_features' => ['lists', 'campaigns', 'automations', 'templates', 'reports'],
+                'required_credentials' => ['api_key'],
+                'auth_type' => 'api_key',
+                'base_url' => 'https://api.mailchimp.com/3.0',
+                'is_active' => true,
+                'is_premium' => false,
+            ],
+            [
+                'name' => 'SendGrid',
+                'slug' => 'sendgrid',
+                'category' => 'email_marketing',
+                'description' => 'Cloud-based email delivery service',
+                'logo_url' => '/images/integrations/sendgrid.png',
+                'supported_features' => ['transactional_emails', 'marketing_campaigns', 'contacts', 'statistics'],
+                'required_credentials' => ['api_key'],
+                'auth_type' => 'api_key',
+                'base_url' => 'https://api.sendgrid.com/v3',
+                'is_active' => true,
+                'is_premium' => false,
+            ],
+
+            // Business Intelligence
+            [
+                'name' => 'Tableau',
+                'slug' => 'tableau',
+                'category' => 'business_intelligence',
+                'description' => 'Business intelligence and data visualization platform',
+                'logo_url' => '/images/integrations/tableau.png',
+                'supported_features' => ['dashboards', 'reports', 'data_sources', 'workbooks'],
+                'required_credentials' => ['server_url', 'username', 'password', 'site_id'],
+                'auth_type' => 'basic',
+                'base_url' => null,
+                'is_active' => true,
+                'is_premium' => true,
+            ],
+            [
+                'name' => 'Power BI',
+                'slug' => 'power-bi',
+                'category' => 'business_intelligence',
+                'description' => 'Microsoft business analytics solution',
+                'logo_url' => '/images/integrations/powerbi.png',
+                'supported_features' => ['reports', 'dashboards', 'datasets', 'workspaces'],
+                'required_credentials' => [],
+                'auth_type' => 'oauth2',
+                'oauth_config' => [
+                    'authorize_url' => 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize',
+                    'token_url' => 'https://login.microsoftonline.com/common/oauth2/v2.0/token',
+                    'scopes' => ['https://analysis.windows.net/powerbi/api/.default'],
+                ],
+                'base_url' => 'https://api.powerbi.com/v1.0',
+                'is_active' => true,
+                'is_premium' => true,
+            ],
+
+            // Shipping Providers
+            [
+                'name' => 'FedEx',
+                'slug' => 'fedex',
+                'category' => 'shipping',
+                'description' => 'Global shipping and logistics services',
+                'logo_url' => '/images/integrations/fedex.png',
+                'supported_features' => ['rates', 'tracking', 'labels', 'pickups', 'address_validation'],
+                'required_credentials' => ['account_number', 'meter_number', 'key', 'password'],
+                'auth_type' => 'api_key',
+                'base_url' => 'https://ws.fedex.com',
+                'is_active' => true,
+                'is_premium' => false,
+            ],
+            [
+                'name' => 'UPS',
+                'slug' => 'ups',
+                'category' => 'shipping',
+                'description' => 'Package delivery and supply chain management',
+                'logo_url' => '/images/integrations/ups.png',
+                'supported_features' => ['rates', 'tracking', 'labels', 'pickups', 'time_in_transit'],
+                'required_credentials' => ['access_license_number', 'user_id', 'password'],
+                'auth_type' => 'api_key',
+                'base_url' => 'https://onlinetools.ups.com/api',
+                'is_active' => true,
+                'is_premium' => false,
+            ],
+
+            // Payment Gateways
+            [
+                'name' => 'Stripe',
+                'slug' => 'stripe',
+                'category' => 'payment',
+                'description' => 'Online payment processing platform',
+                'logo_url' => '/images/integrations/stripe.png',
+                'supported_features' => ['payments', 'subscriptions', 'invoices', 'customers', 'refunds', 'webhooks'],
+                'required_credentials' => ['secret_key'],
+                'optional_credentials' => ['publishable_key', 'webhook_secret'],
+                'auth_type' => 'api_key',
+                'base_url' => 'https://api.stripe.com',
+                'is_active' => true,
+                'is_premium' => false,
+            ],
+            [
+                'name' => 'PayPal',
+                'slug' => 'paypal',
+                'category' => 'payment',
+                'description' => 'Online payments system',
+                'logo_url' => '/images/integrations/paypal.png',
+                'supported_features' => ['payments', 'refunds', 'subscriptions', 'invoices', 'payouts'],
+                'required_credentials' => [],
+                'auth_type' => 'oauth2',
+                'oauth_config' => [
+                    'authorize_url' => 'https://www.paypal.com/connect',
+                    'token_url' => 'https://api.paypal.com/v1/oauth2/token',
+                    'scopes' => ['openid', 'email', 'profile'],
+                ],
+                'base_url' => 'https://api.paypal.com',
+                'is_active' => true,
+                'is_premium' => false,
+            ],
+
+            // Marketplaces
+            [
+                'name' => 'Amazon Marketplace',
+                'slug' => 'amazon',
+                'category' => 'marketplace',
+                'description' => 'Sell products on Amazon',
+                'logo_url' => '/images/integrations/amazon.png',
+                'supported_features' => ['products', 'orders', 'inventory', 'fulfillment', 'reports'],
+                'required_credentials' => ['seller_id', 'mws_auth_token', 'access_key', 'secret_key'],
+                'auth_type' => 'custom',
+                'base_url' => 'https://mws.amazonservices.com',
+                'is_active' => true,
+                'is_premium' => false,
+            ],
+            [
+                'name' => 'eBay',
+                'slug' => 'ebay',
+                'category' => 'marketplace',
+                'description' => 'Online marketplace for buying and selling',
+                'logo_url' => '/images/integrations/ebay.png',
+                'supported_features' => ['listings', 'orders', 'inventory', 'messages', 'analytics'],
+                'required_credentials' => [],
+                'auth_type' => 'oauth2',
+                'oauth_config' => [
+                    'authorize_url' => 'https://auth.ebay.com/oauth2/authorize',
+                    'token_url' => 'https://api.ebay.com/identity/v1/oauth2/token',
+                    'scopes' => ['https://api.ebay.com/oauth/api_scope/sell.inventory', 'https://api.ebay.com/oauth/api_scope/sell.fulfillment'],
+                ],
+                'base_url' => 'https://api.ebay.com',
+                'is_active' => true,
+                'is_premium' => false,
+            ],
+        ];
+
+        foreach ($providers as $provider) {
+            IntegrationProvider::updateOrCreate(
+                ['slug' => $provider['slug']],
+                $provider
+            );
+        }
+    }
+}

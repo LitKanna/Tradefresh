@@ -1,0 +1,1055 @@
+/* ============================================
+   VENDOR DASHBOARD - EXACT BUYER DIMENSIONS
+   Match every dimension from buyer dashboard
+   ============================================ */
+
+/* Main Dashboard Grid Layout - EXACT BUYER SPECS */
+.dashboard-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 380px !important;
+    grid-template-rows: 100px 1fr !important;
+    gap: 16px !important;           /* var(--space-4) = 16px */
+    padding: 64px 16px 16px 16px !important;  /* Top padding for header clearance */
+    height: 100vh !important;
+    background: transparent !important;
+    box-sizing: border-box !important;
+}
+
+/* Header Icons - EXACT BUYER POSITIONING */
+.floating-icons {
+    position: fixed !important;
+    top: 16px !important;            /* var(--space-4) */
+    right: 36px !important;          /* 16px + 20px internal padding */
+    display: flex !important;
+    gap: 12px !important;            /* var(--space-3) */
+    align-items: center !important;
+    z-index: 100 !important;
+    background: transparent !important;
+}
+
+/* Icon Buttons - EXACT BUYER SIZE & STYLE */
+.neuro-icon-raised {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    border: none !important;
+    background: #E2E8F0 !important;  /* var(--neuro-bg) */
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+
+    /* INSET effect - exact buyer shadow */
+    box-shadow: inset 3px 3px 6px #B8BEC7,
+                inset -3px -3px 6px #FFFFFF !important;
+}
+
+.neuro-icon-raised:hover {
+    background: #E2E8F0 !important;
+    /* Deeper inset on hover */
+    box-shadow: inset 4px 4px 8px #B8BEC7,
+                inset -4px -4px 8px #FFFFFF !important;
+}
+
+.neuro-icon-raised:active {
+    background: #E2E8F0 !important;
+    /* Even deeper when pressed */
+    box-shadow: inset 5px 5px 10px #B8BEC7,
+                inset -5px -5px 10px #FFFFFF !important;
+}
+
+.neuro-icon-raised svg {
+    width: 18px !important;
+    height: 18px !important;
+    stroke: #2D3748 !important;     /* var(--neuro-text) */
+    fill: none !important;
+    stroke-width: 2 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+    transition: all 0.3s ease !important;
+    opacity: 0.7 !important;
+}
+
+.neuro-icon-raised:hover svg {
+    stroke: #10B981 !important;     /* var(--neuro-accent) green */
+    stroke-width: 2.5 !important;
+    opacity: 1 !important;
+}
+
+/* Stats Section - EXACT BUYER LAYOUT */
+.stats-section {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 16px !important;
+    height: 100px !important;
+    align-self: start !important;
+}
+
+/* Stat Widget - EXACT BUYER STYLE */
+.stat-widget {
+    background: #E2E8F0 !important;
+    border-radius: 20px !important;
+    padding: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    border: none !important;
+
+    /* Inset shadow for sunken effect */
+    box-shadow: inset 6px 6px 12px #B8BEC7,
+                inset -6px -6px 12px #FFFFFF !important;
+}
+
+.stat-widget:hover {
+    background: #E2E8F0 !important;
+    /* Enhanced depth shadow */
+    box-shadow: inset 8px 8px 16px #B8BEC7,
+                inset -8px -8px 16px #FFFFFF !important;
+    /* NO SCALE - Just shadow depth */
+}
+
+.stat-icon {
+    width: 48px !important;
+    height: 48px !important;
+    background: #E2E8F0 !important;
+    border-radius: 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+
+    /* Raised effect - opposite of inset */
+    box-shadow: 4px 4px 8px #B8BEC7,
+                -4px -4px 8px #FFFFFF !important;
+}
+
+.stat-widget:hover .stat-icon {
+    /* Pressed effect on hover */
+    box-shadow: inset 3px 3px 6px #B8BEC7,
+                inset -3px -3px 6px #FFFFFF !important;
+}
+
+.stat-icon svg {
+    width: 22px !important;
+    height: 22px !important;
+    stroke: #2D3748 !important;
+    fill: none !important;
+    stroke-width: 2 !important;
+    transition: stroke 0.3s ease !important;
+    opacity: 0.7 !important;
+}
+
+.stat-widget:hover .stat-icon svg {
+    stroke: #10B981 !important;     /* Green on hover */
+    stroke-width: 2.5 !important;
+    opacity: 1 !important;
+}
+
+.stat-content {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;            /* var(--space-0.5) */
+}
+
+.stat-label {
+    font-size: 11px !important;
+    color: #2D3748 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+    line-height: 1.4 !important;
+    font-weight: 500 !important;
+    opacity: 0.7 !important;
+}
+
+.stat-value {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #2D3748 !important;
+    line-height: 1 !important;
+    font-feature-settings: 'tnum' 1 !important;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5) !important;
+}
+
+.stat-change {
+    font-size: 12px !important;
+    color: #2D3748 !important;
+    font-weight: 500 !important;
+    opacity: 0.6 !important;
+}
+
+.stat-change.positive {
+    color: #10B981 !important;      /* Green for positive */
+    font-weight: 600 !important;
+    opacity: 1 !important;
+}
+
+/* RFQ Panel - EXACT BUYER VENDOR QUOTES DIMENSIONS */
+.rfq-section {
+    grid-column: 2 !important;
+    grid-row: 1 / span 2 !important;  /* Explicitly span both rows */
+    background: #E2E8F0 !important;
+    border-radius: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    min-height: 0 !important;  /* Allow proper flex sizing */
+
+    /* Lighter, more subtle inset matching buyer vendor quotes */
+    box-shadow: inset 6px 6px 12px #B8BEC7,
+                inset -6px -6px 12px #FFFFFF !important;
+}
+
+.rfq-section:hover {
+    /* Slightly deeper inset on hover */
+    box-shadow: inset 8px 8px 16px #B8BEC7,
+                inset -8px -8px 16px #FFFFFF !important;
+}
+
+/* RFQ Header - Match Buyer Order Card Header */
+.rfq-section .section-header {
+    padding: 10px 16px !important;  /* Reduced padding like buyer */
+    background: transparent !important;  /* Transparent to show inset properly */
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    border-radius: 20px 20px 0 0 !important;
+    border-bottom: 1px solid rgba(184, 190, 199, 0.2) !important;
+    height: 45px !important;
+    min-height: 45px !important;
+    max-height: 45px !important;
+    flex-shrink: 0 !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.rfq-section .section-header h2 {
+    font-size: 14px !important;     /* Smaller title like buyer */
+    font-weight: 600 !important;
+    color: #2D3748 !important;
+    margin: 0 !important;
+    opacity: 0.9 !important;
+}
+
+/* RFQ Badge - Match Buyer */
+.rfq-count {
+    background: #E2E8F0 !important;
+    color: #10B981 !important;      /* Green text */
+    padding: 3px 8px !important;
+    border-radius: 8px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF !important;
+    transition: all 0.3s ease !important;
+}
+
+/* RFQ Content Area */
+.rfq-container {
+    flex: 1 !important;
+    padding: 10px 8px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-width: thin !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+}
+
+.rfq-container::-webkit-scrollbar {
+    width: 4px !important;
+}
+
+.rfq-container::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+.rfq-container::-webkit-scrollbar-thumb {
+    background: #B8BEC7 !important;
+    border-radius: 2px !important;
+}
+
+/* Remove View All Button - Not needed */
+.view-all-rfqs-container {
+    display: none !important;
+}
+
+.view-all-rfqs-btn {
+    display: none !important;
+}
+
+/* Inventory Section - Match Buyer Market Section */
+.inventory-section {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    height: 100% !important;
+    position: relative !important;
+}
+
+/* Section Header - Match Buyer */
+.inventory-section .section-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 8px 12px !important;
+    margin-bottom: 8px !important;
+    border-bottom: 1px solid rgba(184, 190, 199, 0.2) !important;
+}
+
+.inventory-section .section-header h2 {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    margin: 0 !important;
+}
+
+/* Inventory Grid - Match Buyer Market Grid */
+.inventory-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-rows: repeat(4, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    overflow: hidden !important;
+    flex: 1 !important;
+    padding: 0 !important;
+    height: calc(100% - 30px) !important;
+    align-content: stretch !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+}
+
+.inventory-grid::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* Product Card - Match Buyer Market Product Card */
+.product-card {
+    background: #E2E8F0 !important;
+    border-radius: 16px !important;
+    padding: 14px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    transition: all 0.3s ease !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    border: none !important;
+
+    /* Inset shadow for sunken effect */
+    box-shadow: inset 4px 4px 8px #B8BEC7,
+                inset -4px -4px 8px #FFFFFF !important;
+}
+
+.product-card:hover {
+    /* Deeper inset on hover */
+    box-shadow: inset 6px 6px 12px #B8BEC7,
+                inset -6px -6px 12px #FFFFFF !important;
+}
+
+/* Search Container - Match Buyer */
+.search-container {
+    position: relative !important;
+    margin-bottom: 12px !important;
+}
+
+.search-input {
+    width: 100% !important;
+    max-width: 300px !important;
+    padding: 10px 40px 10px 16px !important;
+    background: #E2E8F0 !important;
+    border: none !important;
+    border-radius: 12px !important;
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF !important;
+    font-size: 14px !important;
+    color: #2D3748 !important;
+    outline: none !important;
+}
+
+.search-icon {
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 18px !important;
+    height: 18px !important;
+    stroke: #2D3748 !important;
+    opacity: 0.5 !important;
+}
+
+/* Pagination - 2x2 Grid */
+.inventory-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+}
+
+/* RFQ/Quote Items - Clickable Cards */
+.quote-item {
+    position: relative !important;
+    padding: 14px !important;
+    margin: 0 !important;
+    background: #E2E8F0 !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    font-size: 12px !important;
+    transition: all 0.3s ease !important;
+    min-height: auto !important;
+    flex-shrink: 0 !important;
+    cursor: pointer !important;
+
+    /* Subtle inset for quotes - lighter depth */
+    box-shadow: inset 2px 2px 3px rgba(184, 190, 199, 0.5),
+                inset -2px -2px 3px rgba(255, 255, 255, 0.9) !important;
+}
+
+.quote-item:hover {
+    /* Slightly deeper inset on hover */
+    box-shadow: inset 3px 3px 4px rgba(184, 190, 199, 0.6),
+                inset -3px -3px 4px rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Quote Header */
+.quote-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+}
+
+.quote-vendor {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+}
+
+/* RFQ Modal Styles */
+.rfq-modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 9999 !important;
+    animation: fadeIn 0.2s ease-out !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.rfq-modal {
+    background: #F3F4F6 !important;
+    border-radius: 16px !important;
+    width: 90% !important;
+    max-width: 600px !important;
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+                inset 2px 2px 4px rgba(255, 255, 255, 0.9),
+                inset -2px -2px 4px rgba(184, 190, 199, 0.5) !important;
+    animation: slideUp 0.3s ease-out !important;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.rfq-modal .modal-header {
+    padding: 20px 24px !important;
+    border-bottom: 1px solid #E5E7EB !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.rfq-modal .modal-header h2 {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    color: #111827 !important;
+    margin: 0 !important;
+}
+
+.rfq-modal .close-modal {
+    background: transparent !important;
+    border: none !important;
+    font-size: 28px !important;
+    color: #6B7280 !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    width: 32px !important;
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+    transition: all 0.2s !important;
+}
+
+.rfq-modal .close-modal:hover {
+    background: #E5E7EB !important;
+    color: #111827 !important;
+}
+
+.rfq-modal .modal-body {
+    padding: 24px !important;
+}
+
+.rfq-modal .request-details h3 {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
+    margin: 0 0 16px 0 !important;
+}
+
+.rfq-modal .quote-item-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 16px !important;
+    margin-bottom: 12px !important;
+    background: #FFFFFF !important;
+    border-radius: 12px !important;
+    box-shadow: inset 1px 1px 3px rgba(184, 190, 199, 0.3),
+                inset -1px -1px 3px rgba(255, 255, 255, 0.9) !important;
+}
+
+.rfq-modal .item-info {
+    flex: 1 !important;
+}
+
+.rfq-modal .item-name {
+    display: block !important;
+    font-weight: 500 !important;
+    color: #111827 !important;
+    margin-bottom: 4px !important;
+}
+
+.rfq-modal .item-quantity {
+    color: #6B7280 !important;
+    font-size: 14px !important;
+}
+
+.rfq-modal .price-input {
+    width: 200px !important;
+}
+
+.rfq-modal .price-input label {
+    display: block !important;
+    font-size: 12px !important;
+    color: #6B7280 !important;
+    margin-bottom: 4px !important;
+}
+
+.rfq-modal .price-input input {
+    width: 100% !important;
+    padding: 8px 12px !important;
+    border: 1px solid #E5E7EB !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    background: #FFFFFF !important;
+    transition: all 0.2s !important;
+}
+
+.rfq-modal .price-input input:focus {
+    outline: none !important;
+    border-color: #10B981 !important;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1) !important;
+}
+
+.rfq-modal .quote-notes {
+    margin-top: 24px !important;
+}
+
+.rfq-modal .quote-notes label {
+    display: block !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #374151 !important;
+    margin-bottom: 8px !important;
+}
+
+.rfq-modal .quote-notes textarea {
+    width: 100% !important;
+    min-height: 80px !important;
+    padding: 12px !important;
+    border: 1px solid #E5E7EB !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    background: #FFFFFF !important;
+    resize: vertical !important;
+    transition: all 0.2s !important;
+}
+
+.rfq-modal .quote-notes textarea:focus {
+    outline: none !important;
+    border-color: #10B981 !important;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1) !important;
+}
+
+.rfq-modal .quote-summary {
+    margin-top: 20px !important;
+    padding: 16px !important;
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
+    border-radius: 12px !important;
+    text-align: right !important;
+}
+
+.rfq-modal .total-amount {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    color: #FFFFFF !important;
+}
+
+.rfq-modal .modal-footer {
+    padding: 16px 24px !important;
+    border-top: 1px solid #E5E7EB !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 12px !important;
+}
+
+.rfq-modal .btn-secondary,
+.rfq-modal .btn-primary {
+    padding: 10px 20px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+}
+
+.rfq-modal .btn-secondary {
+    background: #F3F4F6 !important;
+    color: #374151 !important;
+    box-shadow: 3px 3px 6px #B8BEC7,
+                -3px -3px 6px #FFFFFF !important;
+}
+
+.rfq-modal .btn-secondary:hover {
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF !important;
+}
+
+.rfq-modal .btn-primary {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3) !important;
+}
+
+.rfq-modal .btn-primary:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 12px rgba(16, 185, 129, 0.4) !important;
+}
+
+.vendor-name {
+    font-weight: 600 !important;
+    color: #2D3748 !important;
+    font-size: 12px !important;
+}
+
+.quote-time {
+    font-size: 10px !important;
+    color: #2D3748 !important;
+    opacity: 0.6 !important;
+}
+
+/* Urgency Badge */
+.quote-urgency {
+    padding: 3px 10px !important;
+    background: #E2E8F0 !important;
+    border-radius: 10px !important;
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    transition: all 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    /* Small raised effect for visibility */
+    box-shadow: 1px 1px 2px rgba(184, 190, 199, 0.4),
+                -1px -1px 2px rgba(255, 255, 255, 0.9) !important;
+}
+
+.quote-urgency.high {
+    color: #DC2626 !important;
+    background: rgba(220, 38, 38, 0.08) !important;
+}
+
+.quote-urgency.medium {
+    color: #F59E0B !important;
+    background: rgba(245, 158, 11, 0.08) !important;
+}
+
+.quote-urgency.low {
+    color: #10B981 !important;
+    background: rgba(16, 185, 129, 0.08) !important;
+}
+
+/* Quote Products - Hidden for cleaner look */
+.quote-products {
+    display: none !important;  /* Hide product details for cleaner RFQ cards */
+}
+
+.quote-product-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 11px !important;
+    padding: 2px 0 !important;
+}
+
+.product-name {
+    color: #2D3748 !important;
+    font-weight: 500 !important;
+    opacity: 0.9 !important;
+    flex: 1 !important;
+}
+
+.product-qty {
+    color: #2D3748 !important;
+    font-weight: 600 !important;
+    opacity: 0.7 !important;
+    white-space: nowrap !important;
+    margin-left: 8px !important;
+}
+
+/* Quote Actions - Hidden, using clickable card instead */
+.quote-actions {
+    display: none !important;
+}
+
+.quote-action-btn {
+    flex: 1 !important;
+    padding: 8px 12px !important;
+    background: #E2E8F0 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    color: #2D3748 !important;
+    transition: all 0.2s ease !important;
+    min-height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    /* Raised button style for better visibility */
+    box-shadow: 2px 2px 4px rgba(184, 190, 199, 0.6),
+                -2px -2px 4px rgba(255, 255, 255, 1) !important;
+}
+
+.quote-action-btn:hover {
+    /* Pressed effect on hover */
+    box-shadow: inset 1px 1px 2px rgba(184, 190, 199, 0.5),
+                inset -1px -1px 2px rgba(255, 255, 255, 0.95) !important;
+}
+
+.quote-action-btn:active {
+    box-shadow: inset 2px 2px 3px rgba(184, 190, 199, 0.6),
+                inset -2px -2px 3px rgba(255, 255, 255, 1) !important;
+    transform: translateY(0.5px) !important;
+}
+
+.quote-action-btn.accept {
+    color: #10B981 !important;
+    font-weight: 600 !important;
+    background: rgba(16, 185, 129, 0.05) !important;
+}
+
+/* Empty Quotes Message */
+.empty-quotes {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 40px 20px !important;
+    text-align: center !important;
+    color: #2D3748 !important;
+    opacity: 0.5 !important;
+}
+
+/* Ensure proper quote item spacing */
+.rfq-container .quote-item:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Clean quote header layout */
+.quote-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    min-height: 28px !important;
+}
+
+/* Ensure products don't overflow */
+.quote-product-item {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.empty-quotes svg {
+    width: 48px !important;
+    height: 48px !important;
+    margin-bottom: 12px !important;
+    stroke: #2D3748 !important;
+    opacity: 0.3 !important;
+}
+
+.empty-quotes p {
+    font-size: 12px !important;
+    margin: 0 !important;
+}
+
+/* Remove any conflicting styles from other CSS files */
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+
+.dashboard-container {
+    position: relative !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    background: #E2E8F0 !important;
+}
+
+/* RFQ Quote Modal Styles */
+.modal-backdrop {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 9999 !important;
+}
+
+.modal-container {
+    background: #E2E8F0 !important;
+    border-radius: 20px !important;
+    width: 90% !important;
+    max-width: 600px !important;
+    max-height: 85vh !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+}
+
+.modal-header {
+    padding: 20px !important;
+    background: #E2E8F0 !important;
+    border-bottom: 1px solid rgba(184, 190, 199, 0.2) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.modal-header h3 {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: #2D3748 !important;
+    margin: 0 !important;
+}
+
+.modal-close {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    background: #E2E8F0 !important;
+    border: none !important;
+    font-size: 24px !important;
+    color: #2D3748 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 2px 2px 4px #B8BEC7,
+                -2px -2px 4px #FFFFFF !important;
+}
+
+.modal-close:hover {
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF !important;
+}
+
+.modal-body {
+    flex: 1 !important;
+    padding: 20px !important;
+    overflow-y: auto !important;
+}
+
+.rfq-details {
+    margin-bottom: 20px !important;
+}
+
+.detail-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 8px 0 !important;
+    font-size: 14px !important;
+}
+
+.detail-row label {
+    font-weight: 500 !important;
+    color: #2D3748 !important;
+    opacity: 0.7 !important;
+}
+
+.products-requested {
+    margin: 20px 0 !important;
+}
+
+.products-requested h4 {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    margin-bottom: 12px !important;
+    color: #2D3748 !important;
+}
+
+.product-quote-row {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 10px !important;
+    padding: 12px !important;
+    margin-bottom: 10px !important;
+}
+
+.product-info {
+    display: flex !important;
+    justify-content: space-between !important;
+    margin-bottom: 10px !important;
+}
+
+.price-input-group {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.price-input {
+    width: 100px !important;
+    padding: 8px !important;
+    background: #E2E8F0 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF !important;
+    font-size: 14px !important;
+    text-align: right !important;
+}
+
+.quote-total {
+    background: rgba(16, 185, 129, 0.1) !important;
+    border-radius: 10px !important;
+    padding: 12px !important;
+    margin: 20px 0 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.total-amount {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #10B981 !important;
+}
+
+.quote-notes textarea {
+    width: 100% !important;
+    padding: 10px !important;
+    background: #E2E8F0 !important;
+    border: none !important;
+    border-radius: 10px !important;
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF !important;
+    resize: vertical !important;
+    font-size: 14px !important;
+}
+
+.modal-footer {
+    padding: 20px !important;
+    background: #E2E8F0 !important;
+    border-top: 1px solid rgba(184, 190, 199, 0.2) !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 12px !important;
+}
+
+.btn-cancel, .btn-send-quote {
+    padding: 10px 20px !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-cancel {
+    background: #E2E8F0 !important;
+    color: #2D3748 !important;
+    box-shadow: 2px 2px 4px #B8BEC7,
+                -2px -2px 4px #FFFFFF !important;
+}
+
+.btn-send-quote {
+    background: #10B981 !important;
+    color: white !important;
+    box-shadow: 0 4px 6px rgba(16, 185, 129, 0.4) !important;
+}
+
+.btn-send-quote:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 12px rgba(16, 185, 129, 0.5) !important;
+}

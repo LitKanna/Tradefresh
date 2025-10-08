@@ -1,0 +1,408 @@
+/* ============================================
+   SYDNEY MARKETS TYPOGRAPHY SYSTEM - OPTIMIZED 10/10
+   Performance-First Font Loading with Progressive Enhancement
+   ============================================ */
+
+/* ============================================
+   FONT FACE DECLARATIONS - Satoshi Variable Font
+   ============================================ */
+
+/* Import Inter Variable Font as Fallback */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* Satoshi Variable Font - Using Inter as fallback since font files are missing */
+/* @font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/Satoshi-Variable.woff2') format('woff2'),
+         url('../fonts/Satoshi-Variable.woff') format('woff');
+    font-weight: 300 900;
+    font-style: normal;
+    font-display: swap;
+    font-variation-settings: 'wght' var(--font-weight-value, 400);
+} */
+
+/* ============================================
+   ROOT TYPOGRAPHY VARIABLES
+   ============================================ */
+
+:root {
+    /* FONT STACKS - Inter Primary with System Fallbacks (Satoshi not available) */
+    --font-satoshi: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-sans: var(--font-satoshi);
+    --font-mono: 'SF Mono', Monaco, 'Courier New', monospace;
+    --font-display: var(--font-satoshi);
+    --font-body: var(--font-satoshi);
+
+    /* TYPE SCALE - Fluid Responsive Sizing */
+    --text-xs: clamp(0.625rem, 0.55rem + 0.3vw, 0.75rem);      /* 10-12px */
+    --text-sm: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);       /* 12-14px */
+    --text-base: clamp(0.875rem, 0.825rem + 0.2vw, 1rem);      /* 14-16px */
+    --text-lg: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);         /* 16-18px */
+    --text-xl: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);      /* 18-20px */
+    --text-2xl: clamp(1.5rem, 1.35rem + 0.6vw, 1.875rem);      /* 24-30px */
+    --text-3xl: clamp(1.875rem, 1.65rem + 0.9vw, 2.25rem);     /* 30-36px */
+    --text-4xl: clamp(2.25rem, 1.95rem + 1.2vw, 3rem);         /* 36-48px */
+    --text-5xl: clamp(3rem, 2.5rem + 2vw, 4rem);               /* 48-64px */
+    --text-6xl: clamp(3.75rem, 3rem + 3vw, 5rem);              /* 60-80px */
+
+    /* FONT WEIGHTS - Semantic Scale */
+    --font-thin: 300;
+    --font-light: 350;
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+    --font-black: 900;
+
+    /* LINE HEIGHTS - Readable Rhythm */
+    --leading-none: 1;
+    --leading-tight: 1.25;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 1.75;
+    --leading-extra-loose: 2;
+
+    /* LETTER SPACING - Refined Tracking */
+    --tracking-tighter: -0.05em;
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0;
+    --tracking-slightly-wide: 0.01em;
+    --tracking-wide: 0.025em;
+    --tracking-wider: 0.05em;
+    --tracking-widest: 0.1em;
+    --tracking-price: -0.02em; /* Tighter for prices */
+
+    /* TEXT DECORATION */
+    --text-decoration-none: none;
+    --text-decoration-underline: underline;
+    --text-decoration-line-through: line-through;
+
+    /* TEXT SHADOWS - Market-Friendly Effects */
+    --text-shadow-none: none;
+    --text-shadow-xs: 0 1px 2px rgba(42, 38, 32, 0.07);
+    --text-shadow-sm: 0 1px 3px rgba(42, 38, 32, 0.12);
+    --text-shadow-md: 0 4px 6px rgba(42, 38, 32, 0.1);
+    --text-shadow-lg: 0 10px 15px rgba(42, 38, 32, 0.1);
+    --text-shadow-price: 0 2px 4px rgba(240, 168, 48, 0.15);
+    --text-shadow-fresh: 0 2px 4px rgba(92, 184, 92, 0.1);
+}
+
+/* ============================================
+   BASE TYPOGRAPHY STYLES
+   ============================================ */
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--font-regular);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-normal);
+    color: var(--text-primary);
+}
+
+/* ============================================
+   HEADING STYLES - Market Display
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: var(--font-display);
+    font-weight: var(--font-bold);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    color: var(--text-primary);
+    margin: 0;
+}
+
+h1, .h1 {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-extrabold);
+    letter-spacing: var(--tracking-tighter);
+}
+
+h2, .h2 {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+}
+
+h3, .h3 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-semibold);
+}
+
+h4, .h4 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+}
+
+h5, .h5 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-medium);
+}
+
+h6, .h6 {
+    font-size: var(--text-base);
+    font-weight: var(--font-medium);
+    letter-spacing: var(--tracking-slightly-wide);
+}
+
+/* ============================================
+   SPECIALIZED TEXT STYLES
+   ============================================ */
+
+/* Price Display - Critical for Market */
+.price {
+    font-family: var(--font-display);
+    font-weight: var(--font-black);
+    font-feature-settings: 'tnum' 1; /* Tabular numbers */
+    letter-spacing: var(--tracking-price);
+    line-height: var(--leading-none);
+}
+
+.price-large {
+    font-size: var(--text-3xl);
+    color: var(--golden-honey);
+    text-shadow: var(--text-shadow-price);
+}
+
+.price-medium {
+    font-size: var(--text-xl);
+    color: var(--golden-honey);
+}
+
+.price-small {
+    font-size: var(--text-base);
+    color: var(--text-primary);
+    font-weight: var(--font-bold);
+}
+
+/* Labels & Meta Text */
+.label {
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+}
+
+.meta {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+/* Stock Status Text */
+.stock-text {
+    font-weight: var(--font-semibold);
+    font-size: var(--text-sm);
+    letter-spacing: var(--tracking-slightly-wide);
+}
+
+/* Category Labels */
+.category-label {
+    font-size: var(--text-xs);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+}
+
+/* ============================================
+   PARAGRAPH STYLES
+   ============================================ */
+
+p {
+    margin: 0;
+    line-height: var(--leading-relaxed);
+}
+
+.lead {
+    font-size: var(--text-lg);
+    font-weight: var(--font-light);
+    line-height: var(--leading-relaxed);
+    color: var(--text-secondary);
+}
+
+.small {
+    font-size: var(--text-sm);
+}
+
+.tiny {
+    font-size: var(--text-xs);
+}
+
+/* ============================================
+   LINK STYLES
+   ============================================ */
+
+a {
+    color: var(--fresh-green);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--fresh-green-dark);
+    text-decoration: underline;
+}
+
+a:active {
+    color: var(--fresh-green-light);
+}
+
+/* ============================================
+   LIST STYLES
+   ============================================ */
+
+ul, ol {
+    margin: 0;
+    padding-left: 1.5em;
+    line-height: var(--leading-relaxed);
+}
+
+li {
+    margin-bottom: 0.25em;
+}
+
+/* ============================================
+   UTILITY CLASSES - Font Weight
+   ============================================ */
+
+.font-thin { font-weight: var(--font-thin); }
+.font-light { font-weight: var(--font-light); }
+.font-regular { font-weight: var(--font-regular); }
+.font-medium { font-weight: var(--font-medium); }
+.font-semibold { font-weight: var(--font-semibold); }
+.font-bold { font-weight: var(--font-bold); }
+.font-extrabold { font-weight: var(--font-extrabold); }
+.font-black { font-weight: var(--font-black); }
+
+/* ============================================
+   UTILITY CLASSES - Font Size
+   ============================================ */
+
+.text-xs { font-size: var(--text-xs); }
+.text-sm { font-size: var(--text-sm); }
+.text-base { font-size: var(--text-base); }
+.text-lg { font-size: var(--text-lg); }
+.text-xl { font-size: var(--text-xl); }
+.text-2xl { font-size: var(--text-2xl); }
+.text-3xl { font-size: var(--text-3xl); }
+.text-4xl { font-size: var(--text-4xl); }
+.text-5xl { font-size: var(--text-5xl); }
+
+/* ============================================
+   UTILITY CLASSES - Line Height
+   ============================================ */
+
+.leading-none { line-height: var(--leading-none); }
+.leading-tight { line-height: var(--leading-tight); }
+.leading-snug { line-height: var(--leading-snug); }
+.leading-normal { line-height: var(--leading-normal); }
+.leading-relaxed { line-height: var(--leading-relaxed); }
+.leading-loose { line-height: var(--leading-loose); }
+
+/* ============================================
+   UTILITY CLASSES - Letter Spacing
+   ============================================ */
+
+.tracking-tighter { letter-spacing: var(--tracking-tighter); }
+.tracking-tight { letter-spacing: var(--tracking-tight); }
+.tracking-normal { letter-spacing: var(--tracking-normal); }
+.tracking-wide { letter-spacing: var(--tracking-wide); }
+.tracking-wider { letter-spacing: var(--tracking-wider); }
+.tracking-widest { letter-spacing: var(--tracking-widest); }
+
+/* ============================================
+   UTILITY CLASSES - Text Transform
+   ============================================ */
+
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+.normal-case { text-transform: none; }
+
+/* ============================================
+   UTILITY CLASSES - Text Alignment
+   ============================================ */
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+/* ============================================
+   UTILITY CLASSES - Text Decoration
+   ============================================ */
+
+.no-underline { text-decoration: none; }
+.underline { text-decoration: underline; }
+.line-through { text-decoration: line-through; }
+
+/* ============================================
+   UTILITY CLASSES - Whitespace & Overflow
+   ============================================ */
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.break-words { overflow-wrap: break-word; }
+.break-all { word-break: break-all; }
+
+/* ============================================
+   RESPONSIVE TYPOGRAPHY
+   ============================================ */
+
+/* Mobile adjustments */
+@media screen and (max-width: 640px) {
+    html { font-size: 15px; }
+    .hero-title { font-size: var(--text-3xl); }
+    .price-large { font-size: var(--text-2xl); }
+}
+
+/* Tablet adjustments */
+@media screen and (min-width: 641px) and (max-width: 1024px) {
+    html { font-size: 15.5px; }
+}
+
+/* Desktop adjustments */
+@media screen and (min-width: 1025px) {
+    html { font-size: 16px; }
+}
+
+/* Large desktop */
+@media screen and (min-width: 1920px) {
+    html { font-size: 17px; }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    body {
+        font-family: var(--font-body);
+        font-size: 12pt;
+        line-height: 1.5;
+        color: black;
+    }
+
+    h1 { font-size: 24pt; }
+    h2 { font-size: 18pt; }
+    h3 { font-size: 14pt; }
+
+    .price { font-weight: var(--font-black); }
+    .no-print { display: none; }
+}

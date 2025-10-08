@@ -1,0 +1,269 @@
+/* ============================================
+   QUOTE INBOX VIEW - Vendor Quote Management
+   Sydney Markets B2B - Neumorphic Design
+   ============================================ */
+
+/* Subheader */
+.inbox-subheader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #E8EBF0;
+    border-bottom: 1px solid rgba(184, 190, 199, 0.2);
+    flex-shrink: 0;
+}
+
+.inbox-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1F2937;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.count-badge {
+    font-size: 12px;
+    font-weight: 600;
+    color: #10B981;
+}
+
+/* Sort Controls */
+.sort-controls {
+    display: flex;
+    gap: 4px;
+}
+
+.sort-btn {
+    width: 32px;
+    height: 32px;
+    background: #E8EBF0;
+    border: none;
+    border-radius: 8px;
+    color: #9CA3AF;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+
+    /* Neumorphic raised */
+    box-shadow: 2px 2px 4px #B8BEC7,
+                -2px -2px 4px #FFFFFF;
+}
+
+.sort-btn:hover {
+    color: #6B7280;
+}
+
+.sort-btn.active {
+    color: #10B981;
+
+    /* Inset when active */
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF;
+}
+
+.sort-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Quote List Container */
+.quote-list-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    background: #F3F4F6;
+}
+
+/* Quote Card */
+.quote-card {
+    background: #E8EBF0;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+    position: relative;
+
+    /* Neumorphic inset */
+    box-shadow: inset 3px 3px 6px #B8BEC7,
+                inset -3px -3px 6px #FFFFFF;
+
+    transition: all 0.3s ease;
+}
+
+.quote-card:hover {
+    box-shadow: inset 4px 4px 8px #B8BEC7,
+                inset -4px -4px 8px #FFFFFF;
+}
+
+/* Highlighted quote (from AI view) */
+.quote-card.highlighted {
+    border: 2px solid #10B981;
+    animation: highlight 2s ease-in-out;
+}
+
+@keyframes highlight {
+    0%, 100% {
+        background: #E8EBF0;
+    }
+    50% {
+        background: #ECFDF5;
+    }
+}
+
+/* Expired quote */
+.quote-card.expired {
+    opacity: 0.5;
+}
+
+/* Quote Timer */
+.quote-timer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #E8EBF0;
+    color: #10B981;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+
+    /* Inset */
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF;
+}
+
+.quote-timer.urgent {
+    color: #000000;
+}
+
+.quote-timer.expired {
+    color: #EF4444;
+}
+
+/* Quote Vendor Info */
+.quote-vendor-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    padding-right: 60px; /* Space for timer */
+}
+
+.vendor-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1F2937;
+}
+
+.vendor-rating {
+    font-size: 11px;
+    color: #F59E0B;
+    font-weight: 600;
+}
+
+/* RFQ Reference */
+.quote-rfq-ref {
+    font-size: 11px;
+    color: #9CA3AF;
+    margin-bottom: 8px;
+}
+
+/* Price Display */
+.quote-price-display {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.price-label {
+    font-size: 11px;
+    color: #6B7280;
+}
+
+.price-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #10B981;
+}
+
+/* Delivery Info */
+.quote-delivery-info {
+    font-size: 11px;
+    color: #6B7280;
+    margin-bottom: 10px;
+}
+
+/* Quote Actions */
+.quote-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.quote-action-btn {
+    flex: 1;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+}
+
+.quote-action-btn.accept {
+    flex: 1.5;
+    background: linear-gradient(135deg, #10B981, #059669);
+    color: white;
+
+    /* Raised */
+    box-shadow: 3px 3px 6px rgba(16, 185, 129, 0.3),
+                -3px -3px 6px rgba(255, 255, 255, 0.7);
+}
+
+.quote-action-btn.accept:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    transform: translateY(-1px);
+    box-shadow: 4px 4px 8px rgba(16, 185, 129, 0.4),
+                -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.quote-action-btn.chat {
+    flex: 0.7;
+    background: #E8EBF0;
+    color: #374151;
+
+    /* Raised */
+    box-shadow: 2px 2px 4px #B8BEC7,
+                -2px -2px 4px #FFFFFF;
+}
+
+.quote-action-btn.chat:hover {
+    /* Inset */
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF;
+}
+
+.quote-action-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Inbox Footer */
+.inbox-footer {
+    padding: 10px 16px;
+    background: #E8EBF0;
+    border-top: 1px solid rgba(184, 190, 199, 0.2);
+    font-size: 11px;
+    color: #6B7280;
+    text-align: center;
+    flex-shrink: 0;
+}

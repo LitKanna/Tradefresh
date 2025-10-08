@@ -1,0 +1,6 @@
+storage/logs/*.log
+database/*.sqlite
+rr.exe
+node_modules/
+.playwright-mcp/
+vendor/

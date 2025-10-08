@@ -1,0 +1,72 @@
+/* ============================================
+   VENDOR DASHBOARD COLOR SYSTEM - SYDNEY MARKETS
+   ============================================ */
+
+:root {
+    /* Base Colors - Matching buyer dashboard */
+    --bg-primary: #E0E5EC;
+    --bg-secondary: #E0E5EC;
+    --bg-tertiary: #E0E5EC;
+    --bg-hover: #EFE9DE;
+    --bg-pressed: #ECE5D8;
+    --bg-disabled: #E8E2D8;
+    --bg-elevated: #FCFAF6;
+
+    /* Text Hierarchy */
+    --text-primary: #2A2620;
+    --text-secondary: #4A453B;
+    --text-tertiary: #6B6458;
+    --text-muted: #8B8478;
+    --text-disabled: #A8A298;
+    --text-on-dark: #FAF6F0;
+    --text-on-color: #FFFFFF;
+
+    /* Brand Colors - Green theme for vendors */
+    --vendor-primary: #10B981;
+    --vendor-primary-dark: #059669;
+    --vendor-primary-light: #34D399;
+    --vendor-primary-pale: #D1FAE5;
+
+    /* Status Colors */
+    --status-success: #10B981;
+    --status-warning: #F59E0B;
+    --status-error: #EF4444;
+    --status-info: #3B82F6;
+
+    /* Neumorphic Shadows */
+    --neuro-bg: #E0E5EC;
+    --neuro-light: #E8EDF4;
+    --neuro-dark: #A3B1C6;
+
+    /* Shadow System */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.08);
+
+    /* Card Shadows */
+    --card-shadow-normal: inset 5px 5px 10px #B8BEC7, inset -5px -5px 10px #FFFFFF;
+    --card-shadow-hover: inset 8px 8px 15px #B8BEC7, inset -8px -8px 15px #FFFFFF;
+
+    /* Raised Shadows */
+    --shadow-raised: 9px 9px 16px #B8BEC7, -9px -9px 16px #FFFFFF;
+    --shadow-raised-subtle: 5px 5px 10px #B8BEC7, -5px -5px 10px #FFFFFF;
+
+    /* Spacing */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 350ms ease;
+}

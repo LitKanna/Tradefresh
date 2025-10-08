@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0",
+  "name": "Auto Spawn Design Agents",
+  "description": "Automatically spawns design agents in parallel for any design task",
+  "enabled": true,
+
+  "triggers": {
+    "keywords": {
+      "design": ["design", "ui", "ux", "layout", "style", "component", "widget", "dashboard", "interface"],
+      "action": "spawn_design_team"
+    },
+
+    "files": {
+      "blade_files": {
+        "pattern": "*.blade.php",
+        "action": "spawn_frontend_team"
+      },
+      "css_files": {
+        "pattern": "*.css",
+        "action": "spawn_ui_team"
+      },
+      "livewire_files": {
+        "pattern": "*/Livewire/*.php",
+        "action": "spawn_implementation_team"
+      }
+    }
+  },
+
+  "spawn_configurations": {
+    "spawn_design_team": {
+      "agents": [
+        { "type": "ui-architect", "count": 2 },
+        { "type": "ux-flow-engineer", "count": 1 },
+        { "type": "master-implementation-executor", "count": 2 }
+      ],
+      "parallel": true,
+      "immediate": true
+    },
+
+    "spawn_frontend_team": {
+      "agents": [
+        { "type": "ui-architect", "count": 1 },
+        { "type": "master-implementation-executor", "count": 2 }
+      ],
+      "parallel": true,
+      "immediate": true
+    },
+
+    "spawn_ui_team": {
+      "agents": [
+        { "type": "ui-architect", "count": 2 }
+      ],
+      "parallel": true,
+      "immediate": true
+    },
+
+    "spawn_implementation_team": {
+      "agents": [
+        { "type": "master-implementation-executor", "count": 3 }
+      ],
+      "parallel": true,
+      "immediate": true
+    }
+  },
+
+  "default_behavior": {
+    "always_parallel": true,
+    "min_agents": 3,
+    "spawn_on_request": true,
+    "no_sequential": true
+  }
+}

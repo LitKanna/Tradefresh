@@ -1,0 +1,53 @@
+/* Modern Design System */
+:root {
+    /* Colors */
+    --color-primary: #10b981;
+    --color-secondary: #374151;
+    --color-background: #f9fafb;
+    --color-surface: #ffffff;
+    --color-border: #e5e7eb;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+
+    /* Typography */
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+    /* Borders */
+    --border-radius: 8px;
+}
+
+.modern-card {
+    background: var(--color-surface);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-lg);
+}
+
+.modern-input {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: var(--font-size-base);
+    transition: all 0.2s;
+}
+
+.modern-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}

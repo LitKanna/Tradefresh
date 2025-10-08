@@ -1,0 +1,183 @@
+{
+  "version": "1.0.0",
+  "name": "Design Development Workflow",
+  "description": "Rapid parallel design development for vendor dashboard",
+  "created": "2025-01-20",
+
+  "workflow_configuration": {
+    "execution_mode": "aggressive_parallel",
+    "auto_spawn": true,
+    "min_agents": 4,
+    "max_agents": 6,
+    "focus": "design_implementation"
+  },
+
+  "design_workflows": {
+    "rapid_ui_development": {
+      "name": "Rapid UI Development",
+      "trigger_keywords": ["design", "ui", "layout", "component", "style", "dashboard"],
+      "parallel_agents": [
+        {
+          "agent": "ui-architect",
+          "instances": 2,
+          "tasks": [
+            "Create component designs",
+            "Build layout systems",
+            "Design interactions"
+          ]
+        },
+        {
+          "agent": "ux-flow-engineer",
+          "instances": 1,
+          "tasks": [
+            "Map user flows",
+            "Design interactions",
+            "Create user journeys"
+          ]
+        },
+        {
+          "agent": "master-implementation-executor",
+          "instances": 2,
+          "tasks": [
+            "Implement components",
+            "Build Livewire components",
+            "Create blade templates"
+          ]
+        },
+        {
+          "agent": "critical-systems-analyst",
+          "instances": 1,
+          "tasks": [
+            "Validate design patterns",
+            "Check performance",
+            "Review architecture"
+          ]
+        }
+      ]
+    },
+
+    "component_library_build": {
+      "name": "Component Library Builder",
+      "trigger_keywords": ["component", "widget", "card", "button", "form"],
+      "parallel_agents": [
+        {
+          "agent": "ui-architect",
+          "task": "Design component specifications"
+        },
+        {
+          "agent": "master-implementation-executor",
+          "task": "Build component implementation"
+        },
+        {
+          "agent": "test-architect",
+          "task": "Create component tests"
+        }
+      ]
+    },
+
+    "dashboard_canvas": {
+      "name": "Dashboard Canvas Designer",
+      "trigger_keywords": ["canvas", "dashboard", "vendor", "layout"],
+      "parallel_agents": [
+        {
+          "agent": "ui-architect",
+          "task": "Design dashboard sections"
+        },
+        {
+          "agent": "ux-flow-engineer",
+          "task": "Create interaction patterns"
+        },
+        {
+          "agent": "master-implementation-executor",
+          "task": "Build dashboard components"
+        },
+        {
+          "agent": "data-architect",
+          "task": "Design data structure for widgets"
+        }
+      ]
+    }
+  },
+
+  "vendor_dashboard_specific": {
+    "sections": [
+      {
+        "name": "header",
+        "components": ["logo", "navigation", "user_menu", "notifications"],
+        "agents": ["ui-architect", "master-implementation-executor"]
+      },
+      {
+        "name": "stats_widgets",
+        "components": ["sales_card", "orders_card", "products_card", "revenue_card"],
+        "agents": ["ui-architect", "ux-flow-engineer", "master-implementation-executor"]
+      },
+      {
+        "name": "main_content",
+        "components": ["product_grid", "order_list", "rfq_panel", "analytics_charts"],
+        "agents": ["ui-architect", "data-architect", "master-implementation-executor"]
+      },
+      {
+        "name": "sidebar",
+        "components": ["quick_actions", "recent_activity", "calendar", "messages"],
+        "agents": ["ui-architect", "ux-flow-engineer"]
+      }
+    ]
+  },
+
+  "parallel_execution_rules": {
+    "design_tasks": {
+      "always_parallel": true,
+      "spawn_strategy": "immediate",
+      "wait_for_none": true,
+      "aggregate_results": "async"
+    },
+
+    "implementation_tasks": {
+      "parallel_after_design": true,
+      "batch_size": 3,
+      "sync_points": ["after_components", "after_layout", "after_interactions"]
+    }
+  },
+
+  "speed_optimizations": {
+    "caching": {
+      "enabled": true,
+      "cache_designs": true,
+      "reuse_components": true
+    },
+
+    "shortcuts": {
+      "skip_analysis_for_ui": true,
+      "direct_implementation": true,
+      "minimal_validation": true
+    },
+
+    "parallel_strategies": {
+      "split_by_component": true,
+      "split_by_section": true,
+      "independent_development": true
+    }
+  },
+
+  "command_shortcuts": {
+    "/design": "Launch parallel design workflow",
+    "/canvas": "Start dashboard canvas development",
+    "/component": "Build new component in parallel",
+    "/implement": "Immediate parallel implementation",
+    "/style": "Apply styling system"
+  },
+
+  "auto_triggers": {
+    "on_file_save": {
+      "blade_files": ["validate_syntax", "update_preview"],
+      "css_files": ["apply_styles", "refresh_view"],
+      "livewire_files": ["compile", "hot_reload"]
+    },
+
+    "on_request": {
+      "design_request": "spawn_all_design_agents",
+      "build_request": "spawn_implementation_team",
+      "style_request": "spawn_ui_team"
+    }
+  }
+}

@@ -1,0 +1,115 @@
+/* Perfect Right Edge Alignment Fix */
+
+/* Container wrapper to enforce consistent width */
+.dashboard-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--neuro-bg);
+}
+
+/* Header Icons - Fixed positioning with exact alignment */
+.floating-icons {
+    position: fixed !important;
+    top: 14px !important;
+    left: 14px !important;
+    right: 14px !important;
+    width: calc(100% - 28px) !important;
+    max-width: calc(100vw - 28px) !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 12px !important;
+    z-index: 100 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Dashboard Grid - Must match header positioning */
+.dashboard-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 380px !important;
+    grid-template-rows: 100px 1fr !important;
+    gap: 14px !important;
+    width: calc(100% - 28px) !important;
+    margin: 0 14px !important;
+    padding-top: 72px !important;
+    padding-bottom: 14px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box !important;
+    height: 100vh !important;
+}
+
+/* RFQ Section - Force alignment with grid edge */
+.rfq-section {
+    grid-column: 2 !important;
+    grid-row: 1 / -1 !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 380px !important;
+}
+
+/* Stats Section - Ensure proper left alignment */
+.stats-section {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Inventory Section - Proper left alignment */
+.inventory-section {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Ensure the RFQ panel and header icons share the same right boundary */
+@media screen and (min-width: 768px) {
+    .dashboard-container {
+        max-width: 100%;
+    }
+
+    /* Create visual alignment guides (remove in production) */
+    .floating-icons::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: transparent;
+        pointer-events: none;
+    }
+
+    .rfq-section::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: transparent;
+        pointer-events: none;
+    }
+}
+
+/* Remove any default margins/paddings that might interfere */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Ensure consistent box model */
+.dashboard-grid > * {
+    box-sizing: border-box;
+}

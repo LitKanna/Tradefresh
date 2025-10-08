@@ -1,0 +1,377 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Vendor;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+
+class VendorSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $vendors = [
+            // Fresh Produce Vendor
+            [
+                'business_name' => 'Fresh Farms Produce Co',
+                'contact_name' => 'John Smith',
+                'email' => 'freshproduce@vendor.com',
+                'password' => Hash::make('vendor123'),
+                'phone' => '0412345678',
+                'abn' => '12345678901',
+                'business_type' => 'company',
+                'vendor_type' => 'grower',
+                'address' => '123 Market Street',
+                'suburb' => 'Flemington',
+                'state' => 'NSW',
+                'postcode' => '2140',
+                'country' => 'Australia',
+                'website' => 'www.freshfarms.com.au',
+                'description' => 'Premium quality fresh fruits and vegetables direct from our farms. Specializing in seasonal produce with daily deliveries.',
+                'status' => 'active',
+                'verification_status' => 'verified',
+                'subscription_plan' => 'professional',
+                'subscription_expires_at' => now()->addYear(),
+                'commission_rate' => 8.5,
+                'payment_terms' => 'net_30',
+                'minimum_order_value' => 100.00,
+                'delivery_radius' => 50,
+                'delivery_fee' => 15.00,
+                'free_delivery_threshold' => 500.00,
+                'rating' => 4.7,
+                'total_reviews' => 234,
+                'total_sales' => 1250000,
+                'joined_at' => now()->subYears(2),
+                'approved_at' => now()->subYears(2),
+                'operating_hours' => json_encode([
+                    'monday' => ['open' => '04:00', 'close' => '14:00'],
+                    'tuesday' => ['open' => '04:00', 'close' => '14:00'],
+                    'wednesday' => ['open' => '04:00', 'close' => '14:00'],
+                    'thursday' => ['open' => '04:00', 'close' => '14:00'],
+                    'friday' => ['open' => '04:00', 'close' => '14:00'],
+                    'saturday' => ['open' => '05:00', 'close' => '12:00'],
+                    'sunday' => 'closed'
+                ])
+            ],
+            // Meat Supplier
+            [
+                'business_name' => 'Quality Meats Sydney',
+                'contact_name' => 'Michael Brown',
+                'email' => 'qualitymeats@vendor.com',
+                'password' => Hash::make('vendor123'),
+                'phone' => '0423456789',
+                'abn' => '23456789012',
+                'business_type' => 'company',
+                'vendor_type' => 'wholesaler',
+                'address' => '456 Butcher Lane',
+                'suburb' => 'Homebush',
+                'state' => 'NSW',
+                'postcode' => '2140',
+                'country' => 'Australia',
+                'website' => 'www.qualitymeats.com.au',
+                'description' => 'Premium Australian beef, lamb, pork and poultry. HACCP certified facility with full traceability.',
+                'status' => 'active',
+                'verification_status' => 'verified',
+                'subscription_plan' => 'enterprise',
+                'subscription_expires_at' => now()->addYear(),
+                'commission_rate' => 7.5,
+                'payment_terms' => 'net_14',
+                'minimum_order_value' => 200.00,
+                'delivery_radius' => 40,
+                'delivery_fee' => 20.00,
+                'free_delivery_threshold' => 750.00,
+                'rating' => 4.8,
+                'total_reviews' => 189,
+                'total_sales' => 2150000,
+                'joined_at' => now()->subYears(3),
+                'approved_at' => now()->subYears(3),
+                'operating_hours' => json_encode([
+                    'monday' => ['open' => '03:00', 'close' => '15:00'],
+                    'tuesday' => ['open' => '03:00', 'close' => '15:00'],
+                    'wednesday' => ['open' => '03:00', 'close' => '15:00'],
+                    'thursday' => ['open' => '03:00', 'close' => '15:00'],
+                    'friday' => ['open' => '03:00', 'close' => '15:00'],
+                    'saturday' => ['open' => '04:00', 'close' => '13:00'],
+                    'sunday' => 'closed'
+                ])
+            ],
+            // Seafood Vendor
+            [
+                'business_name' => 'Ocean Fresh Seafood',
+                'contact_name' => 'David Wilson',
+                'email' => 'oceanfresh@vendor.com',
+                'password' => Hash::make('vendor123'),
+                'phone' => '0434567890',
+                'abn' => '34567890123',
+                'business_type' => 'company',
+                'vendor_type' => 'importer',
+                'address' => '789 Wharf Road',
+                'suburb' => 'Pyrmont',
+                'state' => 'NSW',
+                'postcode' => '2009',
+                'country' => 'Australia',
+                'website' => 'www.oceanfresh.com.au',
+                'description' => 'Daily fresh seafood from Sydney Fish Markets. Local and imported premium seafood.',
+                'status' => 'active',
+                'verification_status' => 'verified',
+                'subscription_plan' => 'professional',
+                'subscription_expires_at' => now()->addMonths(9),
+                'commission_rate' => 9.0,
+                'payment_terms' => 'net_7',
+                'minimum_order_value' => 150.00,
+                'delivery_radius' => 30,
+                'delivery_fee' => 25.00,
+                'free_delivery_threshold' => 600.00,
+                'rating' => 4.6,
+                'total_reviews' => 156,
+                'total_sales' => 980000,
+                'joined_at' => now()->subMonths(18),
+                'approved_at' => now()->subMonths(18),
+                'operating_hours' => json_encode([
+                    'monday' => ['open' => '02:00', 'close' => '14:00'],
+                    'tuesday' => ['open' => '02:00', 'close' => '14:00'],
+                    'wednesday' => ['open' => '02:00', 'close' => '14:00'],
+                    'thursday' => ['open' => '02:00', 'close' => '14:00'],
+                    'friday' => ['open' => '02:00', 'close' => '14:00'],
+                    'saturday' => ['open' => '03:00', 'close' => '12:00'],
+                    'sunday' => 'closed'
+                ])
+            ],
+            // Dairy Distributor
+            [
+                'business_name' => 'Dairy Direct Distribution',
+                'contact_name' => 'Sarah Johnson',
+                'email' => 'dairydirect@vendor.com',
+                'password' => Hash::make('vendor123'),
+                'phone' => '0445678901',
+                'abn' => '45678901234',
+                'business_type' => 'company',
+                'vendor_type' => 'wholesaler',
+                'address' => '321 Milk Way',
+                'suburb' => 'Lidcombe',
+                'state' => 'NSW',
+                'postcode' => '2141',
+                'country' => 'Australia',
+                'website' => 'www.dairydirect.com.au',
+                'description' => 'Full range of dairy products including milk, cheese, yogurt, and eggs. Temperature controlled delivery.',
+                'status' => 'active',
+                'verification_status' => 'verified',
+                'subscription_plan' => 'professional',
+                'subscription_expires_at' => now()->addYear(),
+                'commission_rate' => 7.0,
+                'payment_terms' => 'net_30',
+                'minimum_order_value' => 100.00,
+                'delivery_radius' => 60,
+                'delivery_fee' => 15.00,
+                'free_delivery_threshold' => 400.00,
+                'rating' => 4.5,
+                'total_reviews' => 198,
+                'total_sales' => 1560000,
+                'joined_at' => now()->subYears(2)->subMonths(3),
+                'approved_at' => now()->subYears(2)->subMonths(3),
+                'operating_hours' => json_encode([
+                    'monday' => ['open' => '05:00', 'close' => '16:00'],
+                    'tuesday' => ['open' => '05:00', 'close' => '16:00'],
+                    'wednesday' => ['open' => '05:00', 'close' => '16:00'],
+                    'thursday' => ['open' => '05:00', 'close' => '16:00'],
+                    'friday' => ['open' => '05:00', 'close' => '16:00'],
+                    'saturday' => ['open' => '06:00', 'close' => '14:00'],
+                    'sunday' => ['open' => '06:00', 'close' => '12:00']
+                ])
+            ],
+            // Bakery Supplier
+            [
+                'business_name' => 'Artisan Bakery Wholesale',
+                'contact_name' => 'Pierre Dubois',
+                'email' => 'artisanbakery@vendor.com',
+                'password' => Hash::make('vendor123'),
+                'phone' => '0456789012',
+                'abn' => '56789012345',
+                'business_type' => 'company',
+                'vendor_type' => 'processor',
+                'address' => '567 Baker Street',
+                'suburb' => 'Marrickville',
+                'state' => 'NSW',
+                'postcode' => '2204',
+                'country' => 'Australia',
+                'website' => 'www.artisanbakery.com.au',
+                'description' => 'Fresh daily artisan breads, pastries, and specialty baked goods. Custom orders available.',
+                'status' => 'active',
+                'verification_status' => 'verified',
+                'subscription_plan' => 'professional',
+                'subscription_expires_at' => now()->addMonths(10),
+                'commission_rate' => 8.0,
+                'payment_terms' => 'net_14',
+                'minimum_order_value' => 80.00,
+                'delivery_radius' => 35,
+                'delivery_fee' => 12.00,
+                'free_delivery_threshold' => 300.00,
+                'rating' => 4.9,
+                'total_reviews' => 267,
+                'total_sales' => 890000,
+                'joined_at' => now()->subMonths(14),
+                'approved_at' => now()->subMonths(14),
+                'operating_hours' => json_encode([
+                    'monday' => ['open' => '04:00', 'close' => '15:00'],
+                    'tuesday' => ['open' => '04:00', 'close' => '15:00'],
+                    'wednesday' => ['open' => '04:00', 'close' => '15:00'],
+                    'thursday' => ['open' => '04:00', 'close' => '15:00'],
+                    'friday' => ['open' => '04:00', 'close' => '15:00'],
+                    'saturday' => ['open' => '05:00', 'close' => '13:00'],
+                    'sunday' => ['open' => '05:00', 'close' => '12:00']
+                ])
+            ],
+            // Organic Specialist
+            [
+                'business_name' => 'Green Earth Organics',
+                'contact_name' => 'Emma Green',
+                'email' => 'greenearth@vendor.com',
+                'password' => Hash::make('vendor123'),
+                'phone' => '0467890123',
+                'abn' => '67890123456',
+                'business_type' => 'company',
+                'vendor_type' => 'grower',
+                'address' => '890 Organic Way',
+                'suburb' => 'Camden',
+                'state' => 'NSW',
+                'postcode' => '2570',
+                'country' => 'Australia',
+                'website' => 'www.greenearthorganics.com.au',
+                'description' => 'Certified organic produce, dairy, and dry goods. Farm to table within 24 hours.',
+                'status' => 'active',
+                'verification_status' => 'verified',
+                'subscription_plan' => 'basic',
+                'subscription_expires_at' => now()->addMonths(6),
+                'commission_rate' => 10.0,
+                'payment_terms' => 'prepaid',
+                'minimum_order_value' => 150.00,
+                'delivery_radius' => 45,
+                'delivery_fee' => 18.00,
+                'free_delivery_threshold' => 500.00,
+                'rating' => 4.7,
+                'total_reviews' => 145,
+                'total_sales' => 650000,
+                'joined_at' => now()->subMonths(8),
+                'approved_at' => now()->subMonths(8),
+                'operating_hours' => json_encode([
+                    'monday' => ['open' => '06:00', 'close' => '14:00'],
+                    'tuesday' => ['open' => '06:00', 'close' => '14:00'],
+                    'wednesday' => ['open' => '06:00', 'close' => '14:00'],
+                    'thursday' => ['open' => '06:00', 'close' => '14:00'],
+                    'friday' => ['open' => '06:00', 'close' => '14:00'],
+                    'saturday' => ['open' => '07:00', 'close' => '12:00'],
+                    'sunday' => 'closed'
+                ])
+            ],
+            // Asian Groceries
+            [
+                'business_name' => 'Asia Pacific Trading',
+                'contact_name' => 'Wei Chen',
+                'email' => 'asiapacific@vendor.com',
+                'password' => Hash::make('vendor123'),
+                'phone' => '0478901234',
+                'abn' => '78901234567',
+                'business_type' => 'company',
+                'vendor_type' => 'importer',
+                'address' => '234 Import Drive',
+                'suburb' => 'Cabramatta',
+                'state' => 'NSW',
+                'postcode' => '2166',
+                'country' => 'Australia',
+                'website' => 'www.asiapacifictrading.com.au',
+                'description' => 'Specialist Asian groceries, vegetables, sauces and ingredients. Direct imports from Asia.',
+                'status' => 'active',
+                'verification_status' => 'verified',
+                'subscription_plan' => 'professional',
+                'subscription_expires_at' => now()->addMonths(11),
+                'commission_rate' => 9.5,
+                'payment_terms' => 'net_30',
+                'minimum_order_value' => 120.00,
+                'delivery_radius' => 55,
+                'delivery_fee' => 16.00,
+                'free_delivery_threshold' => 450.00,
+                'rating' => 4.4,
+                'total_reviews' => 178,
+                'total_sales' => 1120000,
+                'joined_at' => now()->subMonths(20),
+                'approved_at' => now()->subMonths(20),
+                'operating_hours' => json_encode([
+                    'monday' => ['open' => '05:00', 'close' => '17:00'],
+                    'tuesday' => ['open' => '05:00', 'close' => '17:00'],
+                    'wednesday' => ['open' => '05:00', 'close' => '17:00'],
+                    'thursday' => ['open' => '05:00', 'close' => '17:00'],
+                    'friday' => ['open' => '05:00', 'close' => '17:00'],
+                    'saturday' => ['open' => '06:00', 'close' => '15:00'],
+                    'sunday' => ['open' => '07:00', 'close' => '13:00']
+                ])
+            ],
+            // Frozen Foods
+            [
+                'business_name' => 'Frozen Direct Wholesale',
+                'contact_name' => 'Robert Taylor',
+                'email' => 'frozendirect@vendor.com',
+                'password' => Hash::make('vendor123'),
+                'phone' => '0489012345',
+                'abn' => '89012345678',
+                'business_type' => 'company',
+                'vendor_type' => 'wholesaler',
+                'address' => '678 Cold Storage Road',
+                'suburb' => 'Wetherill Park',
+                'state' => 'NSW',
+                'postcode' => '2164',
+                'country' => 'Australia',
+                'website' => 'www.frozendirect.com.au',
+                'description' => 'Complete range of frozen foods including vegetables, seafood, meats, and ready meals.',
+                'status' => 'active',
+                'verification_status' => 'verified',
+                'subscription_plan' => 'professional',
+                'subscription_expires_at' => now()->addMonths(7),
+                'commission_rate' => 8.5,
+                'payment_terms' => 'net_14',
+                'minimum_order_value' => 200.00,
+                'delivery_radius' => 70,
+                'delivery_fee' => 22.00,
+                'free_delivery_threshold' => 800.00,
+                'rating' => 4.3,
+                'total_reviews' => 132,
+                'total_sales' => 1780000,
+                'joined_at' => now()->subYears(1)->subMonths(4),
+                'approved_at' => now()->subYears(1)->subMonths(4),
+                'operating_hours' => json_encode([
+                    'monday' => ['open' => '24hours'],
+                    'tuesday' => ['open' => '24hours'],
+                    'wednesday' => ['open' => '24hours'],
+                    'thursday' => ['open' => '24hours'],
+                    'friday' => ['open' => '24hours'],
+                    'saturday' => ['open' => '06:00', 'close' => '18:00'],
+                    'sunday' => ['open' => '08:00', 'close' => '16:00']
+                ])
+            ]
+        ];
+
+        foreach ($vendors as $vendor) {
+            Vendor::updateOrCreate(
+                ['email' => $vendor['email']],
+                array_merge($vendor, [
+                    'email_verified_at' => now(),
+                    'settings' => json_encode([
+                        'auto_accept_orders' => false,
+                        'notification_email' => true,
+                        'notification_sms' => true,
+                        'order_confirmation_required' => true
+                    ]),
+                    'metadata' => json_encode([
+                        'established_year' => rand(1990, 2020),
+                        'certifications' => ['HACCP', 'ISO9001', 'Organic Certified'],
+                        'specialties' => ['Bulk Orders', 'Same Day Delivery', 'Custom Orders']
+                    ])
+                ])
+            );
+        }
+
+        $this->command->info('Vendors seeded successfully.');
+    }
+}

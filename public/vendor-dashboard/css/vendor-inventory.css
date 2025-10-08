@@ -1,0 +1,556 @@
+/* ============================================
+   VENDOR DASHBOARD - INVENTORY & RFQ STYLING
+   Version: 1.0
+   Updated: 2025-09-23
+   ============================================ */
+
+/* ============================================
+   INVENTORY SECTION
+   ============================================ */
+.product-grid-section {
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 24px;
+    margin-top: 20px;
+    box-shadow:
+        0 1px 3px 0 rgba(0, 0, 0, 0.1),
+        0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.section-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+.section-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.search-input {
+    padding: 8px 12px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 200px;
+    background: #F9FAFB;
+    transition: all 0.2s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #10B981;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.btn-primary {
+    padding: 8px 16px;
+    background: #10B981;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary:hover {
+    background: #059669;
+    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+}
+
+/* Inventory Grid */
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+}
+
+.product-card {
+    background: #F9FAFB;
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid #E5E7EB;
+    transition: all 0.2s;
+}
+
+.product-card:hover {
+    border-color: #10B981;
+    background: #FFFFFF;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.product-header h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+}
+
+.stock-badge {
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.stock-badge.in-stock {
+    background: #D1FAE5;
+    color: #065F46;
+}
+
+.stock-badge.low-stock {
+    background: #FED7AA;
+    color: #92400E;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #6B7280;
+}
+
+.detail-row strong {
+    color: #111827;
+    font-weight: 600;
+}
+
+/* ============================================
+   RFQ PANEL - CUSTOMER REQUESTS
+   ============================================ */
+.rfq-panel {
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 24px;
+    margin-top: 20px;
+    box-shadow:
+        0 1px 3px 0 rgba(0, 0, 0, 0.1),
+        0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #E5E7EB;
+}
+
+.panel-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.panel-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.new-badge {
+    background: #10B981;
+    color: #FFFFFF;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    position: relative;
+}
+
+.new-badge.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+
+.refresh-btn {
+    background: #F3F4F6;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.refresh-btn:hover {
+    background: #E5E7EB;
+    transform: rotate(90deg);
+}
+
+.refresh-icon {
+    color: #6B7280;
+}
+
+/* RFQ List */
+.rfq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+/* Custom Scrollbar */
+.rfq-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.rfq-list::-webkit-scrollbar-track {
+    background: #F3F4F6;
+    border-radius: 2px;
+}
+
+.rfq-list::-webkit-scrollbar-thumb {
+    background: #D1D5DB;
+    border-radius: 2px;
+}
+
+.rfq-list::-webkit-scrollbar-thumb:hover {
+    background: #9CA3AF;
+}
+
+/* RFQ Cards */
+.rfq-card {
+    background: #F9FAFB;
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid #E5E7EB;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.rfq-card.new-rfq {
+    border-color: #10B981;
+    background: linear-gradient(135deg, #F0FDF4 0%, #FFFFFF 100%);
+}
+
+.rfq-card.new-rfq::before {
+    content: 'NEW';
+    position: absolute;
+    top: 8px;
+    right: -20px;
+    background: #10B981;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 30px;
+    transform: rotate(45deg);
+}
+
+.rfq-card:hover {
+    border-color: #10B981;
+    background: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px -4px rgba(16, 185, 129, 0.2);
+}
+
+.rfq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.buyer-info h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 4px 0;
+}
+
+.time-ago {
+    font-size: 12px;
+    color: #6B7280;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.clock-icon {
+    opacity: 0.6;
+}
+
+.delivery-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 12px 0;
+    padding: 8px;
+    background: #F9FAFB;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #4B5563;
+}
+
+.truck-icon {
+    color: #10B981;
+}
+
+.urgency-badge {
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.urgency-badge.high {
+    background: #FEE2E2;
+    color: #991B1B;
+}
+
+.urgency-badge.medium {
+    background: #FEF3C7;
+    color: #92400E;
+}
+
+.urgency-badge.low {
+    background: #DBEAFE;
+    color: #1E40AF;
+}
+
+.rfq-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 16px 0;
+    padding: 12px;
+    background: #FAFAFA;
+    border-radius: 8px;
+}
+
+.items-header {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6B7280;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #4B5563;
+    padding: 6px 0;
+    border-bottom: 1px dashed #E5E7EB;
+}
+
+.item-row:last-child {
+    border-bottom: none;
+}
+
+.item-name {
+    flex: 1;
+    font-weight: 500;
+}
+
+.item-qty {
+    color: #111827;
+    font-weight: 600;
+    background: #10B981;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.item-note {
+    font-size: 11px;
+    color: #9CA3AF;
+    font-style: italic;
+    padding-left: 12px;
+    margin-top: -4px;
+}
+
+.special-instructions {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px;
+    background: #FEF3C7;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #92400E;
+    margin: 12px 0;
+    line-height: 1.4;
+}
+
+.info-icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.rfq-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.quote-btn {
+    flex: 1;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.quote-btn.primary {
+    background: #10B981;
+    color: #FFFFFF;
+}
+
+.quote-btn.primary:hover {
+    background: #059669;
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+    transform: translateY(-1px);
+}
+
+.quote-btn.secondary {
+    background: #F3F4F6;
+    color: #6B7280;
+}
+
+.quote-btn.secondary:hover {
+    background: #E5E7EB;
+    color: #374151;
+}
+
+.send-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Empty States */
+.empty-state {
+    text-align: center;
+    padding: 48px 32px;
+    color: #6B7280;
+}
+
+.empty-icon {
+    margin: 0 auto 16px;
+    opacity: 0.3;
+}
+
+.empty-state p {
+    font-size: 15px;
+    margin: 0 0 8px 0;
+    font-weight: 500;
+}
+
+.empty-state small {
+    font-size: 13px;
+    color: #9CA3AF;
+}
+
+.load-more {
+    text-align: center;
+    padding: 16px 0 8px;
+}
+
+.load-more-btn {
+    background: none;
+    border: 1px solid #E5E7EB;
+    color: #6B7280;
+    padding: 8px 24px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.load-more-btn:hover {
+    border-color: #10B981;
+    color: #10B981;
+    background: #F0FDF4;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1200px) {
+    .inventory-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .section-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .inventory-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rfq-list {
+        max-height: 400px;
+    }
+}

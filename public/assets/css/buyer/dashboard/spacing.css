@@ -1,0 +1,386 @@
+/* ============================================
+   SYDNEY MARKETS SPACING SYSTEM - ONE-PAGE OPTIMIZED
+   Compact, Efficient Spacing for Dashboard Density
+   ============================================ */
+
+:root {
+    /* BASE SPACING SCALE - Compact for one-page design */
+    --space-0: 0;
+    --space-px: 1px;
+    --space-0\.5: 0.125rem;  /* 2px */
+    --space-1: 0.25rem;      /* 4px */
+    --space-1\.5: 0.375rem;  /* 6px */
+    --space-2: 0.5rem;       /* 8px */
+    --space-2\.5: 0.625rem;  /* 10px */
+    --space-3: 0.75rem;      /* 12px */
+    --space-3\.5: 0.875rem;  /* 14px */
+    --space-4: 1rem;         /* 16px */
+    --space-5: 1.25rem;      /* 20px */
+    --space-6: 1.5rem;       /* 24px */
+    --space-7: 1.75rem;      /* 28px */
+    --space-8: 2rem;         /* 32px */
+    --space-9: 2.25rem;      /* 36px */
+    --space-10: 2.5rem;      /* 40px */
+    --space-11: 2.75rem;     /* 44px */
+    --space-12: 3rem;        /* 48px */
+    --space-14: 3.5rem;      /* 56px */
+    --space-16: 4rem;        /* 64px */
+    --space-20: 5rem;        /* 80px */
+    --space-24: 6rem;        /* 96px */
+
+    /* NEGATIVE SPACING - For overlapping elements */
+    --space-n1: -0.25rem;
+    --space-n2: -0.5rem;
+    --space-n3: -0.75rem;
+    --space-n4: -1rem;
+
+    /* DASHBOARD SPECIFIC SPACING */
+    --dashboard-padding: var(--space-3);           /* 12px */
+    --dashboard-gap: var(--space-3);               /* 12px */
+
+    /* STAT WIDGETS */
+    --stat-padding: var(--space-3);                /* 12px */
+    --stat-gap: var(--space-3);                    /* 12px */
+    --stat-icon-size: 42px;
+
+    /* MARKET DATA SECTION */
+    --market-padding: var(--space-3);              /* 12px */
+    --market-header-height: var(--space-10);       /* 40px */
+    --market-grid-gap: var(--space-2);             /* 8px */
+
+    /* PRODUCT GRID - 4x4 Display */
+    --product-grid-cols: 4;                        /* 4 columns - changed for 4x4 grid */
+    --product-grid-gap: var(--space-2);            /* 8px */
+    --product-card-padding: var(--space-3);        /* 12px */
+    --product-card-height: 85px;                   /* Fixed height */
+
+    /* VENDOR QUOTES PANEL */
+    --quotes-width: 380px;                         /* Fixed width */
+    --quotes-padding: var(--space-5);              /* 20px */
+    --quote-item-padding: var(--space-4);          /* 16px */
+    --quote-item-gap: var(--space-3);              /* 12px */
+
+    /* FORM ELEMENTS */
+    --input-padding-x: var(--space-3);             /* 12px */
+    --input-padding-y: var(--space-2);             /* 8px */
+    --button-padding-x: var(--space-4);            /* 16px */
+    --button-padding-y: var(--space-2);            /* 8px */
+
+    /* BORDER RADIUS */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-2xl: 24px;
+    --radius-full: 9999px;
+}
+
+/* ============================================
+   LAYOUT SPACING CLASSES
+   ============================================ */
+
+.container-tight {
+    padding: var(--space-2);
+    gap: var(--space-2);
+}
+
+.container-normal {
+    padding: var(--space-3);
+    gap: var(--space-3);
+}
+
+.container-relaxed {
+    padding: var(--space-4);
+    gap: var(--space-4);
+}
+
+/* ============================================
+   UTILITY CLASSES - Padding
+   ============================================ */
+
+.p-0 { padding: var(--space-0); }
+.p-0\.5 { padding: var(--space-0\.5); }
+.p-1 { padding: var(--space-1); }
+.p-2 { padding: var(--space-2); }
+.p-3 { padding: var(--space-3); }
+.p-4 { padding: var(--space-4); }
+.p-5 { padding: var(--space-5); }
+.p-6 { padding: var(--space-6); }
+.p-8 { padding: var(--space-8); }
+
+.px-0 { padding-left: var(--space-0); padding-right: var(--space-0); }
+.px-1 { padding-left: var(--space-1); padding-right: var(--space-1); }
+.px-2 { padding-left: var(--space-2); padding-right: var(--space-2); }
+.px-3 { padding-left: var(--space-3); padding-right: var(--space-3); }
+.px-4 { padding-left: var(--space-4); padding-right: var(--space-4); }
+
+.py-0 { padding-top: var(--space-0); padding-bottom: var(--space-0); }
+.py-1 { padding-top: var(--space-1); padding-bottom: var(--space-1); }
+.py-2 { padding-top: var(--space-2); padding-bottom: var(--space-2); }
+.py-3 { padding-top: var(--space-3); padding-bottom: var(--space-3); }
+.py-4 { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+
+.pt-0 { padding-top: var(--space-0); }
+.pt-1 { padding-top: var(--space-1); }
+.pt-2 { padding-top: var(--space-2); }
+.pt-3 { padding-top: var(--space-3); }
+.pt-4 { padding-top: var(--space-4); }
+
+.pr-0 { padding-right: var(--space-0); }
+.pr-1 { padding-right: var(--space-1); }
+.pr-2 { padding-right: var(--space-2); }
+.pr-3 { padding-right: var(--space-3); }
+.pr-4 { padding-right: var(--space-4); }
+
+.pb-0 { padding-bottom: var(--space-0); }
+.pb-1 { padding-bottom: var(--space-1); }
+.pb-2 { padding-bottom: var(--space-2); }
+.pb-3 { padding-bottom: var(--space-3); }
+.pb-4 { padding-bottom: var(--space-4); }
+
+.pl-0 { padding-left: var(--space-0); }
+.pl-1 { padding-left: var(--space-1); }
+.pl-2 { padding-left: var(--space-2); }
+.pl-3 { padding-left: var(--space-3); }
+.pl-4 { padding-left: var(--space-4); }
+
+/* ============================================
+   UTILITY CLASSES - Margin
+   ============================================ */
+
+.m-0 { margin: var(--space-0); }
+.m-1 { margin: var(--space-1); }
+.m-2 { margin: var(--space-2); }
+.m-3 { margin: var(--space-3); }
+.m-4 { margin: var(--space-4); }
+.m-auto { margin: auto; }
+
+.mx-0 { margin-left: var(--space-0); margin-right: var(--space-0); }
+.mx-1 { margin-left: var(--space-1); margin-right: var(--space-1); }
+.mx-2 { margin-left: var(--space-2); margin-right: var(--space-2); }
+.mx-3 { margin-left: var(--space-3); margin-right: var(--space-3); }
+.mx-4 { margin-left: var(--space-4); margin-right: var(--space-4); }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+.my-0 { margin-top: var(--space-0); margin-bottom: var(--space-0); }
+.my-1 { margin-top: var(--space-1); margin-bottom: var(--space-1); }
+.my-2 { margin-top: var(--space-2); margin-bottom: var(--space-2); }
+.my-3 { margin-top: var(--space-3); margin-bottom: var(--space-3); }
+.my-4 { margin-top: var(--space-4); margin-bottom: var(--space-4); }
+
+.mt-0 { margin-top: var(--space-0); }
+.mt-1 { margin-top: var(--space-1); }
+.mt-2 { margin-top: var(--space-2); }
+.mt-3 { margin-top: var(--space-3); }
+.mt-4 { margin-top: var(--space-4); }
+
+.mr-0 { margin-right: var(--space-0); }
+.mr-1 { margin-right: var(--space-1); }
+.mr-2 { margin-right: var(--space-2); }
+.mr-3 { margin-right: var(--space-3); }
+.mr-4 { margin-right: var(--space-4); }
+
+.mb-0 { margin-bottom: var(--space-0); }
+.mb-1 { margin-bottom: var(--space-1); }
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-3 { margin-bottom: var(--space-3); }
+.mb-4 { margin-bottom: var(--space-4); }
+
+.ml-0 { margin-left: var(--space-0); }
+.ml-1 { margin-left: var(--space-1); }
+.ml-2 { margin-left: var(--space-2); }
+.ml-3 { margin-left: var(--space-3); }
+.ml-4 { margin-left: var(--space-4); }
+
+/* ============================================
+   UTILITY CLASSES - Gap
+   ============================================ */
+
+.gap-0 { gap: var(--space-0); }
+.gap-0\.5 { gap: var(--space-0\.5); }
+.gap-1 { gap: var(--space-1); }
+.gap-2 { gap: var(--space-2); }
+.gap-3 { gap: var(--space-3); }
+.gap-4 { gap: var(--space-4); }
+.gap-5 { gap: var(--space-5); }
+.gap-6 { gap: var(--space-6); }
+.gap-8 { gap: var(--space-8); }
+
+/* Column and row gaps */
+.gap-x-1 { column-gap: var(--space-1); }
+.gap-x-2 { column-gap: var(--space-2); }
+.gap-x-3 { column-gap: var(--space-3); }
+.gap-x-4 { column-gap: var(--space-4); }
+
+.gap-y-1 { row-gap: var(--space-1); }
+.gap-y-2 { row-gap: var(--space-2); }
+.gap-y-3 { row-gap: var(--space-3); }
+.gap-y-4 { row-gap: var(--space-4); }
+
+/* ============================================
+   UTILITY CLASSES - Width & Height
+   ============================================ */
+
+.w-full { width: 100%; }
+.w-auto { width: auto; }
+.w-screen { width: 100vw; }
+.w-min { width: min-content; }
+.w-max { width: max-content; }
+.w-fit { width: fit-content; }
+
+.h-full { height: 100%; }
+.h-auto { height: auto; }
+.h-screen { height: 100vh; }
+.h-min { height: min-content; }
+.h-max { height: max-content; }
+.h-fit { height: fit-content; }
+
+/* Fixed sizes */
+.w-0 { width: 0; }
+.w-px { width: 1px; }
+.w-1 { width: var(--space-1); }
+.w-2 { width: var(--space-2); }
+.w-4 { width: var(--space-4); }
+.w-8 { width: var(--space-8); }
+.w-12 { width: var(--space-12); }
+.w-16 { width: var(--space-16); }
+
+.h-0 { height: 0; }
+.h-px { height: 1px; }
+.h-1 { height: var(--space-1); }
+.h-2 { height: var(--space-2); }
+.h-4 { height: var(--space-4); }
+.h-8 { height: var(--space-8); }
+.h-12 { height: var(--space-12); }
+.h-16 { height: var(--space-16); }
+
+/* ============================================
+   OVERFLOW UTILITIES
+   ============================================ */
+
+.overflow-auto { overflow: auto; }
+.overflow-hidden { overflow: hidden; }
+.overflow-visible { overflow: visible; }
+.overflow-scroll { overflow: scroll; }
+
+.overflow-x-auto { overflow-x: auto; }
+.overflow-x-hidden { overflow-x: hidden; }
+.overflow-y-auto { overflow-y: auto; }
+.overflow-y-hidden { overflow-y: hidden; }
+
+/* Hide scrollbars but keep functionality */
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* ============================================
+   FLEXBOX UTILITIES
+   ============================================ */
+
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+
+.flex-row { flex-direction: row; }
+.flex-col { flex-direction: column; }
+.flex-row-reverse { flex-direction: row-reverse; }
+.flex-col-reverse { flex-direction: column-reverse; }
+
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.justify-evenly { justify-content: space-evenly; }
+
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.items-center { align-items: center; }
+.items-baseline { align-items: baseline; }
+.items-stretch { align-items: stretch; }
+
+.flex-1 { flex: 1 1 0%; }
+.flex-auto { flex: 1 1 auto; }
+.flex-initial { flex: 0 1 auto; }
+.flex-none { flex: none; }
+
+/* ============================================
+   GRID UTILITIES
+   ============================================ */
+
+.grid { display: grid; }
+.inline-grid { display: inline-grid; }
+
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+
+.grid-rows-1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
+.grid-rows-2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
+.grid-rows-3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
+.grid-rows-4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
+
+/* ============================================
+   POSITION UTILITIES
+   ============================================ */
+
+.static { position: static; }
+.fixed { position: fixed; }
+.absolute { position: absolute; }
+.relative { position: relative; }
+.sticky { position: sticky; }
+
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.top-0 { top: 0; }
+.right-0 { right: 0; }
+.bottom-0 { bottom: 0; }
+.left-0 { left: 0; }
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Mobile - default styles apply */
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+    :root {
+        --dashboard-padding: var(--space-3);
+        --market-padding: var(--space-3);
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+    :root {
+        --dashboard-padding: var(--space-4);
+        --market-padding: var(--space-3);
+    }
+}
+
+/* Large Desktop */
+@media screen and (min-width: 1536px) {
+    :root {
+        --dashboard-padding: var(--space-5);
+        --market-padding: var(--space-4);
+        --product-card-height: 90px;
+    }
+}
+
+/* Ultra Wide */
+@media screen and (min-width: 1920px) {
+    :root {
+        --product-grid-cols: 4;
+        --quotes-width: 400px;
+    }
+}

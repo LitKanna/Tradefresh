@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Marut/**)",
+      "Bash(composer:*)",
+      "Bash(php artisan:*)",
+      "Bash(cat:*)"
+    ]
+  },
+  "outputStyle": "laravel-marketplace-dev",
+  "spinnerTipsEnabled": false
+}

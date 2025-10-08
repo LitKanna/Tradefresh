@@ -1,0 +1,100 @@
+{
+  "version": "4.0.0",
+  "name": "Integrated Claude Code Workflows + Custom Design System",
+  "description": "Combines GitHub workflows with custom parallel design agents",
+  "updated": "2025-01-20",
+
+  "execution_mode": {
+    "default": "parallel_design",
+    "force_parallel": true,
+    "min_agents": 4,
+    "max_agents": 6,
+    "auto_spawn": true
+  },
+
+  "active_configurations": [
+    "integrated-design-system.json",
+    "auto-spawn-design.json",
+    "vendor-dashboard-design-principles.md"
+  ],
+
+  "workflows": {
+    "claude_code_workflows": {
+      "design_review": {
+        "enabled": true,
+        "agent": "workflows/design-review-agent.md",
+        "slash_command": "workflows/design-review-slash-command.md",
+        "principles": "workflows/design-principles-example.md"
+      },
+      "code_review": {
+        "enabled": false
+      },
+      "security_review": {
+        "enabled": false
+      }
+    },
+
+    "custom_workflows": {
+      "rapid_design": "workflows/design-development-workflow.json",
+      "design_team": "agents/design-team.json"
+    }
+  },
+
+  "parallel_agents": {
+    "design_team": [
+      {
+        "agent": "ui-architect",
+        "instances": 2,
+        "role": "UI Design & Components"
+      },
+      {
+        "agent": "ux-flow-engineer",
+        "instances": 1,
+        "role": "User Experience & Flows"
+      },
+      {
+        "agent": "master-implementation-executor",
+        "instances": 2,
+        "role": "Code Implementation"
+      },
+      {
+        "agent": "design-review",
+        "instances": 1,
+        "role": "Quality & Standards Review"
+      }
+    ]
+  },
+
+  "slash_commands": {
+    "/design": {
+      "action": "spawn_all_design_agents",
+      "parallel": true
+    },
+    "/design-review": {
+      "action": "run_design_review_workflow",
+      "agent": "design-review"
+    },
+    "/canvas": {
+      "action": "vendor_dashboard_canvas",
+      "agents": ["ui-architect", "master-implementation-executor"]
+    },
+    "/component": {
+      "action": "build_component",
+      "agents": ["ui-architect", "master-implementation-executor", "design-review"]
+    }
+  },
+
+  "vendor_dashboard": {
+    "url": "http://localhost:8000/vendor/dashboard",
+    "design_system": "vendor-dashboard-design-principles.md",
+    "color_palette": "assets/css/vendor/dashboard/colors.css",
+    "status": "canvas_ready"
+  },
+
+  "performance": {
+    "parallel_execution": "aggressive",
+    "cache_enabled": true,
+    "hot_reload": true,
+    "skip_unnecessary_checks": true
+  }
+}

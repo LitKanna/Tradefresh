@@ -1,0 +1,670 @@
+/* ============================================
+   VENDOR RFQ PANEL - NEUMORPHIC DESIGN SYSTEM
+   Complete neumorphic styling for vendor RFQ panel
+   ============================================ */
+
+/* Base Variables for Neumorphic Design */
+:root {
+    --neuro-bg: #E8EBF0;
+    --neuro-shadow-light: rgba(255, 255, 255, 0.9);
+    --neuro-shadow-dark: rgba(184, 190, 199, 0.4);
+    --neuro-shadow-dark-strong: #B8BEC7;
+    --neuro-shadow-light-strong: #FFFFFF;
+    --sydney-green: #10B981;
+    --sydney-green-light: rgba(16, 185, 129, 0.1);
+    --sydney-green-pale: rgba(16, 185, 129, 0.05);
+}
+
+/* ============================================
+   RFQ PANEL CONTAINER - RAISED NEUMORPHIC
+   ============================================ */
+.order-card-panel {
+    background: var(--neuro-bg) !important;
+    border-radius: 24px !important;
+    box-shadow:
+        8px 8px 16px var(--neuro-shadow-dark),
+        -8px -8px 16px var(--neuro-shadow-light) !important;
+    border: none !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+
+    /* GRID POSITIONING - FULL HEIGHT RIGHT SIDE */
+    grid-column: 2 !important;
+    grid-row: 1 / 3 !important; /* Span rows 1 and 2 explicitly */
+    position: relative !important;
+    width: 380px !important;
+    max-height: 100% !important; /* Don't exceed grid cell */
+    align-self: stretch !important; /* Match grid cell height exactly */
+    justify-self: end !important; /* Align to right */
+
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important; /* Include padding in height calc */
+}
+
+/* Panel Header - Slightly Inset */
+.order-card-header {
+    background: var(--neuro-bg) !important;
+    padding: 16px 20px !important;
+    border-radius: 24px 24px 0 0 !important;
+    box-shadow:
+        inset 2px 2px 4px rgba(184, 190, 199, 0.2),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.5) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    border-bottom: none !important;
+    position: relative !important;
+}
+
+.order-card-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(184, 190, 199, 0.2) 20%,
+        rgba(184, 190, 199, 0.2) 80%,
+        transparent
+    );
+}
+
+.order-card-title {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #1F2937 !important;
+    letter-spacing: -0.02em !important;
+    margin: 0 !important;
+}
+
+/* Refresh Button - Raised Neumorphic */
+.refresh-btn {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 10px !important;
+    background: var(--neuro-bg) !important;
+    border: none !important;
+    box-shadow:
+        3px 3px 6px var(--neuro-shadow-dark-strong),
+        -3px -3px 6px var(--neuro-shadow-light-strong) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    color: #6B7280 !important;
+}
+
+.refresh-btn:hover {
+    box-shadow:
+        inset 2px 2px 4px var(--neuro-shadow-dark-strong),
+        inset -2px -2px 4px var(--neuro-shadow-light-strong) !important;
+    color: var(--sydney-green) !important;
+}
+
+.refresh-btn:active {
+    box-shadow:
+        inset 3px 3px 6px var(--neuro-shadow-dark-strong),
+        inset -3px -3px 6px var(--neuro-shadow-light-strong) !important;
+}
+
+/* ============================================
+   RFQ CONTENT AREA
+   ============================================ */
+.order-card-content {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    padding: 16px !important;
+    background: var(--neuro-bg) !important;
+}
+
+.order-card-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.order-card-content::-webkit-scrollbar-track {
+    background: var(--neuro-bg);
+    border-radius: 10px;
+}
+
+.order-card-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #B8BEC7, #9CA3AF);
+    border-radius: 10px;
+}
+
+/* ============================================
+   INDIVIDUAL RFQ CARDS - INSET NEUMORPHIC
+   ============================================ */
+.quote-item {
+    background: var(--neuro-bg) !important;
+    border-radius: 16px !important;
+    padding: 14px !important;
+    margin-bottom: 12px !important;
+    box-shadow:
+        inset 4px 4px 8px var(--neuro-shadow-dark-strong),
+        inset -4px -4px 8px var(--neuro-shadow-light-strong) !important;
+    border: none !important;
+    position: relative !important;
+    transition: all 0.3s ease !important;
+}
+
+.quote-item:hover {
+    box-shadow:
+        inset 5px 5px 10px var(--neuro-shadow-dark-strong),
+        inset -5px -5px 10px var(--neuro-shadow-light-strong) !important;
+}
+
+/* Timer Badge - Deeply Inset */
+.quote-timer {
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
+    background: var(--neuro-bg) !important;
+    padding: 4px 10px !important;
+    border-radius: 20px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: #6B7280 !important;
+    box-shadow:
+        inset 3px 3px 6px rgba(184, 190, 199, 0.6),
+        inset -3px -3px 6px rgba(255, 255, 255, 1) !important;
+    letter-spacing: 0.05em !important;
+    min-width: 42px !important;
+    text-align: center !important;
+}
+
+.quote-timer.warning {
+    color: #F59E0B !important;
+    background: linear-gradient(135deg, #FEF3C7, #FDE68A) !important;
+}
+
+.quote-timer.critical {
+    color: #DC2626 !important;
+    background: linear-gradient(135deg, #FEE2E2, #FECACA) !important;
+}
+
+/* Buyer Name - Soft Text */
+.quote-vendor {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #1F2937 !important;
+    margin-bottom: 6px !important;
+    letter-spacing: -0.01em !important;
+}
+
+/* Product Details */
+.quote-product {
+    font-size: 13px !important;
+    color: #6B7280 !important;
+    margin-bottom: 10px !important;
+    line-height: 1.4 !important;
+}
+
+/* Price/Request Info - Soft Inset */
+.quote-price {
+    background: var(--neuro-bg) !important;
+    padding: 8px 12px !important;
+    border-radius: 10px !important;
+    margin: 10px 0 !important;
+    box-shadow:
+        inset 2px 2px 4px rgba(184, 190, 199, 0.3),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.7) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.price-label {
+    font-size: 11px !important;
+    color: #9CA3AF !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+.price-value {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: var(--sydney-green) !important;
+}
+
+/* ============================================
+   ACTION BUTTONS - RAISED TO INSET ON HOVER
+   ============================================ */
+.quote-actions {
+    display: flex !important;
+    gap: 8px !important;
+    margin-top: 12px !important;
+}
+
+.quote-action {
+    flex: 1 !important;
+    padding: 10px !important;
+    border-radius: 12px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    cursor: pointer !important;
+    border: none !important;
+    transition: all 0.2s ease !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    background: var(--neuro-bg) !important;
+}
+
+/* View Button - Neutral Neumorphic */
+.quote-action.view {
+    color: #6B7280 !important;
+    box-shadow:
+        4px 4px 8px var(--neuro-shadow-dark-strong),
+        -4px -4px 8px var(--neuro-shadow-light-strong) !important;
+}
+
+.quote-action.view:hover {
+    box-shadow:
+        inset 2px 2px 4px var(--neuro-shadow-dark-strong),
+        inset -2px -2px 4px var(--neuro-shadow-light-strong) !important;
+    color: #374151 !important;
+}
+
+.quote-action.view:active {
+    box-shadow:
+        inset 3px 3px 6px var(--neuro-shadow-dark-strong),
+        inset -3px -3px 6px var(--neuro-shadow-light-strong) !important;
+}
+
+/* Quote Button - Green Accent Neumorphic */
+.quote-action.accept {
+    color: white !important;
+    background: linear-gradient(135deg, var(--sydney-green), #059669) !important;
+    box-shadow:
+        4px 4px 8px rgba(184, 190, 199, 0.5),
+        -4px -4px 8px rgba(255, 255, 255, 0.9),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+}
+
+.quote-action.accept:hover {
+    background: linear-gradient(135deg, #059669, var(--sydney-green)) !important;
+    box-shadow:
+        inset 2px 2px 4px rgba(0, 0, 0, 0.2),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(0) !important; /* No vertical movement */
+}
+
+.quote-action.accept:active {
+    box-shadow:
+        inset 3px 3px 6px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 6px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ============================================
+   FOOTER SECTION - INSET WITH RAISED BUTTONS
+   ============================================ */
+.order-card-footer {
+    background: var(--neuro-bg) !important;
+    padding: 12px 16px !important;
+    border-radius: 0 0 24px 24px !important;
+    box-shadow:
+        inset 0 2px 4px rgba(184, 190, 199, 0.2),
+        inset 0 -2px 4px rgba(255, 255, 255, 0.5) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    position: relative !important;
+}
+
+.order-card-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(184, 190, 199, 0.2) 20%,
+        rgba(184, 190, 199, 0.2) 80%,
+        transparent
+    );
+}
+
+.footer-btn {
+    flex: 1 !important;
+    padding: 10px !important;
+    border-radius: 12px !important;
+    background: var(--neuro-bg) !important;
+    border: none !important;
+    box-shadow:
+        3px 3px 6px var(--neuro-shadow-dark-strong),
+        -3px -3px 6px var(--neuro-shadow-light-strong) !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: #6B7280 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+.footer-btn:hover {
+    box-shadow:
+        inset 2px 2px 4px var(--neuro-shadow-dark-strong),
+        inset -2px -2px 4px var(--neuro-shadow-light-strong) !important;
+    color: var(--sydney-green) !important;
+}
+
+.footer-btn:active {
+    box-shadow:
+        inset 3px 3px 6px var(--neuro-shadow-dark-strong),
+        inset -3px -3px 6px var(--neuro-shadow-light-strong) !important;
+}
+
+.footer-btn svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.footer-divider {
+    width: 1px !important;
+    height: 24px !important;
+    background: linear-gradient(180deg,
+        transparent,
+        rgba(184, 190, 199, 0.3) 20%,
+        rgba(184, 190, 199, 0.3) 80%,
+        transparent
+    ) !important;
+}
+
+/* ============================================
+   EMPTY STATE - SOFT INSET
+   ============================================ */
+.no-quotes {
+    background: var(--neuro-bg) !important;
+    border-radius: 16px !important;
+    padding: 40px 20px !important;
+    text-align: center !important;
+    box-shadow:
+        inset 4px 4px 8px var(--neuro-shadow-dark-strong),
+        inset -4px -4px 8px var(--neuro-shadow-light-strong) !important;
+}
+
+.no-quotes p {
+    color: #9CA3AF !important;
+    font-size: 13px !important;
+    margin: 0 !important;
+}
+
+/* ============================================
+   RFQ DETAILS MODAL - RAISED NEUMORPHIC
+   ============================================ */
+.rfq-view-modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: rgba(232, 235, 240, 0.95) !important;
+    backdrop-filter: blur(8px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 1000 !important;
+}
+
+.rfq-view-modal {
+    background: var(--neuro-bg) !important;
+    border-radius: 24px !important;
+    box-shadow:
+        12px 12px 24px var(--neuro-shadow-dark),
+        -12px -12px 24px var(--neuro-shadow-light) !important;
+    max-width: 600px !important;
+    width: 90% !important;
+    max-height: 85vh !important;
+    overflow-y: auto !important;
+    padding: 0 !important;
+}
+
+.rfq-modal-header {
+    background: var(--neuro-bg) !important;
+    padding: 20px 24px !important;
+    border-radius: 24px 24px 0 0 !important;
+    box-shadow:
+        inset 2px 2px 4px rgba(184, 190, 199, 0.2),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.5) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10 !important;
+}
+
+.modal-close-btn {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 12px !important;
+    background: var(--neuro-bg) !important;
+    border: none !important;
+    box-shadow:
+        3px 3px 6px var(--neuro-shadow-dark-strong),
+        -3px -3px 6px var(--neuro-shadow-light-strong) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    color: #6B7280 !important;
+}
+
+.modal-close-btn:hover {
+    box-shadow:
+        inset 2px 2px 4px var(--neuro-shadow-dark-strong),
+        inset -2px -2px 4px var(--neuro-shadow-light-strong) !important;
+    color: #DC2626 !important;
+}
+
+/* Info Cards in Modal - Inset */
+.rfq-info-card,
+.rfq-section {
+    background: var(--neuro-bg) !important;
+    margin: 16px 24px !important;
+    padding: 16px !important;
+    border-radius: 16px !important;
+    box-shadow:
+        inset 3px 3px 6px var(--neuro-shadow-dark-strong),
+        inset -3px -3px 6px var(--neuro-shadow-light-strong) !important;
+}
+
+/* Modal Buttons */
+.rfq-btn {
+    padding: 12px 24px !important;
+    border-radius: 12px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    border: none !important;
+    transition: all 0.2s ease !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+.rfq-btn-secondary {
+    background: var(--neuro-bg) !important;
+    color: #6B7280 !important;
+    box-shadow:
+        4px 4px 8px var(--neuro-shadow-dark-strong),
+        -4px -4px 8px var(--neuro-shadow-light-strong) !important;
+}
+
+.rfq-btn-secondary:hover {
+    box-shadow:
+        inset 2px 2px 4px var(--neuro-shadow-dark-strong),
+        inset -2px -2px 4px var(--neuro-shadow-light-strong) !important;
+}
+
+.rfq-btn-primary {
+    background: linear-gradient(135deg, var(--sydney-green), #059669) !important;
+    color: white !important;
+    box-shadow:
+        4px 4px 8px rgba(184, 190, 199, 0.5),
+        -4px -4px 8px rgba(255, 255, 255, 0.9) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.rfq-btn-primary:hover {
+    background: linear-gradient(135deg, #059669, var(--sydney-green)) !important;
+    box-shadow:
+        inset 2px 2px 4px rgba(0, 0, 0, 0.2),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ============================================
+   PRODUCT CARDS - NEUMORPHIC STYLING
+   ============================================ */
+.product-card {
+    background: var(--neuro-bg) !important;
+    border-radius: 16px !important;
+    padding: 14px !important;
+    box-shadow:
+        inset 4px 4px 8px var(--neuro-shadow-dark-strong),
+        inset -4px -4px 8px var(--neuro-shadow-light-strong) !important;
+    border: none !important;
+    transition: all 0.3s ease !important;
+    height: 95px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+}
+
+.product-card:hover {
+    box-shadow:
+        inset 5px 5px 10px var(--neuro-shadow-dark-strong),
+        inset -5px -5px 10px var(--neuro-shadow-light-strong) !important;
+}
+
+.quick-action-btn {
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 8px !important;
+    background: var(--neuro-bg) !important;
+    border: none !important;
+    box-shadow:
+        2px 2px 4px var(--neuro-shadow-dark-strong),
+        -2px -2px 4px var(--neuro-shadow-light-strong) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    color: #6B7280 !important;
+}
+
+.quick-action-btn:hover {
+    box-shadow:
+        inset 1px 1px 2px var(--neuro-shadow-dark-strong),
+        inset -1px -1px 2px var(--neuro-shadow-light-strong) !important;
+    color: var(--sydney-green) !important;
+}
+
+/* ============================================
+   STAT WIDGETS - CONFIRM NEUMORPHIC
+   ============================================ */
+.stat-widget {
+    background: var(--neuro-bg) !important;
+    border-radius: 20px !important;
+    padding: 16px !important;
+    box-shadow:
+        inset 5px 5px 10px var(--neuro-shadow-dark-strong),
+        inset -5px -5px 10px var(--neuro-shadow-light-strong) !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    height: 100px !important;
+    transition: all 0.3s ease !important;
+}
+
+.stat-icon {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 14px !important;
+    background: var(--neuro-bg) !important;
+    box-shadow:
+        3px 3px 6px var(--neuro-shadow-dark-strong),
+        -3px -3px 6px var(--neuro-shadow-light-strong) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: var(--sydney-green) !important;
+}
+
+.stat-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+    stroke: currentColor !important;
+    stroke-width: 2 !important;
+    fill: none !important;
+}
+
+/* ============================================
+   FLOATING ICONS - CONFIRM NEUMORPHIC
+   ============================================ */
+.neuro-icon-raised {
+    background: var(--neuro-bg) !important;
+    border: none !important;
+    box-shadow:
+        4px 4px 8px var(--neuro-shadow-dark-strong),
+        -4px -4px 8px var(--neuro-shadow-light-strong) !important;
+    transition: all 0.2s ease !important;
+}
+
+.neuro-icon-raised:hover {
+    box-shadow:
+        inset 2px 2px 4px var(--neuro-shadow-dark-strong),
+        inset -2px -2px 4px var(--neuro-shadow-light-strong) !important;
+}
+
+.neuro-icon-raised:active {
+    box-shadow:
+        inset 3px 3px 6px var(--neuro-shadow-dark-strong),
+        inset -3px -3px 6px var(--neuro-shadow-light-strong) !important;
+}
+
+/* ============================================
+   ANIMATIONS & TRANSITIONS
+   ============================================ */
+@keyframes neumorphic-pulse {
+    0%, 100% {
+        box-shadow:
+            inset 4px 4px 8px var(--neuro-shadow-dark-strong),
+            inset -4px -4px 8px var(--neuro-shadow-light-strong);
+    }
+    50% {
+        box-shadow:
+            inset 6px 6px 12px var(--neuro-shadow-dark-strong),
+            inset -6px -6px 12px var(--neuro-shadow-light-strong);
+    }
+}
+
+.quote-item:has(.quote-timer.critical) {
+    animation: neumorphic-pulse 2s ease-in-out infinite;
+}
+
+/* Ensure no hard borders anywhere */
+* {
+    border: none !important;
+}
+
+/* Override any conflicting styles */
+.order-card-panel *,
+.rfq-view-modal * {
+    border: none !important;
+}

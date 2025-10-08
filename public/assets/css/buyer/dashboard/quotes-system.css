@@ -1,0 +1,726 @@
+/* ============================================
+   REAL-TIME QUOTES SYSTEM - Inset Neumorphic Style
+   ============================================ */
+
+/* Quote Item with Timer - EXACT VENDOR MATCH */
+.quote-item {
+    position: relative;
+    padding: 8px 12px;  /* EXACT VENDOR PADDING */
+    margin-bottom: 8px;
+    background: var(--neuro-bg);
+    border-radius: 12px;  /* EXACT VENDOR RADIUS */
+    display: flex;
+    flex-direction: column;  /* VENDOR USES COLUMN LAYOUT */
+    gap: 4px;  /* EXACT VENDOR GAP - MINIMAL */
+    font-size: 12px;
+    min-height: 76px;  /* EXACT VENDOR MIN-HEIGHT */
+    max-height: 84px;  /* EXACT VENDOR MAX-HEIGHT */
+    transition: all 0.3s ease;
+    overflow: visible; /* Ensure timer badge can overflow */
+
+    /* EXACT VENDOR SHADOW - DEEPER INSET */
+    box-shadow: inset 3px 3px 6px #B8BEC7,
+                inset -3px -3px 6px #FFFFFF;
+}
+
+.quote-item:hover {
+    /* EXACT VENDOR HOVER - KEEP SAME BACKGROUND */
+    background: var(--neuro-bg);
+
+    /* EXACT VENDOR DEEPER INSET ON HOVER */
+    box-shadow: inset 4px 4px 8px #B8BEC7,
+                inset -4px -4px 8px #FFFFFF;
+}
+
+/* ===================================================================
+   TIMER CONTAINER VISUAL HIERARCHY SYSTEM v2.0
+   Sydney Markets B2B - Buyer Dashboard
+
+   Progressive Enhancement: Normal → Warning → Critical
+   Color Palette: White, Black, Gray, Green (CLAUDE.md compliant)
+   UX Principles: Von Restorff, Progressive Disclosure, Peak-End Rule
+   =================================================================== */
+
+/* BASE TIMER STYLE - Foundation for all states - TRUE NEUMORPHIC INSET */
+.quote-timer {
+    /* POSITIONING - Inside the card, top right (4-POINT GRID) */
+    position: absolute;
+    top: 8px;        /* 4-point grid: 8px ✓ */
+    right: 8px;      /* 4-point grid: 8px ✓ */
+    z-index: 10;
+
+    /* TYPOGRAPHY - 4-POINT GRID */
+    font-size: 12px;       /* 4-point grid: 12px ✓ */
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 1;
+
+    /* LAYOUT - 4-POINT GRID */
+    min-width: 40px;       /* 4-point grid: 40px ✓ */
+    padding: 4px 8px;      /* 4-point grid: 4px 8px ✓ */
+    border-radius: 8px;    /* 4-point grid: 8px ✓ */
+
+    /* TRUE NEUMORPHIC INSET - Same background as quote card */
+    background: var(--neuro-bg);   /* Match quote card background */
+    color: #10B981;                /* Green text for normal state */
+    border: none;
+
+    /* NEUMORPHIC INSET SHADOW - Pressed into surface (4-POINT GRID) */
+    box-shadow:
+        inset 4px 4px 4px #B8BEC7,      /* Dark inset shadow ✓ */
+        inset -4px -4px 4px #FFFFFF;    /* Light highlight ✓ */
+
+    /* SMOOTH TRANSITIONS */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Quote Content - EXACT VENDOR MATCH */
+.quote-vendor {
+    font-size: 12px; /* VENDOR SIZE */
+    font-weight: var(--font-semibold);
+    color: var(--neuro-text);
+    opacity: 0.9;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.quote-product {
+    font-size: 12px; /* VENDOR SIZE */
+    color: var(--neuro-text);
+    opacity: 0.7;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.quote-price {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: auto; /* Push to bottom like vendor */
+}
+
+.price-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.price-value {
+    font-size: 16px; /* VENDOR SIZE */
+    font-weight: var(--font-bold);
+    color: var(--neuro-accent); /* Green for prices */
+    font-feature-settings: 'tnum' 1;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+    line-height: 1;
+}
+
+/* Quote Actions Container - EXACT VENDOR MATCH */
+.quote-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.quote-action {
+    align-self: flex-end;
+    padding: 4px 8px; /* VENDOR SIZE */
+    background: var(--neuro-bg);
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: var(--font-medium);
+    color: var(--neuro-text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+    margin-top: auto; /* Push to bottom */
+
+    /* VENDOR SHADOW - Subtle raised effect */
+    box-shadow: 2px 2px 4px #B8BEC7,
+                -2px -2px 4px #FFFFFF;
+}
+
+.quote-action:hover {
+    /* NO transform - user's strict rule */
+    color: var(--neuro-accent); /* Green on hover */
+    opacity: 1;
+
+    /* VENDOR PRESSED EFFECT */
+    box-shadow: inset 1px 1px 2px #B8BEC7,
+                inset -1px -1px 2px #FFFFFF;
+}
+
+.quote-action:active {
+    /* NO transform - user's strict rule */
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF;
+}
+
+/* New Quote Animation - Green text and border glow, WHITE background */
+.quote-item-new {
+    animation: slideInFromTop 0.5s ease forwards;
+    opacity: 0;
+    /* CRITICAL: Keep white background - use green text + border glow for emphasis */
+    background: var(--neuro-bg) !important;
+    color: #059669 !important;
+    /* Green border glow for new quote state */
+    box-shadow: inset 3px 3px 6px #B8BEC7,
+                inset -3px -3px 6px #FFFFFF,
+                0 0 0 2px rgba(16, 185, 129, 0.3) !important;
+}
+
+/* Green text for vendor and price in new quotes */
+.quote-item-new .quote-vendor {
+    color: #059669 !important;
+    font-weight: 600;
+}
+
+.quote-item-new .price-value {
+    color: #059669 !important;
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Removing Quote Animation */
+.quote-item-removing {
+    animation: fadeOutSlide 0.3s ease forwards;
+}
+
+@keyframes fadeOutSlide {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+}
+
+/* No Quotes Message */
+.no-quotes {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-tertiary);
+}
+
+.no-quotes p {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* Stats Pulse Animation - REMOVED SCALE */
+.stat-pulse {
+    /* No animation - prevents jumping */
+}
+
+/* Modern Quote Badge - REMOVED (Defined in components.css to match vendor dashboard) */
+/* Using single definition from components.css for consistency */
+
+/* Refresh Button - EXACT VENDOR MATCH */
+.refresh-btn {
+    background: transparent;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    color: var(--text-tertiary);
+    transition: all 0.2s ease;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.refresh-btn:hover {
+    color: var(--neuro-accent);
+    background: rgba(16, 185, 129, 0.1);
+    transform: rotate(180deg);
+}
+
+.refresh-btn:active {
+    transform: rotate(360deg);
+}
+
+/* Send Planner Button Special Style */
+.send-planner-btn {
+    background: var(--fresh-green) !important;
+    color: white !important;
+    box-shadow: 4px 4px 8px #B8BEC7,
+                -4px -4px 8px #FFFFFF !important;
+}
+
+.send-planner-btn:hover {
+    box-shadow: 2px 2px 4px #B8BEC7,
+                -2px -2px 4px #FFFFFF !important;
+    /* No scale transform */
+}
+
+.send-planner-btn svg {
+    stroke: white !important;
+}
+
+/* Fixed Layout for Quotes Container - PREVENT EXPANSION */
+.dashboard-grid {
+    height: calc(100vh - 32px) !important;
+    max-height: calc(100vh - 32px) !important;
+    overflow: hidden !important;
+}
+
+.order-card-panel {
+    position: relative !important;
+    height: 100% !important; /* Use full grid height */
+    max-height: 100% !important;
+    overflow: hidden !important; /* Prevent panel expansion */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.order-card-content {
+    height: calc(100% - 100px) !important; /* Optimized for 5 quotes: 5 * 60px + 4 * 10px gaps = 340px */
+    max-height: calc(100% - 100px) !important;
+    overflow-y: auto !important; /* Force scrollbar when needed */
+    overflow-x: hidden !important;
+    scrollbar-width: thin;
+    scrollbar-color: #B8BEC7 transparent;
+    position: relative;
+    padding: 10px 8px;
+}
+
+/* .order-card-header height removed - using components.css definition for consistency */
+
+.order-card-footer {
+    height: 48px !important; /* Elegant thin footer */
+    min-height: 48px !important;
+    max-height: 48px !important;
+    flex-shrink: 0 !important;
+    padding: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0 !important;
+    background: var(--neuro-bg, #F8F4ED);
+    border-top: none;
+    /* Inset footer area */
+    box-shadow: inset 0 2px 4px rgba(184, 190, 199, 0.2),
+                inset 0 -1px 2px rgba(255, 255, 255, 0.9);
+    border-radius: 0 0 10px 10px;
+}
+
+/* Elegant Footer Buttons - Inset Design */
+.footer-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 32px;
+    background: var(--neuro-bg, #F8F4ED);
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    position: relative;
+    border-radius: 8px;
+
+    /* Inset neumorphic design */
+    box-shadow: inset 2px 2px 3px rgba(184, 190, 199, 0.4),
+                inset -2px -2px 3px rgba(255, 255, 255, 0.9);
+}
+
+.footer-btn:hover {
+    color: var(--neuro-text);
+    /* Deeper inset on hover */
+    box-shadow: inset 3px 3px 5px rgba(184, 190, 199, 0.5),
+                inset -3px -3px 5px rgba(255, 255, 255, 0.95);
+}
+
+.footer-btn:active {
+    /* Even deeper inset when clicked */
+    box-shadow: inset 4px 4px 6px rgba(184, 190, 199, 0.6),
+                inset -4px -4px 6px rgba(255, 255, 255, 1);
+    transform: translateY(0.5px);
+}
+
+.footer-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke-width: 1.5;
+}
+
+/* Send Button Special Style - Inset with Green Accent */
+.footer-btn.send-btn {
+    color: var(--fresh-green);
+    font-weight: 600;
+    /* Slightly different inset with green tint */
+    box-shadow: inset 2px 2px 3px rgba(184, 190, 199, 0.3),
+                inset -2px -2px 3px rgba(255, 255, 255, 0.9),
+                inset 0 0 0 1px rgba(16, 185, 129, 0.1);
+}
+
+.footer-btn.send-btn:hover {
+    background: rgba(16, 185, 129, 0.05);
+    box-shadow: inset 3px 3px 5px rgba(184, 190, 199, 0.4),
+                inset -3px -3px 5px rgba(255, 255, 255, 0.95),
+                inset 0 0 0 1px rgba(16, 185, 129, 0.2);
+}
+
+.footer-btn.send-btn:active {
+    box-shadow: inset 4px 4px 6px rgba(184, 190, 199, 0.5),
+                inset -4px -4px 6px rgba(255, 255, 255, 1),
+                inset 0 0 0 1px rgba(16, 185, 129, 0.3);
+}
+
+/* Divider Between Buttons - Inset Style */
+.footer-divider {
+    width: 2px;
+    height: 20px;
+    background: transparent;
+    margin: 0 8px;
+    position: relative;
+    /* Creates an inset divider effect */
+    box-shadow: inset -1px 0 2px rgba(184, 190, 199, 0.3),
+                inset 1px 0 2px rgba(255, 255, 255, 0.8);
+    border-radius: 1px;
+}
+
+/* Mini Badge - Raised Neumorphic */
+.mini-badge {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    background: var(--neuro-bg, #F8F4ED);
+    color: var(--fresh-green);
+    font-size: 8px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 12px;
+    min-width: 16px;
+    text-align: center;
+    line-height: 1.2;
+    /* Small raised effect for badge */
+    box-shadow: 1px 1px 2px rgba(184, 190, 199, 0.4),
+                -1px -1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.mini-badge.pulse {
+    animation: subtlePulse 2s infinite;
+}
+
+@keyframes subtlePulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.order-card-content::-webkit-scrollbar {
+    width: 4px;  /* 4-point grid: 4px ✓ */
+}
+
+.order-card-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.order-card-content::-webkit-scrollbar-thumb {
+    background: #B8BEC7;
+    border-radius: 4px;  /* 4-point grid: 4px ✓ */
+}
+
+/* ===================================================================
+   TIER 2: WARNING STATE (5-10 minutes)
+   UX: Attention needed, decision time approaching - NEUMORPHIC INSET
+   =================================================================== */
+.quote-timer.warning {
+    /* TRUE NEUMORPHIC INSET - Darker green text */
+    background: var(--neuro-bg);   /* Match quote card background */
+    color: #059669;                /* Darker green text */
+    border: none;
+
+    /* DEEPER NEUMORPHIC INSET SHADOW - More pressed in (4-POINT GRID) */
+    box-shadow:
+        inset 4px 4px 8px #B8BEC7,      /* Deeper dark inset shadow ✓ */
+        inset -4px -4px 8px #FFFFFF;    /* Stronger light highlight ✓ */
+
+    /* ENHANCED TEXT - 4-POINT GRID */
+    font-weight: 800;
+
+    /* NO ANIMATION - Stable */
+}
+
+/* ===================================================================
+   TIER 3: CRITICAL STATE (< 5 minutes)
+   UX: Urgent action required, deadline imminent - NEUMORPHIC INSET
+   Von Restorff Effect: Dramatic black text for maximum attention
+   =================================================================== */
+.quote-timer.critical {
+    /* TRUE NEUMORPHIC INSET - Black text */
+    background: var(--neuro-bg);   /* Match quote card background */
+    color: #000000;                /* Black text for critical */
+    border: none;
+
+    /* DEEPEST NEUMORPHIC INSET SHADOW - Most pressed in (4-POINT GRID) */
+    box-shadow:
+        inset 4px 4px 12px #B8BEC7,      /* Deepest dark inset shadow ✓ */
+        inset -4px -4px 12px #FFFFFF;    /* Strongest light highlight ✓ */
+
+    /* CRITICAL TEXT - 4-POINT GRID */
+    font-weight: 900;
+
+    /* NO ANIMATION - Stable */
+}
+
+/* ============================================
+   ANIMATED NUMBER TRANSITIONS - Industry Standard
+   ============================================ */
+
+/* Stats Card Updates */
+.stat-widget[data-stat] {
+    position: relative;
+}
+
+.stat-value {
+    display: inline-block;
+    /* No transitions to prevent jumping */
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    position: relative;
+    text-align: left;
+}
+
+/* Number Update Animation - DISABLED */
+.stat-updating {
+    /* No animation to prevent jumping */
+}
+
+/* React Slot Counter Style Animation */
+.stat-value {
+    position: relative;
+    display: inline-block;
+    font-variant-numeric: tabular-nums;
+    min-width: 1.5em;
+    text-align: left;
+    /* No 3D transforms - keep it smooth */
+}
+
+/* Visible Scrolling Container */
+.stat-value[data-animating="true"] {
+    overflow: hidden !important;
+    height: inherit !important; /* Don't change height */
+}
+
+/* Decreasing Value Animation */
+.stat-value.decreasing {
+    color: var(--status-error);
+    animation: decreaseGlow 1s ease;
+}
+
+@keyframes decreaseGlow {
+    0% {
+        text-shadow: 0 0 0 transparent;
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(232, 116, 91, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 0 transparent;
+    }
+}
+
+/* Digit Flip Animation */
+.digit-flip {
+    animation: digitFlip 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes digitFlip {
+    0% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: rotateX(90deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+/* Digit Slide In Animation */
+.digit-slide-in {
+    animation: digitSlideIn 0.5s ease-out;
+}
+
+@keyframes digitSlideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Smooth Number Morphing */
+.stat-value span {
+    display: inline-block;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Badge Animation */
+#quoteBadge {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-variant-numeric: tabular-nums;
+}
+
+#quoteBadge.updating {
+    /* No animation - prevents jumping */
+}
+
+/* MODERN ROULETTE SLOT MACHINE ANIMATION */
+.roulette-number {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    height: 1.4em;
+    vertical-align: middle;
+}
+
+.roulette-digit {
+    display: inline-block;
+    position: relative;
+    width: 0.7em;
+    height: 1.4em;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.roulette-digit-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: slotRoll 0.5s cubic-bezier(0.23, 1, 0.32, 1); /* React-slot-counter speed: 700ms/1.4 */
+}
+
+@keyframes slotRoll {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+/* Fast Roll Animation */
+.fast-roll {
+    animation: fastSlotRoll 0.35s cubic-bezier(0.17, 0.67, 0.83, 0.67); /* React speed: 500ms/1.4 */
+}
+
+@keyframes fastSlotRoll {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Value Change Indicator */
+.value-change-indicator {
+    position: absolute;
+    top: -10px;
+    right: -20px;
+    font-size: 10px;
+    font-weight: 600;
+    opacity: 0;
+    animation: changeIndicator 1s ease forwards;
+}
+
+.value-change-indicator.up {
+    color: var(--fresh-green);
+}
+
+.value-change-indicator.down {
+    color: var(--status-error);
+}
+
+@keyframes changeIndicator {
+    0% {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+}
+
+/* Button Animation Effects */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes spinning {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.spinning {
+    animation: spinning 1s linear infinite;
+}
+
+.send-planner-btn.sending {
+    background: var(--fresh-green) !important;
+    animation: pulse 1s infinite;
+}
+
+.send-planner-btn.sent {
+    background: var(--fresh-green) !important;
+    animation: successPulse 0.6s ease;
+}
+
+@keyframes successPulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+.sent-pulse {
+    animation: sentPulse 1s ease;
+}
+
+@keyframes sentPulse {
+    0% {
+        box-shadow: 4px 4px 8px #B8BEC7, -4px -4px 8px #FFFFFF;
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(92, 184, 92, 0.6),
+                    4px 4px 8px #B8BEC7, -4px -4px 8px #FFFFFF;
+    }
+    100% {
+        box-shadow: 4px 4px 8px #B8BEC7, -4px -4px 8px #FFFFFF;
+    }
+}

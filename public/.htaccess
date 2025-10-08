@@ -1,0 +1,66 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # EMERGENCY BUYER ROUTE FIX
+    # Direct rewrite for buyer authentication routes
+    RewriteRule ^auth/buyer/login$ /index.php?buyer_login=1 [L,QSA]
+    RewriteRule ^auth/buyer/register$ /index.php?buyer_register=1 [L,QSA]
+    RewriteRule ^buyer/login$ /index.php?buyer_login=1 [L,QSA]
+    RewriteRule ^buyer/register$ /index.php?buyer_register=1 [L,QSA]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# Performance Optimization for Assets Folder
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Assets folder - Long cache (1 year) for production
+    <FilesMatch "^assets/.*\.(css|js|woff|woff2|ttf|otf|eot|svg|png|jpg|jpeg|gif|ico)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+        ExpiresDefault "access plus 1 year"
+    </FilesMatch>
+
+    # Build folder - Versioned files (1 year)
+    <FilesMatch "^build/.*\.(css|js)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+        ExpiresDefault "access plus 1 year"
+    </FilesMatch>
+</IfModule>
+
+# Compression for Better Performance
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# PHP Configuration for Large File Uploads
+<IfModule mod_php.c>
+    php_value upload_max_filesize 100M
+    php_value post_max_size 100M
+    php_value memory_limit 512M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+</IfModule>

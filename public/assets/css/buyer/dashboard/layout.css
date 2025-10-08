@@ -1,0 +1,99 @@
+/* ============================================
+   DASHBOARD LAYOUT - Base Styles
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-primary);
+    font-family: var(--font-sans);
+    color: var(--text-primary);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.dashboard-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md);
+    background: transparent; /* Ensure no background */
+}
+
+/* ============================================
+   FLOATING ICONS - Inset Neumorphic
+   ============================================ */
+.floating-icons {
+    position: fixed;
+    top: var(--space-4);         /* 16px - above everything */
+    /* Align with order card: 16px (grid padding) + 20px (card internal padding) = 36px */
+    right: 36px;
+    display: flex;
+    gap: var(--space-3);         /* 12px - smaller gap */
+    align-items: center;
+    z-index: 100;
+}
+
+/* ============================================
+   INSET NEUMORPHIC ICONS - Sunken into Background
+   ============================================ */
+.neuro-icon-raised {
+    width: 40px;  /* Smaller size */
+    height: 40px; /* Smaller size */
+    border-radius: 50%;
+    border: none;
+    background: var(--neuro-bg); /* Neumorphic background */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+
+    /* INSET effect - sunken like other elements */
+    box-shadow: inset 3px 3px 6px #B8BEC7,
+                inset -3px -3px 6px #FFFFFF;
+}
+
+.neuro-icon-raised:hover {
+    background: var(--neuro-bg);
+    /* NO transform - user's rule */
+
+    /* Deeper inset on hover */
+    box-shadow: inset 4px 4px 8px #B8BEC7,
+                inset -4px -4px 8px #FFFFFF;
+}
+
+.neuro-icon-raised:active {
+    background: var(--neuro-bg);
+    /* NO transform */
+
+    /* Even deeper inset when pressed */
+    box-shadow: inset 5px 5px 10px #B8BEC7,
+                inset -5px -5px 10px #FFFFFF;
+}
+
+.neuro-icon-raised svg {
+    width: 18px;  /* Smaller icon */
+    height: 18px; /* Smaller icon */
+    stroke: var(--neuro-text);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.neuro-icon-raised:hover svg {
+    stroke: var(--neuro-accent); /* Green on hover */
+    stroke-width: 2.5;
+    opacity: 1;
+}
+
+/* All icons now use the same consistent styling */

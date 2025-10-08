@@ -1,0 +1,76 @@
+{
+  "version": "1.0.0",
+  "name": "Integrated Design System",
+  "description": "Combines Claude Code Workflows with custom design agents",
+  "created": "2025-01-20",
+
+  "workflows": {
+    "design_review": {
+      "source": "claude-code-workflows",
+      "agent": "design-review",
+      "trigger": "/design-review",
+      "tools": [
+        "mcp__playwright__browser_navigate",
+        "mcp__playwright__browser_take_screenshot",
+        "mcp__playwright__browser_resize",
+        "mcp__playwright__browser_click",
+        "mcp__playwright__browser_type"
+      ],
+      "phases": [
+        "preparation",
+        "interaction_testing",
+        "responsiveness",
+        "visual_polish",
+        "accessibility",
+        "robustness",
+        "code_health"
+      ]
+    },
+
+    "rapid_development": {
+      "source": "custom",
+      "agents": [
+        "ui-architect",
+        "ux-flow-engineer",
+        "master-implementation-executor"
+      ],
+      "parallel": true,
+      "trigger": "/design"
+    }
+  },
+
+  "vendor_dashboard_config": {
+    "url": "http://localhost:8000/vendor/dashboard",
+    "viewports": {
+      "desktop": { "width": 1440, "height": 900 },
+      "tablet": { "width": 768, "height": 1024 },
+      "mobile": { "width": 375, "height": 812 }
+    },
+    "design_principles": {
+      "colors": "Use buyer dashboard color system (#E0E5EC neumorphic)",
+      "layout": "Grid-based, responsive, no-scroll",
+      "components": "Neumorphic cards with inset shadows",
+      "typography": "Clean, hierarchical, readable"
+    }
+  },
+
+  "parallel_execution": {
+    "design_tasks": {
+      "spawn": [
+        "ui-architect (2 instances)",
+        "ux-flow-engineer (1 instance)",
+        "master-implementation-executor (2 instances)",
+        "design-review (1 instance)"
+      ],
+      "mode": "aggressive_parallel"
+    }
+  },
+
+  "commands": {
+    "/design": "Start parallel design development",
+    "/design-review": "Run comprehensive design review",
+    "/canvas": "Work on vendor dashboard canvas",
+    "/component": "Build new component",
+    "/test-ui": "Test UI with Playwright"
+  }
+}

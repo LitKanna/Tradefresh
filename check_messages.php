@@ -1,0 +1,25 @@
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
+$app = require_once __DIR__.'/bootstrap/app.php';
+$app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
+
+$messages = App\Models\Message::latest()->take(5)->get();
+
+echo 'Total messages: '.App\Models\Message::count()."\n\n";
+
+if ($messages->count() > 0) {
+    echo "Recent messages:\n";
+    foreach ($messages as $msg) {
+        echo "---\n";
+        echo "ID: {$msg->id}\n";
+        echo "Message: {$msg->message}\n";
+        echo "From: {$msg->sender_type} ID:{$msg->sender_id}\n";
+        echo "To: {$msg->recipient_type} ID:{$msg->recipient_id}\n";
+        echo 'Read: '.($msg->is_read ? 'Yes' : 'No')."\n";
+        echo "Created: {$msg->created_at}\n";
+    }
+} else {
+    echo "No messages found\n";
+}

@@ -1,0 +1,36 @@
+{
+    "mcpServers": {
+        "laravel-boost": {
+            "command": "php",
+            "args": [
+                "artisan",
+                "boost:mcp"
+            ],
+            "env": {
+                "MCP_MODE": "project"
+            }
+        },
+        "playwright": {
+            "command": "node",
+            "args": [
+                "node_modules/@playwright/mcp/index.js"
+            ],
+            "env": {
+                "MCP_MODE": "project"
+            }
+        },
+        "ide": {
+            "command": "npx",
+            "args": [
+                "@vscode/mcp-server"
+            ],
+            "env": {
+                "MCP_MODE": "project"
+            }
+        }
+    },
+    "settings": {
+        "mode": "project",
+        "projectPath": "C:\\Users\\Marut\\New folder (5)"
+    }
+}

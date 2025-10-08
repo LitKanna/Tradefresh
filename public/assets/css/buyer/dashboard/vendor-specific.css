@@ -1,0 +1,352 @@
+/* Vendor Dashboard Specific Styles */
+
+:root {
+    --vendor-accent: #059669; /* Darker green for vendor elements */
+    --vendor-secondary: #047857;
+    --vendor-light: #10B981;
+}
+
+/* Vendor Dashboard Container */
+.vendor-dashboard {
+    background-color: var(--bg-cream);
+}
+
+/* Vendor Stats Enhancements */
+.vendor-stat-widget {
+    background: var(--white);
+    border-radius: 32px;
+    padding: 20px;
+    box-shadow:
+        8px 8px 20px rgba(0, 0, 0, 0.08),
+        -4px -4px 10px rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+}
+
+.vendor-stat-widget:hover {
+    box-shadow:
+        10px 10px 25px rgba(0, 0, 0, 0.1),
+        -5px -5px 12px rgba(255, 255, 255, 0.95);
+    transform: translateY(-2px);
+}
+
+/* Inventory Grid Styles */
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+    padding: 16px 0;
+}
+
+.inventory-item {
+    background: var(--white);
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow:
+        4px 4px 10px rgba(0, 0, 0, 0.06),
+        -2px -2px 5px rgba(255, 255, 255, 0.9);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.inventory-item:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        6px 6px 15px rgba(0, 0, 0, 0.08),
+        -3px -3px 8px rgba(255, 255, 255, 0.95);
+}
+
+.inventory-item.low-stock {
+    border-left: 3px solid #EF4444;
+}
+
+.inventory-item.in-stock {
+    border-left: 3px solid var(--green);
+}
+
+.inventory-item-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.inventory-item-quantity {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.inventory-item-unit {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-left: 4px;
+}
+
+.inventory-item-status {
+    font-size: 11px;
+    margin-top: 8px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+.inventory-item-status.positive {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--green);
+}
+
+.inventory-item-status.warning {
+    background: rgba(245, 158, 11, 0.1);
+    color: #F59E0B;
+}
+
+.inventory-item-status.negative {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+}
+
+/* RFQ Panel Vendor Styles */
+.rfq-panel {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.rfq-item {
+    background: var(--bg-cream);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.rfq-item:hover {
+    transform: translateX(4px);
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.rfq-timer {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 8px;
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--green);
+    margin-bottom: 8px;
+}
+
+.rfq-timer.urgent {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.rfq-buyer {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.rfq-product {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.rfq-action-button {
+    width: 100%;
+    padding: 10px;
+    background: var(--vendor-accent);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.rfq-action-button:hover {
+    background: var(--vendor-secondary);
+    transform: translateY(-1px);
+}
+
+/* Order Management Styles */
+.order-list {
+    padding: 16px 0;
+}
+
+.order-item {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.order-item:hover {
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.order-number {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.order-buyer {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.order-status-badge {
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.order-status-badge.pending {
+    background: rgba(245, 158, 11, 0.1);
+    color: #F59E0B;
+}
+
+.order-status-badge.processing {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3B82F6;
+}
+
+.order-status-badge.ready {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--green);
+}
+
+/* Quick Actions Bar */
+.vendor-quick-actions {
+    display: flex;
+    gap: 12px;
+    padding: 16px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    margin-top: auto;
+}
+
+.quick-action-btn {
+    flex: 1;
+    padding: 12px;
+    background: var(--white);
+    border: 2px solid var(--vendor-accent);
+    color: var(--vendor-accent);
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.quick-action-btn:hover {
+    background: var(--vendor-accent);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.quick-action-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Vendor Performance Metrics */
+.performance-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 16px;
+    background: var(--bg-cream);
+    border-radius: 16px;
+    margin-top: 16px;
+}
+
+.metric-item {
+    text-align: center;
+}
+
+.metric-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.metric-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--vendor-accent);
+    margin-top: 4px;
+}
+
+/* Vendor Notification Bell */
+.vendor-notifications {
+    position: relative;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #EF4444;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+}
+
+/* Vendor Mobile Responsiveness */
+@media (max-width: 1024px) {
+    .inventory-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .vendor-quick-actions {
+        flex-direction: column;
+    }
+
+    .quick-action-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .inventory-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .performance-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .rfq-panel {
+        margin-top: 20px;
+    }
+}

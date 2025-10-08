@@ -1,0 +1,32 @@
+/* Screen Resolution Adapter - Smart responsive scaling */
+:root {
+    --scale-factor: 1;
+    --base-spacing: 1rem;
+    --base-font: 16px;
+}
+
+@media (max-width: 1366px) {
+    :root { --scale-factor: 0.85; }
+}
+
+@media (min-width: 1920px) {
+    :root { --scale-factor: 1; }
+}
+
+@media (min-width: 2560px) {
+    :root { --scale-factor: 1.15; }
+}
+
+@media (min-width: 3840px) {
+    :root { --scale-factor: 1.3; }
+}
+
+html {
+    font-size: calc(var(--base-font) * var(--scale-factor));
+}
+
+.container {
+    max-width: calc(1200px * var(--scale-factor));
+    margin: 0 auto;
+    padding: calc(var(--base-spacing) * var(--scale-factor));
+}

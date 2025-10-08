@@ -1,0 +1,459 @@
+/* ============================================
+   WEEKLY PLANNER - Inset Neumorphic Style
+   ============================================ */
+
+/* Order Card Footer */
+.order-card-footer {
+    padding: 12px 20px;
+    border-top: 1px solid rgba(184, 190, 199, 0.2);
+    background: var(--neuro-bg);
+    display: flex;
+    gap: 10px;
+}
+
+.planner-button,
+.send-to-vendors-btn {
+    flex: 1;
+    padding: 10px;
+    background: var(--neuro-bg);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--neuro-text);
+    transition: all 0.3s ease;
+
+    /* Inset neumorphic effect */
+    box-shadow: inset 3px 3px 6px #B8BEC7,
+                inset -3px -3px 6px #FFFFFF;
+}
+
+.planner-button:hover {
+    color: var(--neuro-accent);
+    box-shadow: inset 4px 4px 8px #B8BEC7,
+                inset -4px -4px 8px #FFFFFF;
+}
+
+.planner-button svg,
+.send-to-vendors-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
+/* Send to Vendors Button Specific */
+.send-to-vendors-btn {
+    padding: 10px;
+    background: var(--neuro-bg);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--neuro-text);
+    transition: all 0.3s ease;
+
+    /* Inset neumorphic effect */
+    box-shadow: inset 3px 3px 6px #B8BEC7,
+                inset -3px -3px 6px #FFFFFF;
+}
+
+.send-to-vendors-btn:hover {
+    color: var(--neuro-accent);
+    box-shadow: inset 4px 4px 8px #B8BEC7,
+                inset -4px -4px 8px #FFFFFF;
+}
+
+/* Modal Overlay */
+.planner-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Modal Container */
+.planner-container {
+    background: var(--neuro-bg);
+    border-radius: 24px;
+    width: 480px;
+    height: 480px;
+    max-width: 90vw;
+    max-height: 75vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: slideUp 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Deep inset for modal */
+    box-shadow: inset 10px 10px 20px #B8BEC7,
+                inset -10px -10px 20px #FFFFFF;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Planner Header */
+.planner-header {
+    padding: 16px 20px;
+    background: var(--neuro-bg);
+    border-bottom: 1px solid rgba(184, 190, 199, 0.2);
+}
+
+/* Header Top Row with Title and Close */
+.planner-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.planner-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--neuro-text);
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.planner-close-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: var(--neuro-bg);
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: var(--neuro-text);
+    opacity: 0.6;
+
+    /* Subtle inset for close button */
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF;
+}
+
+.planner-close-btn:hover {
+    opacity: 1;
+    color: #EF4444;
+    box-shadow: inset 3px 3px 6px #B8BEC7,
+                inset -3px -3px 6px #FFFFFF;
+}
+
+.planner-close-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.day-selector {
+    background: var(--neuro-bg);
+    border-radius: 16px;
+    padding: 6px;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+
+    /* Inset for day selector container */
+    box-shadow: inset 4px 4px 8px #B8BEC7,
+                inset -4px -4px 8px #FFFFFF;
+}
+
+.day-btn {
+    flex: 1;
+    padding: 8px 4px;
+    border: none;
+    background: var(--neuro-bg);
+    color: var(--neuro-text);
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+}
+
+.day-btn:hover {
+    opacity: 0.8;
+}
+
+.day-btn.active {
+    opacity: 1;
+    color: var(--neuro-accent);
+    /* Deep inset for active day */
+    box-shadow: inset 3px 3px 6px #B8BEC7,
+                inset -3px -3px 6px #FFFFFF;
+}
+
+/* Planner Content */
+.planner-content {
+    flex: 1;
+    padding: 12px 16px;
+    background: var(--neuro-bg);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #B8BEC7 transparent;
+}
+
+.planner-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.planner-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.planner-content::-webkit-scrollbar-thumb {
+    background: #B8BEC7;
+    border-radius: 3px;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-tertiary);
+}
+
+.empty-state p {
+    margin: 5px 0;
+}
+
+/* Product Items */
+.planner-product-item {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    padding: 8px;
+    margin-bottom: 6px;
+    background: var(--neuro-bg);
+    border-radius: 10px;
+    position: relative;
+
+    /* Subtle border instead of heavy inset */
+    border: 1px solid rgba(184, 190, 199, 0.15);
+
+    /* Smooth animations */
+    animation: slideIn 0.3s ease forwards;
+    transition: all 0.3s ease;
+}
+
+.planner-product-item.removing {
+    animation: slideOut 0.3s ease forwards;
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+}
+
+.product-name-input {
+    flex: 1;
+    padding: 6px 8px;
+    background: var(--neuro-bg);
+    border: none;
+    border-radius: 6px;
+    font-size: 11px;
+    color: var(--neuro-text);
+    outline: none;
+    height: 28px;
+
+    /* Subtle inset for input */
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF;
+    transition: all 0.2s ease;
+}
+
+.product-name-input:focus {
+    box-shadow: inset 3px 3px 6px #B8BEC7,
+                inset -3px -3px 6px #FFFFFF;
+    color: var(--neuro-accent);
+}
+
+.product-name-input::placeholder {
+    color: var(--text-tertiary);
+}
+
+.quantity-controls {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.quantity-input {
+    width: 45px;
+    padding: 6px;
+    background: var(--neuro-bg);
+    border: none;
+    border-radius: 6px;
+    font-size: 11px;
+    text-align: center;
+    color: var(--neuro-text);
+    outline: none;
+    height: 28px;
+
+    /* Matching inset for quantity input */
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF;
+    transition: all 0.2s ease;
+}
+
+.quantity-input:focus {
+    box-shadow: inset 3px 3px 6px #B8BEC7,
+                inset -3px -3px 6px #FFFFFF;
+}
+
+.unit-select {
+    padding: 6px 4px;
+    background: var(--neuro-bg);
+    border: none;
+    border-radius: 6px;
+    font-size: 11px;
+    color: var(--neuro-text);
+    outline: none;
+    cursor: pointer;
+    height: 28px;
+    width: 55px;
+
+    /* Matching inset for select */
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF;
+    transition: all 0.2s ease;
+}
+
+.unit-select:hover {
+    color: var(--neuro-accent);
+}
+
+.delete-product-btn {
+    width: 22px;
+    height: 22px;
+    border: none;
+    background: var(--neuro-bg);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    /* Subtle inset */
+    box-shadow: inset 1px 1px 2px #B8BEC7,
+                inset -1px -1px 2px #FFFFFF;
+}
+
+.delete-product-btn:hover {
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF;
+    transform: rotate(90deg);
+}
+
+.delete-product-btn:active {
+    transform: rotate(90deg) scale(0.95);
+}
+
+.delete-product-btn svg {
+    width: 12px;
+    height: 12px;
+    stroke: #EF4444;
+    stroke-width: 2;
+}
+
+/* Planner Footer */
+.planner-footer {
+    padding: 12px 20px;
+    background: var(--neuro-bg);
+    border-top: 1px solid rgba(184, 190, 199, 0.2);
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.planner-action-btn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: var(--neuro-bg);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    /* Inset neumorphic */
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF;
+}
+
+.planner-action-btn:hover {
+    box-shadow: inset 3px 3px 6px #B8BEC7,
+                inset -3px -3px 6px #FFFFFF;
+}
+
+.planner-action-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--neuro-text);
+    stroke-width: 2;
+    transition: stroke 0.3s ease;
+}
+
+.planner-action-btn:hover svg {
+    stroke: var(--neuro-accent);
+}

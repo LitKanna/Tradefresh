@@ -1,0 +1,106 @@
+/* Exact Right Edge Alignment - Header Icons and RFQ Panel */
+
+/* Create a consistent container width for the entire dashboard */
+.dashboard-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    background: var(--neuro-bg);
+}
+
+/* Header Icons Container - Simple alignment */
+.floating-icons {
+    position: fixed !important;
+    top: 14px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 12px !important;
+    z-index: 100 !important;
+    padding: 0 14px !important; /* Standard padding both sides */
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Dashboard Grid Container - Standard padding */
+.dashboard-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 380px !important;
+    grid-template-rows: 100px 1fr !important;
+    gap: 14px !important;
+    width: 100% !important;
+    padding: 72px 14px 14px 14px !important; /* Standard padding all around */
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    height: 100vh !important;
+}
+
+/* RFQ Section - Perfect alignment with header icons */
+.rfq-section {
+    grid-column: 2 !important;
+    grid-row: 1 / -1 !important;
+    margin: 0 !important;
+    margin-right: -30px !important; /* Extend 30px to match header exactly */
+    padding: 20px !important;
+    box-sizing: border-box !important;
+    width: calc(100% + 30px) !important; /* Extend width by 30px */
+    max-width: 410px !important; /* 380px + 30px */
+    height: 100% !important;
+}
+
+/* Stats Section */
+.stats-section {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+/* Inventory Section */
+.inventory-section {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+/* Individual header icons */
+.neuro-icon-raised {
+    width: 40px !important;
+    height: 40px !important;
+    flex-shrink: 0 !important;
+}
+
+/* User icon container (last icon) - prevent overflow */
+.user-icon-container {
+    position: relative !important;
+    display: inline-flex !important;
+}
+
+/* Ensure no horizontal scrollbar */
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+
+/* Media query for consistent behavior across screen sizes */
+@media screen and (min-width: 768px) {
+    /* Enforce maximum width to prevent overflow */
+    .dashboard-container {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Ensure floating icons don't exceed viewport */
+    .floating-icons {
+        max-width: 100vw !important;
+    }
+}
+
+/* Debug helpers removed - alignment fixed and verified */

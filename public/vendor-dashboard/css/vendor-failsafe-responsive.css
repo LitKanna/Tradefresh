@@ -1,0 +1,67 @@
+/* ============================================
+   VENDOR DASHBOARD - FAILSAFE RESPONSIVE
+   Works on ALL screen sizes - no assumptions
+   ============================================ */
+
+/* Override dashboard grid for GUARANTEED fit */
+.dashboard-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 380px !important;
+    grid-template-rows: auto 1fr !important;
+    gap: 14px !important;
+    padding: 14px !important;
+    padding-top: 60px !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Stats - ONLY left column, auto height */
+.stats-section {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 14px !important;
+    height: auto !important;
+    min-height: 90px !important;
+    max-height: 100px !important;
+}
+
+/* Products - Left column, row 2 */
+.market-section {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+}
+
+/* RFQ Panel - Right column, SPAN ALL ROWS */
+.order-card-panel {
+    grid-column: 2 !important;
+    grid-row: 1 / -1 !important; /* Span all rows */
+    width: 380px !important;
+    max-width: 380px !important;
+    height: calc(100vh - 74px) !important; /* viewport - padding */
+    max-height: calc(100vh - 74px) !important;
+    position: relative !important;
+    justify-self: end !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* RFQ Content Area - MUST allow scroll */
+.order-card-content {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    max-height: 100% !important;
+}
+
+/* Ensure RFQ footer stays at bottom */
+.order-card-footer {
+    flex-shrink: 0 !important;
+    height: auto !important;
+    min-height: 48px !important;
+}

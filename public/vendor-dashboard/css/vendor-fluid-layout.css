@@ -1,0 +1,31 @@
+/* ============================================
+   VENDOR DASHBOARD - SIMPLE HEIGHT FIX
+   Just ensure RFQ panel fits in viewport
+   ============================================ */
+
+/* Ensure dashboard never exceeds viewport */
+.dashboard-grid {
+    max-height: 100vh !important;
+    overflow: hidden !important;
+}
+
+/* RFQ Panel - Constrain to viewport */
+.order-card-panel {
+    max-height: calc(100vh - 80px) !important; /* Viewport minus padding */
+    overflow: hidden !important;
+}
+
+/* RFQ Content must scroll if needed */
+.order-card-content {
+    overflow-y: auto !important;
+}
+
+/* Products section fills available space */
+.market-section {
+    max-height: 100% !important;
+    overflow: hidden !important;
+}
+
+.market-grid {
+    overflow-y: auto !important;
+}

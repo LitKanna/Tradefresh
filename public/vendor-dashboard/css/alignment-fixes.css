@@ -1,0 +1,291 @@
+/* Final Alignment Fixes for Vendor Dashboard */
+
+/* Ensure consistent alignment across all sections */
+.dashboard-container {
+    width: 100%;
+    position: relative;
+}
+
+/* Header icons perfect alignment - MUST match grid padding */
+.floating-icons {
+    position: fixed;
+    top: 14px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 14px; /* Match dashboard grid padding */
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+/* Stats widgets perfect grid alignment */
+.stats-section {
+    width: 100%;
+}
+
+.stat-widget {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 12px;
+    padding: 14px 16px;
+    align-items: center;
+}
+
+.stat-content {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 2px;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    line-height: 1.2;
+}
+
+.stat-value {
+    font-size: 1.375rem;
+    line-height: 1.2;
+    margin: 2px 0;
+}
+
+.stat-change {
+    font-size: 0.7rem;
+    line-height: 1.2;
+}
+
+/* Product cards perfect grid alignment */
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 160px;
+    gap: 12px;
+    padding: 2px;
+}
+
+.product-card {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 6px;
+    padding: 12px;
+    height: 100%;
+}
+
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+}
+
+.product-category {
+    font-size: 0.7rem;
+    line-height: 1;
+}
+
+.product-stock-badge {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    line-height: 1;
+}
+
+.product-name {
+    font-size: 0.95rem;
+    line-height: 1.2;
+    margin: 4px 0;
+}
+
+.product-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto 0;
+}
+
+.product-price {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.product-quantity {
+    font-size: 0.875rem;
+}
+
+.product-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+}
+
+.product-actions button {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    border-radius: 8px;
+}
+
+/* RFQ Panel perfect alignment */
+.rfq-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.section-header {
+    padding: 0 0 12px 0;
+    margin: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.rfq-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 4px 12px 0;
+}
+
+.quote-item {
+    margin-bottom: 12px;
+}
+
+.quote-header {
+    padding: 0 0 8px 0;
+}
+
+.vendor-name {
+    font-size: 0.95rem;
+}
+
+.quote-time {
+    font-size: 0.7rem;
+}
+
+.quote-urgency {
+    font-size: 0.65rem;
+    padding: 2px 6px;
+}
+
+.quote-products {
+    padding: 8px 10px;
+    margin: 8px 0;
+}
+
+.quote-product-item {
+    padding: 4px 0;
+    font-size: 0.85rem;
+}
+
+.quote-actions {
+    gap: 6px;
+}
+
+.quote-action-btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    border-radius: 8px;
+}
+
+/* Inventory section header alignment */
+.inventory-section .section-header {
+    padding: 0 0 12px 0;
+    margin: 0 0 12px 0;
+}
+
+.inventory-section .section-header h2 {
+    font-size: 1.125rem;
+    line-height: 1;
+}
+
+.neuro-button {
+    height: 36px;
+    padding: 0 16px;
+    font-size: 0.875rem;
+}
+
+/* View All RFQs button positioning */
+.view-all-rfqs-container {
+    padding: 12px 0 0 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    margin-top: auto;
+}
+
+.view-all-rfqs-btn {
+    width: 100%;
+    padding: 10px;
+    background: var(--neuro-bg);
+    border: none;
+    border-radius: 12px;
+    box-shadow: var(--shadow-raised-subtle);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-all-rfqs-btn:hover {
+    box-shadow: var(--shadow-raised);
+    transform: translateY(-1px);
+}
+
+/* Fix dashboard grid to ensure RFQ panel aligns with header */
+.dashboard-grid {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 72px 14px 14px 14px !important; /* Ensure consistent padding */
+}
+
+/* RFQ Panel must be flush with grid edge */
+.rfq-section {
+    margin-right: 0 !important;
+}
+
+/* Ensure proper spacing in empty states */
+.empty-quotes {
+    padding: 32px 16px;
+}
+
+.empty-quotes svg {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 12px;
+}
+
+.empty-quotes p {
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 1280px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr 340px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .inventory-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    .rfq-section {
+        grid-column: 1;
+        grid-row: 3;
+        max-height: 400px;
+    }
+
+    .inventory-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .stats-section {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+}

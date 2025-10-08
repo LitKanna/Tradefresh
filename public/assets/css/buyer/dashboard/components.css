@@ -1,0 +1,883 @@
+/* ============================================
+   DASHBOARD COMPONENTS - Neumorphic Design
+   NO HARDCODED COLORS - ALL IN colors.css
+   ============================================ */
+
+/* Main Dashboard Grid Layout - VENDOR CORRECTED */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px; /* Left content | Right RFQ panel */
+    grid-template-rows: 100px 1fr; /* Stats | Content */
+    gap: 16px;
+    padding: 16px;
+    padding-top: 64px;
+    height: 100vh;
+    background: transparent;
+    box-sizing: border-box;
+}
+
+/* Responsive: Only stack on SMALL screens (tablets/phones) */
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr; /* Single column stack */
+        grid-template-rows: 100px auto auto; /* Stats, Products, RFQ */
+        gap: 16px;
+        padding: 16px;
+        padding-top: 64px;
+        overflow-y: auto;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .stats-section {
+        grid-column: 1;
+        grid-row: 1;
+        grid-template-columns: repeat(2, 1fr); /* 2×2 grid on small screens */
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .market-section {
+        grid-column: 1;
+        grid-row: 2;
+        min-height: 400px;
+    }
+
+    .order-card-panel {
+        grid-column: 1 !important;
+        grid-row: 3 !important;
+        width: 100% !important;
+        max-width: 600px !important;
+        justify-self: center !important;
+        position: relative !important;
+    }
+}
+
+/* ============================================
+   STATS SECTION - ONLY LEFT COLUMN (CORRECT)
+   ============================================ */
+.stats-section {
+    grid-column: 1; /* Only left column above products */
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    height: 100px;
+    align-self: start;
+}
+
+.stat-widget {
+    /* INSET NEUMORPHISM - Sophisticated Soft UI */
+    background: var(--neuro-bg);
+    border-radius: 20px; /* Smooth rounded corners for soft look */
+    padding: 20px; /* More padding for depth */
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    height: 100%;
+    max-width: 100%;
+    border: none;
+
+    /* Inset shadow for sunken effect */
+    box-shadow: var(--card-shadow-normal);
+}
+
+.stat-widget:hover {
+    /* Deeper inset on hover */
+    background: var(--neuro-bg);
+
+    /* Enhanced depth shadow */
+    box-shadow: var(--card-shadow-hover);
+    /* NO SCALE - Just shadow depth change */
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--neuro-bg);
+    border-radius: 15px; /* Rounded for soft look */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    border: none;
+
+    /* Raised effect - opposite of inset */
+    box-shadow: var(--shadow-raised-subtle);
+}
+
+.stat-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--neuro-text); /* Dark text color by default */
+    fill: none;
+    stroke-width: 2;
+    transition: stroke 0.3s ease;
+    opacity: 0.7;
+}
+
+.stat-widget:hover .stat-icon {
+    /* Pressed effect on hover */
+    box-shadow: inset 3px 3px 6px #B8BEC7,
+                inset -3px -3px 6px #FFFFFF;
+}
+
+.stat-widget:hover .stat-icon svg {
+    stroke: var(--neuro-accent); /* Sydney Markets green on hover */
+    stroke-width: 2.5;
+    opacity: 1;
+}
+
+.stat-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-0\.5);     /* 2px */
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--neuro-text);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    line-height: 1.4;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+.stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--neuro-text);
+    line-height: 1;
+    font-feature-settings: 'tnum' 1;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+}
+
+/* Dynamic weight classes for different value ranges */
+.stat-value[data-weight="100"] { --dynamic-weight: 100; }
+.stat-value[data-weight="200"] { --dynamic-weight: 200; }
+.stat-value[data-weight="300"] { --dynamic-weight: 300; }
+.stat-value[data-weight="400"] { --dynamic-weight: 400; }
+.stat-value[data-weight="500"] { --dynamic-weight: 500; }
+.stat-value[data-weight="600"] { --dynamic-weight: 600; }
+.stat-value[data-weight="700"] { --dynamic-weight: 700; }
+.stat-value[data-weight="800"] { --dynamic-weight: 800; }
+.stat-value[data-weight="900"] { --dynamic-weight: 900; }
+
+.stat-change {
+    font-size: 12px;
+    color: var(--neuro-text);
+    font-weight: 500;
+    opacity: 0.6;
+}
+
+.stat-change.positive {
+    color: var(--neuro-accent); /* Green for positive */
+    font-weight: 600;
+    opacity: 1;
+}
+
+/* ============================================
+   MARKET DATA SECTION
+   ============================================ */
+.market-section {
+    grid-column: 1;
+    grid-row: 2;
+    background: transparent; /* Keep transparent */
+    border-radius: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+    position: relative; /* For header positioning */
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    margin-bottom: var(--space-2); /* 8px */
+    border-bottom: 1px solid var(--border-light); /* Original border style */
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.section-title {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0;
+    /* Green gradient animated text from original */
+    background: linear-gradient(
+        135deg,
+        rgba(13, 124, 102, 0.9) 0%,
+        rgba(5, 150, 105, 0.8) 25%,
+        rgba(16, 185, 129, 0.7) 50%,
+        rgba(34, 197, 94, 0.6) 75%,
+        rgba(13, 124, 102, 0.9) 100%
+    );
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: green-shimmer 15s ease infinite;
+}
+
+.section-subtitle {
+    font-size: 12px;
+    color: var(--text-secondary);
+    opacity: 0.7;
+    font-weight: var(--font-normal);
+}
+
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Strict 4 columns */
+    grid-template-rows: repeat(4, minmax(0, 1fr)); /* Strict 4 rows with equal height */
+    gap: var(--space-3);  /* 12px gap - match dashboard gap */
+    overflow: hidden; /* No scrolling at all */
+    flex: 1;
+    padding: 0;
+    height: calc(100% - 30px); /* Account for header height */
+    align-content: stretch; /* Stretch to fill height */
+    background: transparent !important; /* Ensure no background */
+    border: none; /* No border */
+    box-shadow: none; /* No shadow */
+    -ms-overflow-style: none;  /* IE and Edge - hide scrollbar */
+    scrollbar-width: none;  /* Firefox - hide scrollbar */
+}
+
+/* Scrollbar styles removed - no longer needed */
+/* Hide scrollbar for Chrome, Safari and Opera */
+.market-grid::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox - merged with main selector above */
+
+.market-product-card {
+    /* INSET NEUMORPHISM - Consistent with stats */
+    background: var(--neuro-bg);
+    border-radius: 16px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: all 0.3s ease;
+    height: 100%;
+    min-height: 0;
+    border: none;
+
+    /* Inset shadow for depth */
+    box-shadow: var(--card-shadow-normal);
+}
+
+.market-product-card:hover {
+    /* Deeper inset on hover */
+    background: var(--neuro-bg);
+
+    /* Enhanced depth */
+    box-shadow: var(--card-shadow-hover);
+}
+
+.product-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--neuro-text);
+    text-transform: capitalize;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+    opacity: 0.8;
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--neuro-text);
+    font-feature-settings: 'tnum' 1;
+    line-height: 1;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.4);
+}
+
+/* Price weight classes - higher prices = bolder weight */
+.product-price[data-weight="200"] { --price-weight: 200; } /* Very cheap */
+.product-price[data-weight="300"] { --price-weight: 300; }
+.product-price[data-weight="400"] { --price-weight: 400; }
+.product-price[data-weight="500"] { --price-weight: 500; }
+.product-price[data-weight="600"] { --price-weight: 600; }
+.product-price[data-weight="700"] { --price-weight: 700; }
+.product-price[data-weight="800"] { --price-weight: 800; }
+.product-price[data-weight="900"] { --price-weight: 900; } /* Most expensive */
+
+.product-change {
+    font-size: 12px; /* Very small */
+    color: var(--swiss-gray);
+    line-height: 1;
+    font-weight: 400;
+}
+
+.product-change.positive {
+    color: var(--neuro-accent); /* Sydney Markets green */
+    font-weight: 600;
+    opacity: 1;
+}
+
+/* ============================================
+   ORDER CARD PANEL - SPANS FULL HEIGHT
+   ============================================ */
+.order-card-panel {
+    grid-column: 2;
+    grid-row: 1 / -1; /* Span from first row to last row */
+    background: var(--neuro-bg); /* Neumorphic background */
+    border-radius: 20px; /* Smooth rounded corners for soft look */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: none;
+    position: relative;
+    align-self: stretch; /* Fill full height of grid rows */
+    padding: 20px; /* Same padding as stats cards for consistency */
+
+    /* EXACT SAME SHADOW AS STATS CARDS - Using the same variable */
+    box-shadow: var(--card-shadow-normal);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.order-card-panel:hover {
+    /* Deeper inset on hover - matching stats cards */
+    box-shadow: var(--card-shadow-hover);
+}
+
+.order-card-header {
+    padding: 12px 16px; /* Reduced padding */
+    background: var(--neuro-bg); /* Consistent neumorphic background */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin: 0; /* No margin - fill full width */
+    border-radius: 12px 12px 0 0; /* Round top corners to fit inset */
+    min-height: 44px; /* Smaller height */
+    max-height: 44px; /* Fixed height */
+
+    /* No additional shadow needed - panel inset is sufficient */
+    box-shadow: none;
+    /* Subtle separator */
+    border-bottom: 1px solid rgba(184, 190, 199, 0.1);
+}
+
+.order-card-title {
+    font-size: 16px; /* Smaller title */
+    font-weight: var(--font-semibold);
+    color: var(--neuro-text);
+    margin: 0;
+    opacity: 0.9;
+    line-height: 1;
+}
+
+.order-card-badge {
+    /* EXACT VENDOR DASHBOARD DESIGN */
+    display: inline-flex;
+    align-items: center;
+    background: var(--neuro-bg);
+    color: var(--neuro-accent); /* Green text */
+    padding: 4px 8px; /* Compact size matching vendor */
+    border-radius: 8px;
+    font-size: 12px; /* Matching vendor */
+    font-weight: 600; /* Semibold */
+    border: none;
+    line-height: 1;
+    white-space: nowrap;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Subtle raised neumorphic effect - matching vendor exactly */
+    box-shadow: 2px 2px 4px rgba(184, 190, 199, 0.2),
+                -2px -2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.order-card-content {
+    flex: 1;
+    padding: 8px; /* Reduced padding */
+    padding-top: 12px; /* Small top padding */
+    margin: 0; /* No margin - fill full width */
+    border-radius: 0 0 12px 12px; /* Round bottom corners to fit inset */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;  /* Smaller gap between quotes */
+    background: var(--neuro-bg); /* Consistent background */
+
+    /* No additional shadow - panel inset is enough */
+    box-shadow: none;
+
+    /* Hide scrollbar for cleaner look */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.order-card-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* Quote Item - Compact for 5 items */
+.quote-item {
+    background: var(--neuro-bg); /* Same as main background */
+    border-radius: 12px; /* Smaller radius */
+    padding: 8px 12px; /* Even smaller padding */
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Minimal gap */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    min-height: 76px; /* Reduced height */
+    max-height: 84px; /* Reduced maximum */
+
+    /* Subtle inset shadow for depth */
+    box-shadow: inset 3px 3px 6px #B8BEC7,
+                inset -3px -3px 6px #FFFFFF;
+}
+
+.quote-item:hover {
+    /* NO transform - user's strict rule */
+    background: var(--neuro-bg); /* Keep same background */
+
+    /* Slightly deeper inset on hover */
+    box-shadow: inset 4px 4px 8px #B8BEC7,
+                inset -4px -4px 8px #FFFFFF;
+}
+
+.quote-vendor {
+    font-size: 12px; /* Even smaller */
+    font-weight: var(--font-semibold);
+    color: var(--neuro-text);
+    opacity: 0.9;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.quote-product {
+    font-size: 12px; /* Even smaller */
+    color: var(--neuro-text);
+    opacity: 0.7;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.quote-price {
+    font-size: 16px; /* Reduced for better fit */
+    font-weight: var(--font-bold);
+    color: var(--neuro-accent); /* Green for prices */
+    margin-top: 0; /* Minimal margin */
+    font-feature-settings: 'tnum' 1; /* Tabular numbers for alignment */
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+    line-height: 1;
+}
+
+.quote-action {
+    align-self: flex-end;
+    padding: 4px 8px; /* Even smaller button */
+    background: var(--neuro-bg);
+    border: none;
+    border-radius: 8px;
+    font-size: 12px; /* Smaller text */
+    font-weight: var(--font-medium);
+    color: var(--neuro-text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+    margin-top: auto; /* Push to bottom */
+
+    /* Subtle raised effect */
+    box-shadow: 2px 2px 4px #B8BEC7,
+                -2px -2px 4px #FFFFFF;
+}
+
+.quote-action:hover {
+    /* NO transform - user's strict rule */
+    color: var(--neuro-accent); /* Green on hover */
+    opacity: 1;
+
+    /* Subtle pressed effect on hover - From colors.css */
+    box-shadow: var(--quote-action-shadow-hover);
+}
+
+.quote-action:active {
+    /* NO transform - user's strict rule */
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF;
+}
+
+/* Green shimmer animation from original dashboard */
+@keyframes green-shimmer {
+    0% { background-position: 200% 0; }
+    50% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Market Status Indicators - From Original Dashboard */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.market-status-indicators {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.market-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.status-dot.closed {
+    background: #6B7280;
+    animation: none;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.status-dot.open {
+    background: #10B981;
+    animation: pulse-green 2s infinite;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+}
+
+.status-dot.trading {
+    background: #10B981;
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 4px rgba(16, 185, 129, 0);
+    }
+}
+
+.market-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.market-status-text {
+    font-size: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    letter-spacing: 0.05em;
+    padding: 1px 4px;
+    border-radius: 4px;
+}
+
+.market-indicator .market-status-text {
+    color: #6B7280;
+    background: rgba(107, 114, 128, 0.1);
+}
+
+.market-indicator.open .market-status-text {
+    color: #10B981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+/* ============================================
+   DROPDOWN - Neumorphic Category Selector
+   ============================================ */
+.category-dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-dropdown {
+    position: relative;
+    min-width: 140px;
+    background: var(--neuro-bg);
+    border-radius: 12px;
+    cursor: pointer;
+
+    /* Inset neumorphic effect matching other elements */
+    box-shadow: inset 3px 3px 6px #B8BEC7,
+                inset -3px -3px 6px #FFFFFF;
+}
+
+.dropdown-selected {
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--neuro-text);
+    user-select: none;
+}
+
+.dropdown-arrow {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid var(--neuro-text);
+    transition: transform 0.3s ease;
+    margin-left: 8px;
+}
+
+.custom-dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-options {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: var(--neuro-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 50;
+
+    /* Raised shadow for floating dropdown */
+    box-shadow: 6px 6px 12px #B8BEC7,
+                -6px -6px 12px #FFFFFF;
+}
+
+.dropdown-options.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-option {
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--neuro-text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(184, 190, 199, 0.2);
+}
+
+.dropdown-option:last-child {
+    border-bottom: none;
+}
+
+.dropdown-option:hover {
+    background: linear-gradient(145deg, #E8EDF4, #D8DDE4);
+    color: var(--neuro-accent);
+    padding-left: 16px;
+}
+
+.dropdown-option[data-value="fruits"] { border-left: 3px solid #FF6B35; }
+.dropdown-option[data-value="vegetables"] { border-left: 3px solid #5CB85C; }
+.dropdown-option[data-value="herbs"] { border-left: 3px solid #6FD86F; }
+.dropdown-option[data-value="flowers"] { border-left: 3px solid #FF1493; }
+.dropdown-option[data-value="dairy"] { border-left: 3px solid #FFB845; }
+
+/* ============================================
+   SEARCH - Neumorphic Search Feature
+   ============================================ */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-toggle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: var(--neuro-bg);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+
+    /* Inset neumorphic effect */
+    box-shadow: inset 3px 3px 6px #B8BEC7,
+                inset -3px -3px 6px #FFFFFF;
+}
+
+.search-toggle:hover {
+    /* Deeper inset on hover */
+    box-shadow: inset 4px 4px 8px #B8BEC7,
+                inset -4px -4px 8px #FFFFFF;
+}
+
+.search-toggle:active {
+    box-shadow: inset 5px 5px 10px #B8BEC7,
+                inset -5px -5px 10px #FFFFFF;
+}
+
+.search-toggle svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--neuro-text);
+    stroke-width: 2;
+    transition: stroke 0.3s ease;
+}
+
+.search-toggle:hover svg {
+    stroke: var(--neuro-accent);
+}
+
+.search-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 36px;
+    background: var(--neuro-bg);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px 0 46px;
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+
+    /* Raised shadow for overlay */
+    box-shadow: 4px 4px 8px #B8BEC7,
+                -4px -4px 8px #FFFFFF;
+}
+
+.search-overlay.active {
+    opacity: 1;
+    width: 200px;
+}
+
+.search-input-container {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.search-input-container input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--neuro-text);
+    outline: none;
+    font-family: var(--font-sans);
+    width: 100%;
+}
+
+.search-input-container input::placeholder {
+    color: var(--text-tertiary);
+    font-weight: 400;
+}
+
+.search-input-container input:focus {
+    outline: none;
+}
+
+/* ============================================
+   PAGINATION - Navigation Controls
+   ============================================ */
+.pagination-container {
+    display: flex !important; /* Always visible */
+    align-items: center;
+    gap: 8px;
+}
+
+.pagination-arrow {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--neuro-bg);
+    transition: all 0.3s ease;
+
+    /* Inset neumorphic effect */
+    box-shadow: inset 2px 2px 4px #B8BEC7,
+                inset -2px -2px 4px #FFFFFF;
+}
+
+.pagination-arrow:hover:not(.disabled) {
+    /* Deeper inset on hover */
+    box-shadow: inset 3px 3px 6px #B8BEC7,
+                inset -3px -3px 6px #FFFFFF;
+}
+
+.pagination-arrow:active:not(.disabled) {
+    box-shadow: inset 4px 4px 8px #B8BEC7,
+                inset -4px -4px 8px #FFFFFF;
+}
+
+.pagination-arrow.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.pagination-arrow svg {
+    width: 12px;
+    height: 12px;
+    stroke: var(--neuro-text);
+    stroke-width: 2.5;
+    transition: stroke 0.3s ease;
+}
+
+.pagination-arrow:hover:not(.disabled) svg {
+    stroke: var(--neuro-accent);
+}

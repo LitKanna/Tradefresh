@@ -1,0 +1,301 @@
+/* ============================================
+   SYDNEY MARKETS COLOR SYSTEM 10/10 - VIBRANT & FRESH
+   ============================================ */
+
+:root {
+    /* INSET NEUMORPHISM - Sophisticated Soft UI System */
+    --bg-primary: #E0E5EC;        /* Perfect neumorphic background */
+    --bg-secondary: #E0E5EC;      /* Consistent background */
+    --bg-tertiary: #E0E5EC;       /* All same for proper shadows */
+    --bg-hover: #EFE9DE;           /* Hover state */
+    --bg-pressed: #ECE5D8;         /* Pressed/active */
+    --bg-disabled: #E8E2D8;        /* Disabled elements */
+    --bg-elevated: #FCFAF6;        /* Elevated surfaces */
+
+    /* TEXT HIERARCHY - Better contrast, less muddy */
+    --text-primary: #2A2620;       /* Rich warm black (WCAG AAA) */
+    --text-secondary: #4A453B;     /* Dark brown body text */
+    --text-tertiary: #6B6458;      /* Medium brown */
+    --text-muted: #8B8478;         /* Muted text */
+    --text-disabled: #A8A298;      /* Disabled text */
+    --text-on-dark: #FAF6F0;       /* Cream on dark */
+    --text-on-color: #FFFFFF;      /* Pure white for buttons */
+
+    /* HERO COLORS - Fresh, vibrant, appetizing */
+    --fresh-green: #5CB85C;        /* Vibrant lettuce green - primary */
+    --fresh-green-dark: #4A9B4A;   /* Forest green - hover */
+    --fresh-green-light: #6FD86F;  /* Spring green - light */
+    --fresh-green-pale: #E6F7E6;   /* Mint cream - backgrounds */
+
+    --golden-honey: #F0A830;       /* Rich honey gold - prices */
+    --golden-honey-dark: #D89520;  /* Deep gold - hover */
+    --golden-honey-light: #FFB845; /* Bright gold - badges */
+    --golden-honey-pale: #FFF8E8;  /* Pale gold - backgrounds */
+
+    /* STATUS COLORS */
+    --status-success: #5CB85C;     /* Fresh green */
+    --status-warning: #F0A830;     /* Golden honey */
+    --status-error: #E8745B;       /* Coral sunset */
+    --status-info: #8B9DC3;        /* Soft steel (not too blue) */
+    --status-new: #6FD86F;         /* Bright spring green */
+
+    /* STOCK LEVELS - Traffic light system */
+    --stock-abundant: #5CB85C;     /* Plenty - green */
+    --stock-good: #6FD86F;         /* Good - light green */
+    --stock-moderate: #F0A830;     /* Moderate - gold */
+    --stock-low: #FF6B35;          /* Low - orange */
+    --stock-critical: #E8745B;     /* Critical - coral */
+    --stock-out: #C8C2B8;          /* Out - gray */
+
+    /* CATEGORY COLORS - Distinctive */
+    --cat-vegetables: #5CB85C;     /* Vibrant green */
+    --cat-fruits: #FF6B35;         /* Orange */
+    --cat-herbs: #6FD86F;          /* Light green */
+    --cat-dairy: #FFB845;          /* Butter yellow */
+    --cat-bakery: #D4A574;         /* Warm bread brown */
+
+    /* BORDERS - Subtle definition */
+    --border-light: rgba(208, 200, 184, 0.15);
+    --border-medium: rgba(208, 200, 184, 0.25);
+    --border-strong: rgba(208, 200, 184, 0.4);
+    --border-focus: #5CB85C;
+    --border-error: #E8745B;
+
+    /* GRADIENTS - Smooth transitions */
+    --gradient-fresh: linear-gradient(135deg, #5CB85C 0%, #6FD86F 100%);
+    --gradient-warm: linear-gradient(135deg, #FAF6F0 0%, #F2EDE4 100%);
+    --gradient-gold: linear-gradient(135deg, #F0A830 0%, #FFB845 100%);
+    --gradient-card: linear-gradient(145deg, #FCFAF6 0%, #F6F2EA 100%);
+    --gradient-hover: linear-gradient(145deg, #FAF6F0 0%, #EFE9DE 100%);
+    --gradient-hover-subtle: linear-gradient(145deg, #F8F4EC 0%, #F2EBE0 100%); /* Subtle hover - between normal and white */
+    --gradient-pressed: linear-gradient(145deg, #F2EDE4 0%, #ECE5D8 100%);
+
+    /* INSET NEUMORPHISM COLOR SYSTEM - Sydney Markets Theme */
+    --neuro-bg: #E0E5EC;         /* Main background */
+    --neuro-light: #E8EDF4;      /* Light shadow color */
+    --neuro-dark: #A3B1C6;       /* Dark shadow color */
+    --neuro-text: #2A2620;       /* Rich warm black from original */
+    --neuro-accent: #5CB85C;     /* Sydney Markets green */
+
+    /* Variable Font Weights - From 100 (thin) to 900 (black) */
+    --weight-thin: 100;
+    --weight-extra-light: 200;
+    --weight-light: 300;
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semi-bold: 600;
+    --weight-bold: 700;
+    --weight-extra-bold: 800;
+    --weight-black: 900;
+
+    /* Dynamic Weight Ranges for Data */
+    --weight-min: 200;  /* Minimum weight for low values */
+    --weight-max: 900;  /* Maximum weight for high values */
+    --weight-default: 400;  /* Default weight */
+
+    /* INSET NEUMORPHIC CARD DESIGN - Soft UI */
+    --card-bg-normal: var(--neuro-bg);
+    --card-bg-hover: var(--neuro-bg);
+    --card-border: none;
+    --card-border-hover: none;
+
+    /* NEUMORPHIC SHADOWS - Inset for depth */
+    --card-shadow-normal: inset 5px 5px 10px #B8BEC7,
+                          inset -5px -5px 10px #FFFFFF;
+    --card-shadow-hover: inset 8px 8px 15px #B8BEC7,
+                         inset -8px -8px 15px #FFFFFF;
+
+    /* RAISED SHADOWS - For floating elements */
+    --shadow-raised: 9px 9px 16px #B8BEC7,
+                     -9px -9px 16px #FFFFFF;
+    --shadow-raised-subtle: 5px 5px 10px #B8BEC7,
+                            -5px -5px 10px #FFFFFF;
+
+    /* INNER GLOW - Disabled for Swiss Style */
+    --card-inner-glow: none;
+    --card-inner-glow-hover: none;
+
+    /* ORDER CARD NEUMORPHIC SHADOWS */
+    --order-card-shadow: inset 10px 10px 20px #B8BEC7,
+                        inset -10px -10px 20px #FFFFFF; /* Strong inset matching stats */
+    --quote-item-shadow: inset 4px 4px 8px #B8BEC7,
+                        inset -4px -4px 8px #FFFFFF;
+    --quote-item-shadow-hover: inset 6px 6px 12px #B8BEC7,
+                               inset -6px -6px 12px #FFFFFF;
+    --quote-action-shadow: 4px 4px 8px #B8BEC7,
+                          -4px -4px 8px #FFFFFF;
+    --quote-action-shadow-hover: 2px 2px 4px #B8BEC7,
+                                -2px -2px 4px #FFFFFF;
+
+    /* ICON STYLES */
+    --icon-bg-normal: linear-gradient(135deg, #FFFDF8 0%, #FBF7F0 100%);
+    --icon-bg-hover: linear-gradient(135deg, #FFFFFF 0%, #FDFAF4 100%);
+    --icon-border: rgba(226, 213, 192, 0.2);
+    --icon-border-hover: rgba(226, 213, 192, 0.3);
+    --icon-shadow-normal: inset 0 1px 2px rgba(0, 0, 0, 0.03),
+                          0 1px 2px rgba(255, 255, 255, 0.8);
+    --icon-shadow-hover: inset 0 1px 2px rgba(0, 0, 0, 0.02),
+                         0 2px 4px rgba(0, 0, 0, 0.05);
+    --icon-stroke-width-normal: 2;
+    --icon-stroke-width-hover: 2.5;
+    --header-icon-stroke-hover: 3;
+
+    /* HEADER ICON SHADOWS - Subtle Floating Effect */
+    --header-icon-shadow-normal: 0 4px 12px rgba(0, 0, 0, 0.08),
+                                  0 2px 4px rgba(0, 0, 0, 0.04);
+    --header-icon-shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.1),
+                                0 2px 8px rgba(0, 0, 0, 0.06);
+    --header-icon-shadow-active: inset 4px 4px 8px rgba(155, 170, 145, 0.3),
+                                 inset -2px -2px 4px rgba(254, 254, 242, 0.8),
+                                 0 2px 4px rgba(155, 170, 145, 0.2);
+
+    /* STAT CARD GRADIENTS - Legacy (kept for reference) */
+    --gradient-stat-normal: linear-gradient(145deg, #F4F0E8 0%, #EAE5DC 100%);
+    --gradient-stat-hover: linear-gradient(145deg, #F6F2EA 0%, #ECE7DE 100%);
+
+    /* SHADOWS - Modern subtle (no white highlights) */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04),
+                 0 1px 2px rgba(0, 0, 0, 0.02);
+
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.06),
+                 0 2px 4px rgba(0, 0, 0, 0.03);
+
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.08),
+                 0 4px 8px rgba(0, 0, 0, 0.04);
+
+    --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.07),
+                    0 3px 6px rgba(0, 0, 0, 0.04);
+
+    --shadow-inset: inset 2px 2px 4px rgba(0, 0, 0, 0.06);
+
+    --shadow-pressed: inset 3px 3px 6px rgba(0, 0, 0, 0.08);
+
+    /* GLOWS - Attention grabbers */
+    --glow-success: 0 0 20px rgba(92, 184, 92, 0.3);
+    --glow-warning: 0 0 20px rgba(240, 168, 48, 0.3);
+    --glow-fresh: 0 0 30px rgba(111, 216, 111, 0.4);
+
+    /* MODERN SHADOWS FOR STAT CARDS */
+    --shadow-stat-normal: 0 4px 6px rgba(0, 0, 0, 0.04),
+                          0 2px 4px rgba(0, 0, 0, 0.03),
+                          inset 0 1px 1px rgba(255, 255, 255, 0.1);
+
+    --shadow-stat-hover: 0 12px 20px rgba(92, 184, 92, 0.08),
+                         0 8px 12px rgba(0, 0, 0, 0.05),
+                         0 4px 6px rgba(0, 0, 0, 0.03),
+                         inset 0 2px 2px rgba(255, 255, 255, 0.15);
+
+    --shadow-icon-inset: inset 2px 2px 4px rgba(0, 0, 0, 0.06),
+                         inset -1px -1px 2px rgba(255, 255, 255, 0.3);
+
+    /* BORDERS */
+    --border-stat-normal: rgba(255, 255, 255, 0.2);
+    --border-stat-hover: rgba(92, 184, 92, 0.2);
+
+    /* SPACING - Consistent rhythm */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+
+    /* RADIUS - Friendly curves */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-2xl: 32px;
+    --radius-full: 9999px;
+
+    /* TRANSITIONS - Smooth interactions */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 350ms ease;
+    --transition-slower: 500ms ease;
+
+    /* Z-INDEX LAYERS */
+    --z-base: 0;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-modal: 300;
+    --z-popover: 400;
+    --z-tooltip: 500;
+    --z-notification: 600;
+    --z-max: 9999;
+
+    /* TYPOGRAPHY - Clean and readable */
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'SF Mono', Monaco, 'Courier New', monospace;
+
+    --text-xs: 0.75rem;     /* 12px */
+    --text-sm: 0.875rem;    /* 14px */
+    --text-base: 1rem;      /* 16px */
+    --text-lg: 1.125rem;    /* 18px */
+    --text-xl: 1.25rem;     /* 20px */
+    --text-2xl: 1.5rem;     /* 24px */
+    --text-3xl: 1.875rem;   /* 30px */
+    --text-4xl: 2.25rem;    /* 36px */
+
+    /* LINE HEIGHTS */
+    --leading-tight: 1.25;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 2;
+
+    /* FONT WEIGHTS */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    /* ANIMATIONS */
+    --animation-pulse: pulse 2s infinite;
+    --animation-bounce: bounce 1s infinite;
+    --animation-spin: spin 1s linear infinite;
+
+    /* LEGACY MAPPINGS - For backward compatibility */
+    --bg-cream: var(--bg-primary);
+    --white: var(--bg-elevated);
+    --black: var(--text-primary);
+    --green: var(--fresh-green);
+    --gray: var(--text-tertiary);
+    --gray-light: var(--text-muted);
+
+    /* LEGACY SHADOW MAPPINGS */
+    --shadow: var(--shadow-sm);
+    --shadow-raised: var(--shadow-md);
+    --shadow-raised-hover: var(--shadow-hover);
+
+    /* LEGACY GRADIENT MAPPINGS */
+    --gradient-white-cream: var(--gradient-card);
+    --gradient-cream-light: var(--gradient-hover);
+    --gradient-light-cream: var(--gradient-warm);
+}
+
+/* KEYFRAMES */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(-25%); }
+    50% { transform: none; }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* UTILITY CLASSES */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.bg-primary { background-color: var(--bg-primary); }
+.bg-fresh { background: var(--gradient-fresh); }
+.shadow-raised { box-shadow: var(--shadow-md); }
+.glow-success { box-shadow: var(--glow-success); }
