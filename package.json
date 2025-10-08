@@ -6,8 +6,6 @@
         "build": "vite build"
     },
     "devDependencies": {
-        "@laravel-boost/mcp-server": "^1.0.0",
-        "@playwright/mcp": "^0.0.40",
         "@playwright/test": "^1.55.0",
         "@tailwindcss/forms": "^0.5.2",
         "autoprefixer": "^10.4.2",
