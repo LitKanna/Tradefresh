@@ -161,8 +161,8 @@ Route::get('/analytics-enterprise', function () {
     return view('buyer.analytics-dashboard-enterprise', compact('intelligence'));
 })->name('analytics-enterprise');
 
-// BulkHunter Lead Discovery System
-Route::get('/bulkhunter', \App\Livewire\Vendor\BulkHunter::class)->name('bulkhunter');
+// BulkHunter Lead Discovery System (Disabled for deployment)
+// Route::get('/bulkhunter', \App\Livewire\Vendor\BulkHunter::class)->name('bulkhunter');
 
 // Temporary Test Dashboard (No Auth Required)
 Route::get('/test-dashboard-layout', function () {
