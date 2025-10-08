@@ -63,7 +63,7 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        App\Vendor\VendorServiceProvider::class,
+        // VendorServiceProvider removed - Livewire 3 has auto-discovery
     ],
 
     'aliases' => [
