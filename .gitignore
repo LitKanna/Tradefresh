@@ -4,3 +4,6 @@ rr.exe
 node_modules/
 .playwright-mcp/
 vendor/
+modern-stack/
+launch_dashboards.py
+.playwright-mcp/
