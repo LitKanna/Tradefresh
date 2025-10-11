@@ -118,8 +118,22 @@
 .order-card-content {
     flex: 1 !important;
     overflow-y: auto !important;
+    overflow-x: hidden !important;
     padding: 16px !important;
     background: var(--neuro-bg) !important;
+    max-height: calc(100vh - 180px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Quotes List Container - Fill Height */
+.quotes-list-container {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    display: block !important;
+    min-height: 100% !important; /* CRITICAL: Ensure minimum height */
+    height: 100% !important; /* CRITICAL: Fill parent */
 }
 
 .order-card-content::-webkit-scrollbar {
@@ -141,15 +155,18 @@
    ============================================ */
 .quote-item {
     background: var(--neuro-bg) !important;
-    border-radius: 16px !important;
-    padding: 14px !important;
-    margin-bottom: 12px !important;
+    border-radius: 14px !important;
+    padding: 14px 12px 12px 12px !important;
+    margin-bottom: 10px !important;
     box-shadow:
         inset 4px 4px 8px var(--neuro-shadow-dark-strong),
         inset -4px -4px 8px var(--neuro-shadow-light-strong) !important;
     border: none !important;
     position: relative !important;
     transition: all 0.3s ease !important;
+    min-height: 140px !important;
+    max-height: 160px !important;
+    opacity: 1 !important; /* CRITICAL FIX: Override any parent opacity */
 }
 
 .quote-item:hover {
@@ -161,20 +178,21 @@
 /* Timer Badge - Deeply Inset */
 .quote-timer {
     position: absolute !important;
-    top: 12px !important;
-    right: 12px !important;
+    top: 10px !important; /* FIX 2: Increased from 8px */
+    right: 12px !important; /* FIX 2: Increased from 10px */
     background: var(--neuro-bg) !important;
-    padding: 4px 10px !important;
-    border-radius: 20px !important;
-    font-size: 11px !important;
+    padding: 4px 10px !important; /* FIX 2: Increased from 3px 8px */
+    border-radius: 16px !important;
+    font-size: 11px !important; /* FIX 2: Increased from 10px */
     font-weight: 700 !important;
-    color: #6B7280 !important;
+    color: var(--sydney-green) !important;
     box-shadow:
         inset 3px 3px 6px rgba(184, 190, 199, 0.6),
         inset -3px -3px 6px rgba(255, 255, 255, 1) !important;
     letter-spacing: 0.05em !important;
-    min-width: 42px !important;
+    min-width: 48px !important; /* FIX 2: Increased from 40px */
     text-align: center !important;
+    font-variant-numeric: tabular-nums !important;
 }
 
 .quote-timer.warning {
@@ -190,26 +208,38 @@
 /* Buyer Name - Soft Text */
 .quote-vendor {
     font-size: 14px !important;
-    font-weight: 600 !important;
-    color: #1F2937 !important;
+    font-weight: 700 !important;
+    color: #000000 !important;
+    opacity: 1 !important; /* CRITICAL FIX: Override 0.9 opacity from other CSS */
     margin-bottom: 6px !important;
     letter-spacing: -0.01em !important;
+    padding-top: 4px !important;
+    padding-right: 56px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
 }
 
 /* Product Details */
 .quote-product {
     font-size: 13px !important;
-    color: #6B7280 !important;
+    color: #374151 !important;
+    font-weight: 500 !important;
+    opacity: 1 !important; /* CRITICAL FIX: Override opacity */
     margin-bottom: 10px !important;
     line-height: 1.4 !important;
+    min-height: 18px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
 }
 
 /* Price/Request Info - Soft Inset */
 .quote-price {
     background: var(--neuro-bg) !important;
-    padding: 8px 12px !important;
-    border-radius: 10px !important;
-    margin: 10px 0 !important;
+    padding: 8px 12px !important; /* FIX 5: Increased from 6px 10px */
+    border-radius: 8px !important;
+    margin: 8px 0 10px 0 !important; /* FIX 5: Increased bottom margin */
     box-shadow:
         inset 2px 2px 4px rgba(184, 190, 199, 0.3),
         inset -2px -2px 4px rgba(255, 255, 255, 0.7) !important;
@@ -219,14 +249,14 @@
 }
 
 .price-label {
-    font-size: 11px !important;
+    font-size: 11px !important; /* FIX 5: Restored from 10px */
     color: #9CA3AF !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
 }
 
 .price-value {
-    font-size: 14px !important;
+    font-size: 13px !important; /* FIX 5: Increased from 12px */
     font-weight: 700 !important;
     color: var(--sydney-green) !important;
 }
@@ -236,22 +266,22 @@
    ============================================ */
 .quote-actions {
     display: flex !important;
-    gap: 8px !important;
-    margin-top: 12px !important;
+    gap: 8px !important; /* FIX 6: Restored from 6px */
+    margin-top: 10px !important; /* FIX 6: Increased from 8px */
 }
 
 .quote-action {
     flex: 1 !important;
-    padding: 10px !important;
-    border-radius: 12px !important;
-    font-size: 13px !important;
+    padding: 10px 8px !important; /* FIX 6: Restored from 8px 6px */
+    border-radius: 10px !important;
+    font-size: 12px !important; /* FIX 6: Increased from 11px */
     font-weight: 600 !important;
     text-align: center !important;
     cursor: pointer !important;
     border: none !important;
     transition: all 0.2s ease !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.05em !important;
+    letter-spacing: 0.03em !important;
     background: var(--neuro-bg) !important;
 }
 
@@ -393,12 +423,18 @@
     box-shadow:
         inset 4px 4px 8px var(--neuro-shadow-dark-strong),
         inset -4px -4px 8px var(--neuro-shadow-light-strong) !important;
+    flex: 1 !important; /* CRITICAL FIX: Fill parent height */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .no-quotes p {
-    color: #9CA3AF !important;
-    font-size: 13px !important;
+    color: #6B7280 !important; /* IMPROVED: Darker for better visibility */
+    font-size: 14px !important; /* IMPROVED: Larger text */
+    font-weight: 500 !important; /* IMPROVED: Better readability */
     margin: 0 !important;
+    opacity: 1 !important; /* CRITICAL FIX: Full opacity */
 }
 
 /* ============================================

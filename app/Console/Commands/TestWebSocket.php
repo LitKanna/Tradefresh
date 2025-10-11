@@ -2,19 +2,20 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
 use App\Events\PriceUpdate;
 use App\Services\WebSocketService;
+use Illuminate\Console\Command;
 
 class TestWebSocket extends Command
 {
     protected $signature = 'websocket:test {--type=price : Type of event to test (price|quote|typing)}';
+
     protected $description = 'Test WebSocket broadcasting functionality';
 
     public function handle(): int
     {
         $type = $this->option('type');
-        $websocketService = new WebSocketService();
+        $websocketService = new WebSocketService;
 
         switch ($type) {
             case 'price':
@@ -31,6 +32,7 @@ class TestWebSocket extends Command
 
             default:
                 $this->error("Unknown event type: {$type}");
+
                 return Command::FAILURE;
         }
 
@@ -51,8 +53,8 @@ class TestWebSocket extends Command
 
         $this->info('✅ Price update event broadcasted successfully!');
         $this->line("Product: {$product}");
-        $this->line("Old Price: ${$oldPrice}");
-        $this->line("New Price: ${$newPrice}");
+        $this->line("Old Price: {$oldPrice}");
+        $this->line("New Price: {$newPrice}");
         $this->line("Vendor: {$vendorName}");
         $this->line('');
         $this->comment('Check your browser console for the received event.');
@@ -63,17 +65,17 @@ class TestWebSocket extends Command
         $this->info('Testing Quote Received broadcast...');
 
         // Create mock objects
-        $quote = new \stdClass();
+        $quote = new \stdClass;
         $quote->id = 999;
         $quote->rfq_id = 123;
         $quote->total_price = 299.99;
         $quote->message = 'Test quote from WebSocket test';
 
-        $vendor = new \stdClass();
+        $vendor = new \stdClass;
         $vendor->id = 1;
         $vendor->business_name = 'Test Vendor Co';
 
-        $buyer = new \stdClass();
+        $buyer = new \stdClass;
         $buyer->id = 1;
         $buyer->business_name = 'Test Buyer Co';
 
@@ -82,7 +84,7 @@ class TestWebSocket extends Command
         if ($result) {
             $this->info('✅ Quote received event broadcasted successfully!');
             $this->line("Quote ID: {$quote->id}");
-            $this->line("Total: ${$quote->total_price}");
+            $this->line("Total: {$quote->total_price}");
             $this->line("From: {$vendor->business_name}");
             $this->line("To: {$buyer->business_name}");
         } else {

@@ -2,11 +2,10 @@
 
 namespace App\Console\Commands;
 
+use App\Jobs\ProcessCartAbandonmentRecovery;
 use App\Models\Cart;
 use App\Models\CartAbandonmentRecovery;
-use App\Jobs\ProcessCartAbandonmentRecovery;
 use Illuminate\Console\Command;
-use Carbon\Carbon;
 
 class ProcessAbandonedCarts extends Command
 {
@@ -43,7 +42,7 @@ class ProcessAbandonedCarts extends Command
         // Clean up expired recoveries
         $expiredCount = $this->cleanupExpiredRecoveries($dryRun);
 
-        $this->info("Abandoned cart processing completed:");
+        $this->info('Abandoned cart processing completed:');
         $this->line("  - New abandonments: {$newlyAbandonedCarts->count()}");
         $this->line("  - Existing recoveries: {$existingRecoveries->count()}");
         $this->line("  - Expired recoveries cleaned: {$expiredCount}");
@@ -74,6 +73,7 @@ class ProcessAbandonedCarts extends Command
         foreach ($carts as $cart) {
             if ($dryRun) {
                 $this->line("Would create abandonment recovery for cart {$cart->id} (buyer: {$cart->buyer->email})");
+
                 continue;
             }
 
@@ -83,13 +83,13 @@ class ProcessAbandonedCarts extends Command
 
                 // Create recovery record should be created automatically via the model
                 $recovery = $cart->abandonmentRecovery;
-                
+
                 if ($recovery) {
                     // Schedule first recovery email (after 1 hour from now)
                     ProcessCartAbandonmentRecovery::dispatch($recovery)
                         ->delay(now()->addHour());
 
-                    $this->line("Created recovery for cart {$cart->id} (value: ${$cart->total_amount})");
+                    $this->line("Created recovery for cart {$cart->id} (value: {$cart->total_amount})");
                 }
 
             } catch (\Exception $e) {
@@ -138,6 +138,7 @@ class ProcessAbandonedCarts extends Command
             if ($dryRun) {
                 $emailType = $recovery->getRecoveryEmailType();
                 $this->line("Would send {$emailType} recovery email to {$recovery->buyer->email}");
+
                 continue;
             }
 
@@ -160,6 +161,7 @@ class ProcessAbandonedCarts extends Command
 
         if ($dryRun) {
             $this->line("Would expire {$expiredRecoveries->count()} recovery campaigns");
+
             return $expiredRecoveries->count();
         }
 

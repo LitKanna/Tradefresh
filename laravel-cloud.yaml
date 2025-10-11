@@ -1,0 +1,18 @@
+# Laravel Cloud Configuration
+# Disables Octane to avoid process ID file write errors
+
+server:
+  type: fpm  # Use FPM instead of Octane/FrankenPHP
+
+deployment:
+  build:
+    - composer install --no-dev --optimize-autoloader
+    - php artisan migrate --force
+    - php artisan config:cache
+    - php artisan route:cache
+    - php artisan view:cache
+
+environment:
+  APP_ENV: production
+  APP_DEBUG: false
+  OCTANE_SERVER: null  # Disable Octane for cloud deployment

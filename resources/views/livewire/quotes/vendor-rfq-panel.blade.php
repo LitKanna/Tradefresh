@@ -11,50 +11,54 @@
         </div>
 
         <div class="order-card-content" wire:poll.5s="loadRealRfqs">
-            @forelse($pendingRfqs as $index => $rfq)
-                <div class="quote-item" data-rfq-id="{{ $rfq['id'] ?? $index }}" data-created-at="{{ $rfq['created_at'] ?? now() }}">
-                    <!-- Timer -->
-                    <div class="quote-timer" id="timer-{{ $rfq['id'] ?? $index }}" style="opacity: 0;">--:--</div>
+            @if(count($pendingRfqs) > 0)
+                <div class="quotes-list-container" style="flex: 1; overflow-y: auto; overflow-x: hidden;">
+                    @foreach($pendingRfqs as $index => $rfq)
+                        <div class="quote-item" data-rfq-id="{{ $rfq['id'] ?? $index }}" data-created-at="{{ $rfq['created_at'] ?? now() }}">
+                            <!-- Timer -->
+                            <div class="quote-timer" id="timer-{{ $rfq['id'] ?? $index }}" style="opacity: 0;">--:--</div>
 
-                    <!-- Buyer Name -->
-                    <div class="quote-vendor">{{ $rfq['business_name'] ?? 'Unknown Buyer' }}</div>
+                            <!-- Buyer Name -->
+                            <div class="quote-vendor">{{ $rfq['business_name'] ?? 'Unknown Buyer' }}</div>
 
-                    <!-- Product Request -->
-                    <div class="quote-product">
-                        @if(isset($rfq['items']) && count($rfq['items']) > 0)
-                            @if(count($rfq['items']) == 1)
-                                {{ $rfq['items'][0]['name'] }} - {{ $rfq['items'][0]['quantity'] }} {{ $rfq['items'][0]['unit'] }}
-                            @else
-                                {{ $rfq['items'][0]['name'] }} + {{ count($rfq['items']) - 1 }} more
-                            @endif
-                        @else
-                            No items
-                        @endif
-                    </div>
+                            <!-- Product Request -->
+                            <div class="quote-product">
+                                @if(isset($rfq['items']) && count($rfq['items']) > 0)
+                                    @if(count($rfq['items']) == 1)
+                                        {{ $rfq['items'][0]['name'] }} - {{ $rfq['items'][0]['quantity'] }} {{ $rfq['items'][0]['unit'] }}
+                                    @else
+                                        {{ $rfq['items'][0]['name'] }} + {{ count($rfq['items']) - 1 }} more
+                                    @endif
+                                @else
+                                    No items
+                                @endif
+                            </div>
 
-                    <!-- Price Display -->
-                    <div class="quote-price">
-                        <span class="price-label">Request for:</span>
-                        <span class="price-value">{{ \Carbon\Carbon::parse($rfq['delivery_date'])->format('M d') }}</span>
-                    </div>
+                            <!-- Price Display -->
+                            <div class="quote-price">
+                                <span class="price-label">Request for:</span>
+                                <span class="price-value">{{ \Carbon\Carbon::parse($rfq['delivery_date'])->format('M d') }}</span>
+                            </div>
 
-                    <!-- Action Buttons -->
-                    <div class="quote-actions">
-                        <button class="quote-action view" wire:click="viewRFQ({{ $rfq['id'] ?? 0 }})">
-                            View
-                        </button>
-                        <button class="quote-action accept" wire:click="openQuoteModal({{ $rfq['id'] ?? 0 }})">
-                            Quote
-                        </button>
-                    </div>
+                            <!-- Action Buttons -->
+                            <div class="quote-actions">
+                                <button class="quote-action view" wire:click="viewRFQ({{ $rfq['id'] ?? 0 }})">
+                                    View
+                                </button>
+                                <button class="quote-action accept" wire:click="openQuoteModal({{ $rfq['id'] ?? 0 }})">
+                                    Quote
+                                </button>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-            @empty
+            @else
                 <div class="no-quotes">
                     <p style="text-align: center; color: var(--text-tertiary); padding: 20px; font-size: 12px;">
                         Waiting for customer requests...
                     </p>
                 </div>
-            @endforelse
+            @endif
         </div>
 
         <!-- Footer with Actions -->

@@ -4,29 +4,27 @@ namespace App\Services\BulkHunter;
 
 use App\Services\ABN\ABNLookupService;
 use App\Services\GooglePlacesService;
-use App\Services\BulkHunter\ProcurementAnalyzer;
-use App\Models\BuyerLead;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Cache;
-use Carbon\Carbon;
 
 class BulkHunterService
 {
     protected ABNLookupService $abnService;
+
     protected GooglePlacesService $placesService;
 
     public function __construct(ABNLookupService $abnService)
     {
         $this->abnService = $abnService;
-        $this->placesService = new GooglePlacesService();
+        $this->placesService = new GooglePlacesService;
     }
 
     /**
      * Discover real businesses using Google Places API
      */
-    public function discoverRealBusinesses(string $keyword = 'restaurant', string $location = 'Sydney', string $postcode = null): array
+    public function discoverRealBusinesses(string $keyword = 'restaurant', string $location = 'Sydney', ?string $postcode = null): array
     {
         $leads = [];
 
@@ -42,7 +40,7 @@ class BulkHunterService
 
             foreach ($businesses as $business) {
                 // Get detailed information for each business
-                if (!empty($business['google_place_id'])) {
+                if (! empty($business['google_place_id'])) {
                     $details = $this->placesService->getBusinessDetails($business['google_place_id']);
 
                     if ($details) {
@@ -102,7 +100,7 @@ class BulkHunterService
             $this->enrichWithMarketIntelligence($leads);
 
         } catch (\Exception $e) {
-            Log::error('BulkHunter Discovery Error: ' . $e->getMessage());
+            Log::error('BulkHunter Discovery Error: '.$e->getMessage());
         }
 
         return $leads;
@@ -127,17 +125,17 @@ class BulkHunterService
             // Try searching by name and postcode if direct lookup fails
             if ($postcode) {
                 $searchResults = $this->abnService->searchByNameAndPostcode($searchName, $postcode);
-                if (!empty($searchResults['names'])) {
+                if (! empty($searchResults['names'])) {
                     // Get the first matching result
                     $firstResult = $searchResults['names'][0];
-                    if (!empty($firstResult['abn'])) {
+                    if (! empty($firstResult['abn'])) {
                         return $this->abnService->lookup($firstResult['abn']);
                     }
                 }
             }
 
         } catch (\Exception $e) {
-            Log::info('ABN lookup failed for: ' . $businessName);
+            Log::info('ABN lookup failed for: '.$businessName);
         }
 
         return null;
@@ -148,13 +146,13 @@ class BulkHunterService
      */
     protected function extractEmailFromWebsite(?string $website): ?string
     {
-        if (!$website) {
+        if (! $website) {
             return null;
         }
 
         try {
             // Cache website emails for 1 week
-            $cacheKey = 'website_email_' . md5($website);
+            $cacheKey = 'website_email_'.md5($website);
 
             if ($cached = Cache::get($cacheKey)) {
                 return $cached;
@@ -169,22 +167,23 @@ class BulkHunterService
                 // Look for email patterns
                 preg_match_all('/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i', $html, $matches);
 
-                if (!empty($matches[0])) {
+                if (! empty($matches[0])) {
                     // Filter out common non-contact emails
-                    $emails = array_filter($matches[0], function($email) {
-                        return !preg_match('/(noreply|no-reply|donotreply|mailer-daemon|postmaster|webmaster|abuse|spam)/i', $email);
+                    $emails = array_filter($matches[0], function ($email) {
+                        return ! preg_match('/(noreply|no-reply|donotreply|mailer-daemon|postmaster|webmaster|abuse|spam)/i', $email);
                     });
 
-                    if (!empty($emails)) {
+                    if (! empty($emails)) {
                         $email = reset($emails); // Get first valid email
                         Cache::put($cacheKey, $email, 604800); // Cache for 1 week
+
                         return $email;
                     }
                 }
             }
 
         } catch (\Exception $e) {
-            Log::info('Could not extract email from website: ' . $website);
+            Log::info('Could not extract email from website: '.$website);
         }
 
         return null;
@@ -269,9 +268,9 @@ class BulkHunterService
         $rating = $leadData['google_rating'] ?? 0;
         $score += $rating * 10; // Up to 50 points for 5-star rating
 
-        $leadData['size_score'] = (int)$score;
-        $leadData['weekly_volume_estimate'] = (int)$volumeEstimate;
-        $leadData['monthly_spend_estimate'] = (int)$spendEstimate;
+        $leadData['size_score'] = (int) $score;
+        $leadData['weekly_volume_estimate'] = (int) $volumeEstimate;
+        $leadData['monthly_spend_estimate'] = (int) $spendEstimate;
         $leadData['size_classification'] = $classification;
         $leadData['final_score'] = min($score, 100);
 
@@ -333,7 +332,7 @@ class BulkHunterService
             }
 
             $lead['supplier_pain_points'] = implode(', ', $painPoints);
-            $lead['unhappy_with_supplier'] = !empty($painPoints);
+            $lead['unhappy_with_supplier'] = ! empty($painPoints);
 
             // Add realistic buyer personas based on business type
             $lead['buyer_persona'] = $this->getBuyerPersona($lead['category'] ?? 'Restaurant');
@@ -413,7 +412,7 @@ class BulkHunterService
     {
         try {
             // Check if already exists by Google Place ID
-            if (!empty($data['google_place_id'])) {
+            if (! empty($data['google_place_id'])) {
                 $existing = DB::table('buyer_leads')
                     ->where('google_place_id', $data['google_place_id'])
                     ->first();
@@ -426,6 +425,7 @@ class BulkHunterService
                             'updated_at' => now(),
                             'last_enriched_at' => now(),
                         ]));
+
                     return $existing->id;
                 }
             }
@@ -437,7 +437,7 @@ class BulkHunterService
             ]));
 
         } catch (\Exception $e) {
-            Log::error('Failed to store real lead: ' . $e->getMessage());
+            Log::error('Failed to store real lead: '.$e->getMessage());
             throw $e;
         }
     }
@@ -450,14 +450,14 @@ class BulkHunterService
         try {
             $lead = DB::table('buyer_leads')->where('id', $leadId)->first();
 
-            if (!$lead || empty($lead->google_place_id)) {
+            if (! $lead || empty($lead->google_place_id)) {
                 return false;
             }
 
             // Get fresh details from Google Places
             $details = $this->placesService->getBusinessDetails($lead->google_place_id);
 
-            if (!$details) {
+            if (! $details) {
                 return false;
             }
 
@@ -477,7 +477,7 @@ class BulkHunterService
             ];
 
             // Recalculate metrics with new data
-            $leadData = array_merge((array)$lead, $updateData);
+            $leadData = array_merge((array) $lead, $updateData);
             $leadData = $this->calculateBusinessMetrics($leadData);
 
             DB::table('buyer_leads')
@@ -487,7 +487,8 @@ class BulkHunterService
             return true;
 
         } catch (\Exception $e) {
-            Log::error('Failed to enrich lead with Google Maps data: ' . $e->getMessage());
+            Log::error('Failed to enrich lead with Google Maps data: '.$e->getMessage());
+
             return false;
         }
     }
@@ -499,11 +500,11 @@ class BulkHunterService
     {
         $lead = DB::table('buyer_leads')->where('id', $leadId)->first();
 
-        if (!$lead) {
+        if (! $lead) {
             return [];
         }
 
-        $analyzer = new ProcurementAnalyzer();
+        $analyzer = new ProcurementAnalyzer;
         $analysis = $analyzer->analyzeProcurementNeeds((array) $lead);
 
         // Store the analysis in the database
@@ -528,7 +529,7 @@ class BulkHunterService
             ->limit($limit)
             ->get();
 
-        $analyzer = new ProcurementAnalyzer();
+        $analyzer = new ProcurementAnalyzer;
         $enrichedLeads = [];
 
         foreach ($leads as $lead) {
@@ -539,7 +540,7 @@ class BulkHunterService
         }
 
         // Sort by conversion score
-        usort($enrichedLeads, function($a, $b) {
+        usort($enrichedLeads, function ($a, $b) {
             return ($b['procurement_needs']['conversion_score'] ?? 0) <=> ($a['procurement_needs']['conversion_score'] ?? 0);
         });
 
@@ -555,7 +556,7 @@ class BulkHunterService
         $leads = [];
 
         foreach ($businesses as $business) {
-            if (!empty($business['google_place_id'])) {
+            if (! empty($business['google_place_id'])) {
                 $details = $this->placesService->getBusinessDetails($business['google_place_id']);
 
                 if ($details) {
@@ -592,6 +593,7 @@ class BulkHunterService
         }
 
         $this->enrichWithMarketIntelligence($leads);
+
         return $leads;
     }
 }
