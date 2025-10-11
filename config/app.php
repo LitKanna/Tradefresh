@@ -56,7 +56,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Laravel\Reverb\ReverbServiceProvider::class,
+        // Laravel\Reverb\ReverbServiceProvider::class, // Dev-only - auto-discovered
 
         /*
          * Application Service Providers...

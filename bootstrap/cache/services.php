@@ -38,11 +38,10 @@
     34 => 'Termwind\\Laravel\\TermwindServiceProvider',
     35 => 'Resend\\Laravel\\ResendServiceProvider',
     36 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
-    37 => 'Laravel\\Reverb\\ReverbServiceProvider',
-    38 => 'App\\Providers\\AppServiceProvider',
-    39 => 'App\\Providers\\AuthServiceProvider',
-    40 => 'App\\Providers\\AppServiceProvider',
-    41 => 'App\\Vendor\\VendorServiceProvider',
+    37 => 'App\\Providers\\AppServiceProvider',
+    38 => 'App\\Providers\\AuthServiceProvider',
+    39 => 'App\\Providers\\AppServiceProvider',
+    40 => 'App\\Vendor\\VendorServiceProvider',
   ),
   'eager' => 
   array (
@@ -68,11 +67,10 @@
     19 => 'Termwind\\Laravel\\TermwindServiceProvider',
     20 => 'Resend\\Laravel\\ResendServiceProvider',
     21 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
-    22 => 'Laravel\\Reverb\\ReverbServiceProvider',
-    23 => 'App\\Providers\\AppServiceProvider',
-    24 => 'App\\Providers\\AuthServiceProvider',
-    25 => 'App\\Providers\\AppServiceProvider',
-    26 => 'App\\Vendor\\VendorServiceProvider',
+    22 => 'App\\Providers\\AppServiceProvider',
+    23 => 'App\\Providers\\AuthServiceProvider',
+    24 => 'App\\Providers\\AppServiceProvider',
+    25 => 'App\\Vendor\\VendorServiceProvider',
   ),
   'deferred' => 
   array (
